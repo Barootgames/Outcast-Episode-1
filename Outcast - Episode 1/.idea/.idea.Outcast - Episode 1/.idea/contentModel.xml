@@ -1,0 +1,89 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ContentModelStore">
+    <e p="C:\Users\METRO\AppData\Local\JetBrains\Rider2020.1\extResources" t="IncludeRecursive" />
+    <e p="C:\Users\METRO\AppData\Local\JetBrains\Rider2020.1\resharper-host\Local\Transient\ReSharperHost\v201\SolutionCaches\_Outcast - Episode 1.1266046858.00" t="ExcludeRecursive" />
+    <e p="C:\Users\METRO\Desktop\gitHub\Outcast-Episode-1\Outcast - Episode 1" t="IncludeRecursive">
+      <e p="Assembly-CSharp-Editor.csproj" t="IncludeRecursive" />
+      <e p="Assembly-CSharp.csproj" t="IncludeRecursive" />
+      <e p="Assets" t="Include">
+        <e p="[2DAssets&amp;Animations]" t="Include">
+          <e p="2D Assets" t="Include">
+            <e p="Dialogue" t="Include">
+              <e p="Dia.txt" t="Include" />
+            </e>
+          </e>
+        </e>
+        <e p="[Scripts]" t="Include">
+          <e p="CharacterController2D.cs" t="Include" />
+          <e p="Dialogue System" t="Include">
+            <e p="Character.cs" t="Include" />
+            <e p="ConditionObject.cs" t="Include" />
+            <e p="ConversationObject.cs" t="Include" />
+            <e p="DialogueController.cs" t="Include" />
+            <e p="DialogueInteraction.cs" t="Include" />
+            <e p="Question.cs" t="Include" />
+          </e>
+          <e p="EGGA" t="Include">
+            <e p="UPersian" t="Include">
+              <e p="Example" t="Include">
+                <e p="UPersianTextExample.cs" t="Include" />
+              </e>
+              <e p="Scripts" t="Include">
+                <e p="Components" t="Include">
+                  <e p="RtlText.cs" t="Include" />
+                </e>
+                <e p="Editor" t="Include">
+                  <e p="UPersianContext.cs" t="Include" />
+                </e>
+                <e p="EGG.cs" t="Include" />
+                <e p="Utils" t="Include">
+                  <e p="UPersianUtils.cs" t="Include" />
+                </e>
+              </e>
+            </e>
+          </e>
+          <e p="Emad" t="Include">
+            <e p="LoadLevel.cs" t="Include" />
+          </e>
+          <e p="Interactable" t="Include">
+            <e p="InteractionController.cs" t="Include" />
+          </e>
+          <e p="Interaction" t="Include">
+            <e p="TextBubble.cs" t="Include" />
+          </e>
+          <e p="LoadLevel" t="Include">
+            <e p="LoadLevelController.cs" t="Include" />
+            <e p="LoadLevelInteraction.cs" t="Include" />
+            <e p="RespawnPoints.cs" t="Include" />
+          </e>
+          <e p="Mahdi" t="Include">
+            <e p="drag_drop.cs" t="Include" />
+            <e p="drop.cs" t="Include" />
+            <e p="InventoryManger.cs" t="Include" />
+            <e p="items.cs" t="Include" />
+            <e p="Menu.cs" t="Include" />
+            <e p="ObjectDrop.cs" t="Include" />
+          </e>
+          <e p="PlayerMovement.cs" t="Include" />
+          <e p="Riddles" t="Include">
+            <e p="Key Riddler" t="Include">
+              <e p="KeyRiddle.cs" t="Include" />
+              <e p="KeyRiddleController.cs" t="Include" />
+              <e p="RiddleControllerFlow.cs" t="Include" />
+            </e>
+            <e p="Remote Control" t="Include">
+              <e p="Scripts" t="Include">
+                <e p="RemoteControlRiddle.cs" t="Include" />
+              </e>
+            </e>
+          </e>
+        </e>
+      </e>
+      <e p="obj" t="ExcludeRecursive" />
+      <e p="Outcast - Episode 1.sln" t="IncludeFlat" />
+      <e p="packages" t="ExcludeRecursive" />
+      <e p="Temp\bin" t="ExcludeRecursive" />
+    </e>
+  </component>
+</project>

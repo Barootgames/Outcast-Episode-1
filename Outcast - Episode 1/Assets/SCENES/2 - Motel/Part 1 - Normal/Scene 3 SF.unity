@@ -3363,6 +3363,11 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 21598174}
     m_Modifications:
+    - target: {fileID: 56934022135014963, guid: 553619230e3792a4e987d51035b977f6,
+        type: 3}
+      propertyPath: m_Constraints
+      value: 6
+      objectReference: {fileID: 0}
     - target: {fileID: 4189445770920155465, guid: 553619230e3792a4e987d51035b977f6,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -7786,7 +7791,10 @@ MonoBehaviour:
     NearClipPlane: 0.001
     FarClipPlane: 30
     Dutch: 0
+    ModeOverride: 0
     LensShift: {x: 0, y: 0}
+    GateFit: 0
+    m_SensorSize: {x: 1.7777778, y: 1}
   m_Transitions:
     m_BlendHint: 0
     m_InheritPosition: 0
