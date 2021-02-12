@@ -28,6 +28,9 @@ public class InteractionController : MonoBehaviour
 
     bool canClick = true;
 
+    // mahdi
+    private GameObject Controller;
+    
 
     // Start is called before the first frame update
     void Start()
@@ -40,6 +43,10 @@ public class InteractionController : MonoBehaviour
             audioSource.playOnAwake = false;
         }
         textBubble = FindObjectOfType<TextBubble>();
+        
+        //mahdi
+        Controller = GameObject.Find("GameController");
+
     }
 
     // Update is called once per frame
@@ -61,8 +68,14 @@ public class InteractionController : MonoBehaviour
             RaycastHit2D hit = Physics2D.Raycast(origin, Vector2.zero, 0f, whatIsInteractable);
             if (hit)
             {
-                if(hit.collider.gameObject.name.Equals(gameObject.name))
+                if (hit.collider.gameObject.name.Equals(gameObject.name))
+                {
                     Interact();
+                    #region mahdi
+                    Controller.GetComponent<Scene2>().CheckTouch(this.name);
+                    #endregion
+                }
+                    
             }
         }
     }
@@ -83,7 +96,10 @@ public class InteractionController : MonoBehaviour
                     if (hit)
                     {
                         if (hit.collider.gameObject.name.Equals(gameObject.name))
+                        {
                             Interact();
+                        }
+                            
                     }
                     break;
 
