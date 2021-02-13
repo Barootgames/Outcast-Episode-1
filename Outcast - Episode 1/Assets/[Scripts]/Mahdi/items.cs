@@ -32,4 +32,18 @@ public class items : MonoBehaviour
             Destroy(gameObject);
         }
     }
+
+    public void pickUp()
+    {
+        if (!isDocument)
+        {
+            inventoryManger.GetComponent<InventoryManger>().AddItem(_itemName, _itemSprite);
+            Destroy(gameObject);
+        }
+        else
+        {
+            inventoryManger.GetComponent<InventoryManger>().AddDocument(_itemSprite, docName, Info);
+            Destroy(gameObject);
+        }
+    }
 }

@@ -43,6 +43,28 @@ public class InventoryManger : MonoBehaviour
         slots[numberItemInInvenory].color = normal_color;
 
         numberItemInInvenory++;
+
+        GameDataController.instance.gameData.AddItem(itemName);
+    }
+
+    public void AddItemFromLoad(string itemName, Sprite itemImage)
+    {
+
+        if (numberItemInInvenory >= 6)
+        {
+            // inventory is full
+            return;
+        }
+
+        // add to inventory
+
+        inventory[numberItemInInvenory] = itemName;
+        slots[numberItemInInvenory].name = itemName;
+        slots[numberItemInInvenory].sprite = itemImage;
+        slots[numberItemInInvenory].transform.parent.name = itemName;
+        slots[numberItemInInvenory].color = normal_color;
+
+        numberItemInInvenory++;
     }
 
     public void RemoveItem (string itemName)
@@ -58,6 +80,7 @@ public class InventoryManger : MonoBehaviour
                 slots[i].name = null;
             }
         }
+        GameDataController.instance.gameData.RemoveItem(itemName);
     }
 
     public void AddDocument(Sprite docImage, string docTitle , string docInfo)
@@ -66,6 +89,19 @@ public class InventoryManger : MonoBehaviour
         documents[numberDocInInventory].infoDocument = docInfo;
         documents[numberDocInInventory].nameDocument = docTitle;
         documents[numberDocInInventory].ImageDocument = docImage;
+
+        GameDataController.instance.gameData.AddItem(docTitle);
+
+        DocumentShow();
+    }
+
+    public void AddDocumentFromLoad(Sprite docImage, string docTitle, string docInfo)
+    {
+        numberDocInInventory++;
+        documents[numberDocInInventory].infoDocument = docInfo;
+        documents[numberDocInInventory].nameDocument = docTitle;
+        documents[numberDocInInventory].ImageDocument = docImage;
+
         DocumentShow();
     }
 
@@ -78,6 +114,7 @@ public class InventoryManger : MonoBehaviour
                 RemoveItem(_combinItems[i].item1.name);
                 RemoveItem(_combinItems[i].item2.name);
                 AddItem(_combinItems[i].result.name,_combinItems[i].result);
+                GameDataController.instance.gameData.Combine(_combinItems[i].item1.name, _combinItems[i].item2.name, _combinItems[i].result.name);
             }
             
             if (item_drag_name == _combinItems[i].item2.name && item_drop_name == _combinItems[i].item1.name)
@@ -85,6 +122,7 @@ public class InventoryManger : MonoBehaviour
                 RemoveItem(_combinItems[i].item1.name);
                 RemoveItem(_combinItems[i].item2.name);
                 AddItem(_combinItems[i].result.name,_combinItems[i].result);
+                GameDataController.instance.gameData.Combine(_combinItems[i].item1.name, _combinItems[i].item2.name, _combinItems[i].result.name);
             }
         }
     }
