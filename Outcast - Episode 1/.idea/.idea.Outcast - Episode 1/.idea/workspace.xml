@@ -57,6 +57,7 @@
         <option value="$PROJECT_DIR$/Assets/[Scripts]/Interactable/InteractionController.cs" />
         <option value="$PROJECT_DIR$/Assets/[Scripts]/Mahdi/Scene2.cs" />
         <option value="$PROJECT_DIR$/Assets/[Scripts]/Mahdi/Trigger.cs" />
+        <option value="$PROJECT_DIR$/Assets/[Scripts]/PlayerMovement.cs" />
       </list>
     </option>
   </component>
@@ -118,6 +119,11 @@
       <workItem from="1613127452546" duration="1762000" />
       <workItem from="1613129264946" duration="1778000" />
       <workItem from="1613132039996" duration="457000" />
+      <workItem from="1613147238788" duration="1761000" />
+      <workItem from="1613149151986" duration="1381000" />
+      <workItem from="1613151451937" duration="1768000" />
+      <workItem from="1613153288594" duration="884000" />
+      <workItem from="1613154441381" duration="1044000" />
     </task>
     <servers />
   </component>
