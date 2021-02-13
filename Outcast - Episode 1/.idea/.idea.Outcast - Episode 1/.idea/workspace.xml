@@ -29,16 +29,19 @@
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/.." />
   </component>
   <component name="HighlightingSettingsPerFile">
-    <setting file="file://$PROJECT_DIR$/Assets/[Scripts]/Mahdi/items.cs" root0="FORCE_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/Assets/[Scripts]/Mahdi/InventoryManger.cs" root0="FORCE_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/../../../../../../Program Files/Unity/Hub/Editor/2019.4.4f1/Editor/Data/Resources/PackageManager/BuiltInPackages/com.unity.ugui/Runtime/EventSystem/ExecuteEvents.cs" root0="SKIP_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/Assets/[Scripts]/Mahdi/drag_drop.cs" root0="FORCE_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/Assets/[Scripts]/CharacterController2D.cs" root0="FORCE_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/Assets/[Scripts]/Mahdi/Menu.cs" root0="FORCE_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/Assets/[Scripts]/Mahdi/drop.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/[Scripts]/Interactable/InteractionController.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/[Scripts]/PlayerMovement.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/[Scripts]/Mahdi/drop.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/[Scripts]/CharacterController2D.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/[Scripts]/Mahdi/ObjectDrop.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/../../../../../../Program Files/Unity/Hub/Editor/2019.4.4f1/Editor/Data/Resources/PackageManager/BuiltInPackages/com.unity.ugui/Runtime/EventSystem/ExecuteEvents.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/[Scripts]/Mahdi/InventoryManger.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/[Scripts]/Mahdi/items.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/[Scripts]/Mahdi/drag_drop.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Library/PackageCache/com.unity.render-pipelines.universal@7.3.1/Runtime/2D/Light2D.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/[Scripts]/Mahdi/Scene2.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/[Scripts]/Mahdi/Trigger.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/[Scripts]/Mahdi/Menu.cs" root0="FORCE_HIGHLIGHTING" />
   </component>
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
@@ -51,6 +54,10 @@
         <option value="$PROJECT_DIR$/Assets/[Scripts]/Mahdi/drag_drop.cs" />
         <option value="$PROJECT_DIR$/Assets/[Scripts]/Mahdi/drop.cs" />
         <option value="$PROJECT_DIR$/Assets/[Scripts]/Mahdi/Menu.cs" />
+        <option value="$PROJECT_DIR$/Assets/[Scripts]/Interactable/InteractionController.cs" />
+        <option value="$PROJECT_DIR$/Assets/[Scripts]/Mahdi/Scene2.cs" />
+        <option value="$PROJECT_DIR$/Assets/[Scripts]/Mahdi/Trigger.cs" />
+        <option value="$PROJECT_DIR$/Assets/[Scripts]/PlayerMovement.cs" />
       </list>
     </option>
   </component>
@@ -105,6 +112,18 @@
       <workItem from="1612700510550" duration="1205000" />
       <workItem from="1612703536893" duration="1116000" />
       <workItem from="1612962288635" duration="13000" />
+      <workItem from="1613062904257" duration="1515000" />
+      <workItem from="1613064495523" duration="1133000" />
+      <workItem from="1613067489031" duration="759000" />
+      <workItem from="1613125346649" duration="1533000" />
+      <workItem from="1613127452546" duration="1762000" />
+      <workItem from="1613129264946" duration="1778000" />
+      <workItem from="1613132039996" duration="457000" />
+      <workItem from="1613147238788" duration="1761000" />
+      <workItem from="1613149151986" duration="1381000" />
+      <workItem from="1613151451937" duration="1768000" />
+      <workItem from="1613153288594" duration="884000" />
+      <workItem from="1613154441381" duration="1044000" />
     </task>
     <servers />
   </component>
@@ -135,5 +154,13 @@
       <screen x="0" y="0" width="1280" height="984" />
     </state>
     <state x="438" y="156" key="com.intellij.openapi.editor.actions.MultiplePasteAction$ClipboardContentChooser/0.0.1280.984@0.0.1280.984" timestamp="1611261612804" />
+    <state x="296" y="230" key="run.anything.popup" timestamp="1613130529577">
+      <screen x="0" y="0" width="1280" height="984" />
+    </state>
+    <state x="296" y="230" key="run.anything.popup/0.0.1280.984@0.0.1280.984" timestamp="1613130529577" />
+    <state x="303" y="218" width="672" height="678" key="search.everywhere.popup" timestamp="1613129843098">
+      <screen x="0" y="0" width="1280" height="984" />
+    </state>
+    <state x="303" y="218" width="672" height="678" key="search.everywhere.popup/0.0.1280.984@0.0.1280.984" timestamp="1613129843098" />
   </component>
 </project>

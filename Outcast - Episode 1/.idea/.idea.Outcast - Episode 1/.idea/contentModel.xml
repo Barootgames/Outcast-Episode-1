@@ -64,6 +64,8 @@
             <e p="items.cs" t="Include" />
             <e p="Menu.cs" t="Include" />
             <e p="ObjectDrop.cs" t="Include" />
+            <e p="Scene2.cs" t="Include" />
+            <e p="Trigger.cs" t="Include" />
           </e>
           <e p="PlayerMovement.cs" t="Include" />
           <e p="Riddles" t="Include">
