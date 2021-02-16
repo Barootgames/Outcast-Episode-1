@@ -50,10 +50,12 @@ public class KeyRiddle : MonoBehaviour, IDragHandler, IEndDragHandler
 
     private void OnTriggerExit2D(Collider2D collision)
     {
+        if (collision.gameObject.GetComponent<KeyRiddleController>().hasKey)
+            keyRiddleController = collision.gameObject.GetComponent<KeyRiddleController>();
         canPlace = false;
         if (keyRiddleController && collision.GetComponent<KeyRiddleController>())
         {
-            keyRiddleController.hasKey = false;
+            collision.GetComponent<KeyRiddleController>().hasKey = false;
         }
     }
 
