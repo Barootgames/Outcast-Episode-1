@@ -10,6 +10,8 @@ public class RemoteControlRiddle : MonoBehaviour
     public string currentPattern = "";
 
     public Text currentPatternText;
+
+    public GameObject symbol;
     // Start is called before the first frame update
     public void SetDigit(int digit)
     {
@@ -19,6 +21,13 @@ public class RemoteControlRiddle : MonoBehaviour
     public void ClearPattern()
     {
         currentPattern = "";
+        currentPatternText.color = Color.white;
+    }
+
+    private void Start()
+    {
+        symbol.SetActive(false);
+        GameDataController.instance.gameData.isOnCanvas = true;
     }
 
     private void Update()
@@ -29,11 +38,14 @@ public class RemoteControlRiddle : MonoBehaviour
     public void OK()
     {
         if (CheckPattern()) {
-            print("OK");
+            currentPatternText.color = Color.green;
+            GameDataController.instance.gameData.isOnCanvas = false;
+            symbol.SetActive(true);
+            gameObject.SetActive(false);
         }
         else
         {
-            print("NOK");
+            currentPatternText.color = Color.red;
         }
     }
 

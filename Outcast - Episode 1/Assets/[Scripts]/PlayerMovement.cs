@@ -1,12 +1,12 @@
 ﻿using System;
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class PlayerMovement : MonoBehaviour
 {
 
     public CharacterController2D controller;
+    [SerializeField] private GameObject _Tutorail;
+    [SerializeField] private GameObject _controller;
     public Animator animator;
 
     float horizontalMove = 0f;
@@ -20,7 +20,7 @@ public class PlayerMovement : MonoBehaviour
     private float timeRest;
     private float timeEnergy; 
     private MoveMode moveMode;
-    
+
 
     void Start()
     {
@@ -40,6 +40,7 @@ public class PlayerMovement : MonoBehaviour
         
         if (Input.GetKeyDown(KeyCode.LeftShift) && moveMode != MoveMode.noEnergy)
         {
+            _Tutorail.GetComponent<Tutorail>().TutorailShowOff(2);
             moveMode = MoveMode.run;
             animator.SetBool("Run",true);
         }
@@ -80,6 +81,7 @@ public class PlayerMovement : MonoBehaviour
                 moveMode = MoveMode.noEnergy;
                 timeRest = TimeRest;
                 timeEnergy = 0.5f;
+                _controller.GetComponent<Scene2>().CheckEvent(1);
             }
         }
         

@@ -7,12 +7,14 @@ public class RiddleControllerFlow : MonoBehaviour
     Dictionary<string, int> riddleMap = new Dictionary<string, int>();
     Dictionary<string, int> riddleMap1 = new Dictionary<string, int>();
 
+    public Animator coverAnimator;
+
     private void Awake()
     {
         riddleMap.Add("green", 2);
         riddleMap.Add("blue", 4);
         riddleMap.Add("red", 8);
-        riddleMap.Add("grey", 5);
+        riddleMap.Add("brown", 5);
     }
     // Start is called before the first frame update
     void Start()
@@ -39,16 +41,18 @@ public class RiddleControllerFlow : MonoBehaviour
 
         if (checkAllCorrect())
         {
-            print("WIN");
+            //this.gameObject.SetActive(false);
+            print("win");
+            coverAnimator.SetTrigger("Cover");
         }
     }
 
     bool checkAllCorrect()
     {
         
-        if(riddleMap1.ContainsKey("red") && riddleMap1.ContainsKey("grey") && riddleMap1.ContainsKey("green") && riddleMap1.ContainsKey("blue"))
+        if(riddleMap1.ContainsKey("red") && riddleMap1.ContainsKey("brown") && riddleMap1.ContainsKey("green") && riddleMap1.ContainsKey("blue"))
         {
-            if (riddleMap1["red"] == riddleMap["red"] && riddleMap1["green"] == riddleMap["green"] && riddleMap1["grey"] == riddleMap["grey"] && riddleMap1["blue"] == riddleMap["blue"])
+            if (riddleMap1["red"] == riddleMap["red"] && riddleMap1["green"] == riddleMap["green"] && riddleMap1["brown"] == riddleMap["brown"] && riddleMap1["blue"] == riddleMap["blue"])
             {
                 return true;
             }
