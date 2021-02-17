@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.SceneManagement;
 
 [RequireComponent(typeof(AudioSource))]
 [RequireComponent(typeof(Collider2D))]
@@ -81,6 +82,13 @@ public class InteractionController : MonoBehaviour
                     if(Controller && Controller.GetComponent<Scene2>())
                     #region mahdi
                         Controller.GetComponent<Scene2>().CheckTouch(this.name);
+                    if(SceneManager.GetActiveScene().buildIndex == 1) 
+                      Controller.GetComponent<Scene2>().CheckTouch(this.name);
+
+                   else if (SceneManager.GetActiveScene().buildIndex == 2)
+                    {
+                        Controller.GetComponent<Scene3>().CheckTouch(this.name);
+                    }
                     #endregion
                 }
                     

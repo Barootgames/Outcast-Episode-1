@@ -1,102 +1,133 @@
-﻿using System;
-using UnityEngine;
+﻿using UnityEngine;
 using UnityEngine.UI;
-using System.Collections;
+
 
 public class Scene2 : MonoBehaviour
 {
 
-    [SerializeField] private GameObject PanelTutorail;
-    [SerializeField] private Button [] MoveButtons;
-    
-    private bool enterT1; // zir tablo
-    private int enterTimeT2;   // gabl dar asli
-    private bool enterT3;  // telephone
-    
-    public bool doTouch1; //telephone
-    
-    private bool [] DoWork = new bool[4];
-    // 0= tutorail   1= first thunder   2= secend thunder  3= telephone and bird
+    private int timeEnter;
+
+    [SerializeField] private GameObject _Tutorail;
+    private bool [] DoWork = new bool[10];
+    // 0 = tutorail_walk  // 1 = tutorail_run
+    // 2 = tutorail_interaction  // 3 = tutorail_rest
+    // 4 = First thunder    // 5 = secend thunder
+
+    [SerializeField] private GameObject bird;
+    [SerializeField] private Transform targetBird;
+    [SerializeField] private AudioClip birdSound;
+    [SerializeField] private float birdSpeed;
+    private bool CanbirdRun;
+
+
+    private bool DoTouch;
+
+    [SerializeField] private GameObject MainThunder;
+
+    [SerializeField] private AudioClip Soundthunder1;
+    [SerializeField] private AudioClip Soundthunder2;
+    private AudioSource Soundplayer;
 
     void Start()
     {
-        PanelTutorailShow();
+        MainThunder.GetComponent<Animator>().Play("Thunder_Light_Long");
+        Soundplayer = GetComponent<AudioSource>();
+        _Tutorail.GetComponent<Tutorail>().TutorailShow(1);
+        DoWork[0] = true;
     }
     
-    void Update()
+    void FixedUpdate()
     {
-        
+        BirdRun();
     }
     
-    void PanelTutorailShow()
-    {
-        PanelTutorail.SetActive(true);
-        MoveButtons[0].image.color = new Color(255,255,255,255);
-        MoveButtons[1].image.color = new Color(255,255,255,255);
-    }
-    
-    public void PanelTutorailShowOff()
-    {
-        if (PanelTutorail.activeInHierarchy)
-        {
-            PanelTutorail.SetActive(false);
-            MoveButtons[0].image.color = new Color(255,255,255,0.823f);
-            MoveButtons[1].image.color = new Color(255,255,255,0.823f);
-        }
-    }
     
     public void CheckTouch(string name)
     {
-        if (name == "Interaction Telephone")
+        if (name == "Interaction Telephone" && !DoTouch)
         {
-            doTouch1 = true;
+            DoTouch = true;
         }
-        
-        CheckEvent();
     }
 
     public void CheckTrigger(string name)
     {
-        if (name == "T1" && !enterT1)
+        if (name == "tutorail_Run" && !DoWork[1])
         {
-            enterT1 = true;
-        }
-        else if (name == "T2" && enterTimeT2 < 5)
-        {
-            enterTimeT2++;
-        }
-        else if (name == "T3" && !enterT3)
-        {
-            enterT3 = true;
-        }
-        
-        CheckEvent();
-    }
-    
-    public void CheckEvent()
-    {
-        if (enterT1 && !DoWork[1])
-        {
-            // thunder1
-            print("// thunder1");
             DoWork[1] = true;
+            _Tutorail.GetComponent<Tutorail>().TutorailShow(2);
         }
 
-        if ((enterTimeT2 == 1 || enterTimeT2 == 5) && !DoWork[2])
+        if(name == "tutorail_Interaction" && !DoWork[2])
         {
-            // thunder2   2time
-            print("// thunder2");
-            if (enterTimeT2 == 5)
+            DoWork[2] = true;
+            _Tutorail.GetComponent<Tutorail>().TutorailShow(3);
+        }
+
+        if(name == "Thunder1" && !DoWork[4])
+        {
+            MainThunder.GetComponent<Animator>().Play("Thunder_Light_Long");
+            PlaySound(Soundthunder1, false, 1f);
+            DoWork[4] = true;
+        }
+
+        if (name == "Thunder2" && !DoWork[5])
+        {
+            if(timeEnter >= 5)
+                     return;
+           
+            timeEnter++;
+
+            if (timeEnter == 1 || timeEnter == 5)
             {
-                DoWork[2] = true;
+                MainThunder.GetComponent<Animator>().Play("Thunder_Light_Long");
+                PlaySound(Soundthunder2, false, 1f);
+                if(timeEnter == 5)
+                {
+                    DoWork[5] = true;
+                }
             }
         }
 
-        if (enterT3 && doTouch1 && !DoWork[3])
+        if(name == "Exit_Telephone" && DoTouch)
         {
-            // bird come
-            print("// bird");
-            DoWork[3] = true;
+            CanbirdRun = true;
+            PlaySound(birdSound, false, 1f);
+            DoWork[5] = true;
         }
+
+    }
+    
+    private void BirdRun ()
+    {
+        if(!CanbirdRun)
+        {
+            return;
+        }
+
+        if(bird.transform.position != targetBird.position)
+        {
+            bird.transform.position = Vector3.MoveTowards(bird.transform.position, targetBird.position,
+            birdSpeed * Time.fixedDeltaTime);
+        }
+    }
+
+    public void CheckEvent(int a)
+    {
+        if(a == 1 && !DoWork[3])
+        {
+            DoWork[3] = true;
+            _Tutorail.GetComponent<Tutorail>().TutorailShow(4);
+        }
+
+    }
+
+    private void PlaySound (AudioClip sound , bool isLoop , float volume)
+    {
+        Soundplayer.clip = sound;
+        Soundplayer.loop = isLoop;
+        Soundplayer.volume = volume;
+
+        Soundplayer.Play();
     }
 }
