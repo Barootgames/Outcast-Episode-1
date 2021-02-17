@@ -20,20 +20,23 @@ public class GameDataController : MonoBehaviour
 
         GameDataBinary data = SaveAndLoadSystem.LoadGame();
 
-        foreach(string id in data.InventoryItemIds){
-            instance.gameData.AddItem(id);
-            foreach(InventoryItemDataClass item in gameData.inventoryItems)
+        if (data != null)
+        {
+            foreach (string id in data.InventoryItemIds)
             {
-                if (item.ItemId.Equals(id) && inventoryManger)
+                instance.gameData.AddItem(id);
+                foreach (InventoryItemDataClass item in gameData.inventoryItems)
                 {
-                    if(!item.isDocument)
-                        FindObjectOfType<InventoryManger>().AddItemFromLoad(item.ItemName, item.ItemSprite);
-                    else
-                        FindObjectOfType<InventoryManger>().AddDocumentFromLoad(item.ItemSprite, item.DocumentName, item.Info);
+                    if (item.ItemId.Equals(id) && inventoryManger)
+                    {
+                        if (!item.isDocument)
+                            FindObjectOfType<InventoryManger>().AddItemFromLoad(item.ItemName, item.ItemSprite);
+                        else
+                            FindObjectOfType<InventoryManger>().AddDocumentFromLoad(item.ItemSprite, item.DocumentName, item.Info);
+                    }
                 }
             }
         }
-
     }
 
     // Update is called once per frame
