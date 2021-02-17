@@ -6,9 +6,12 @@ public class GameDataController : MonoBehaviour
 {
     public GameData gameData;
     public static GameDataController instance = null;
+
+    InventoryManger inventoryManger;
     // Start is called before the first frame update
     void Start()
     {
+        inventoryManger = FindObjectOfType<InventoryManger>();
         if(instance == null)
         {
             instance = this;
@@ -21,7 +24,7 @@ public class GameDataController : MonoBehaviour
             instance.gameData.AddItem(id);
             foreach(InventoryItemDataClass item in gameData.inventoryItems)
             {
-                if (item.ItemId.Equals(id))
+                if (item.ItemId.Equals(id) && inventoryManger)
                 {
                     if(!item.isDocument)
                         FindObjectOfType<InventoryManger>().AddItemFromLoad(item.ItemName, item.ItemSprite);

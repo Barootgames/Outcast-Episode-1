@@ -8,6 +8,7 @@ public class GameData : ScriptableObject
     public string CurrentSceneName;
     public int RespawnPoint;
     public bool FaceRight;
+    public bool isOnCanvas = false;
 
     public List<InventoryItemDataClass> inventoryItems = new List<InventoryItemDataClass>();
 

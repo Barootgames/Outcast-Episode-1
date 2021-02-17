@@ -47,6 +47,13 @@ public class InteractionController : MonoBehaviour
         //mahdi
         Controller = GameObject.Find("GameController");
 
+        GameDataController gameData = FindObjectOfType<GameDataController>();
+        if (!gameData)
+        {
+            GameObject gameDataController = new GameObject();
+            gameDataController.AddComponent<GameDataController>();
+        }
+
     }
 
     // Update is called once per frame
@@ -71,8 +78,9 @@ public class InteractionController : MonoBehaviour
                 if (hit.collider.gameObject.name.Equals(gameObject.name))
                 {
                     Interact();
+                    if(Controller && Controller.GetComponent<Scene2>())
                     #region mahdi
-                    Controller.GetComponent<Scene2>().CheckTouch(this.name);
+                        Controller.GetComponent<Scene2>().CheckTouch(this.name);
                     #endregion
                 }
                     
@@ -115,15 +123,18 @@ public class InteractionController : MonoBehaviour
 
     public void Interact()
     {
-        if (isAudio)
+        if (!GameDataController.instance.gameData.isOnCanvas)
         {
-            audioSource.Play();
-        }
+            if (isAudio)
+            {
+                audioSource.Play();
+            }
 
-        if (isText)
-        {
-            StopCoroutine(TextInfoCoroutine());
-            StartCoroutine(TextInfoCoroutine());
+            if (isText)
+            {
+                StopCoroutine(TextInfoCoroutine());
+                StartCoroutine(TextInfoCoroutine());
+            }
         }
     }
 
