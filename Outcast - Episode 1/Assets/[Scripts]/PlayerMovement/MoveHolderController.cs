@@ -55,6 +55,8 @@ public class MoveHolderController : MonoBehaviour, IPointerDownHandler, IPointer
     // Start is called before the first frame update
     void Start()
     {
+        if (run)
+            run.SetActive(false);
         move = FindObjectOfType<PlayerMovement>();
     }
 
