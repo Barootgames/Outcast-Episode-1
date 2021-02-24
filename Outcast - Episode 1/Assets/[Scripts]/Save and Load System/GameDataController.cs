@@ -1,6 +1,4 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+﻿using UnityEngine;
 
 public class GameDataController : MonoBehaviour
 {
@@ -8,7 +6,7 @@ public class GameDataController : MonoBehaviour
     public static GameDataController instance = null;
 
     InventoryManger inventoryManger;
-    // Start is called before the first frame update
+    
     void Start()
     {
         inventoryManger = FindObjectOfType<InventoryManger>();

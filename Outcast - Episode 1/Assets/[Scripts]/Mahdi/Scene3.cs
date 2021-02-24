@@ -5,28 +5,52 @@ public class Scene3 : MonoBehaviour
     private int RingTheBellTime;
     [SerializeField] private Animator Margin;
 
+    [SerializeField] private GameObject _Player;
+    [SerializeField] private GameObject _Jamshid;
+    [SerializeField] private Transform JamshidPosTarget;
+    [SerializeField] private float JamshidSpeed;
+
+
+    private Animator JamshidAnimator;
+    private bool JamshidWork = false;
+
+    [SerializeField] private GameObject ControlsButton;
+    [SerializeField] private GameObject Converstion;
+
     void Start()
     {
-        
+        JamshidAnimator = _Jamshid.GetComponent<Animator>();
     }
 
-    void Update()
+    void FixedUpdate()
     {
-        if(Input.GetKeyDown(KeyCode.UpArrow))
+        if(JamshidWork && _Jamshid.transform.position != JamshidPosTarget.position)
         {
-            MarginOpen();
+            _Jamshid.transform.position = Vector3.MoveTowards(_Jamshid.transform.position,
+                JamshidPosTarget.position, JamshidSpeed * Time.fixedDeltaTime);
         }
-
-        if(Input.GetKeyDown(KeyCode.DownArrow))
+        if (_Jamshid.transform.position == JamshidPosTarget.position && 
+            JamshidAnimator.GetBool("Walk"))
         {
-            MarginClose();
+            
+            JamshidAnimator.SetBool("Walk", false);
+            Converstion.GetComponent<DialogueInteraction>().OnDialogueStarted(_Player);
         }
     }
 
     public void RingTheBell ()
     {
         RingTheBellTime++;
-        print("ringThebellTime : " + RingTheBellTime);
+
+        if(RingTheBellTime == 2)
+        {
+            MarginOpen();
+            JamshidWork = true;
+
+            ControlsButton.SetActive(false);
+        }
+
+
     }
 
     public void CheckTouch (string name)
@@ -36,6 +60,7 @@ public class Scene3 : MonoBehaviour
             RingTheBell();
         }
     }
+
 
     public void MarginOpen ()
     {

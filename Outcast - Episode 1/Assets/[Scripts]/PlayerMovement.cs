@@ -37,7 +37,6 @@ public class PlayerMovement : MonoBehaviour
     void FixedUpdate ()
     {
         // for pc
-        
         if (Input.GetKeyDown(KeyCode.LeftShift) && moveMode != MoveMode.noEnergy)
         {
             _Tutorail.GetComponent<Tutorail>().TutorailShowOff(2);
@@ -106,6 +105,7 @@ public class PlayerMovement : MonoBehaviour
     
     public void MoveRight()
     {
+
         if (moveMode != MoveMode.noEnergy)
         {
             moveMode = MoveMode.walk;
@@ -116,6 +116,7 @@ public class PlayerMovement : MonoBehaviour
     
     public void MoveLeft()
     {
+
         if (moveMode != MoveMode.noEnergy)
         {
             moveMode = MoveMode.walk;
