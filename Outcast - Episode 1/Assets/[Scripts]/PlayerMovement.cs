@@ -1,5 +1,6 @@
 ﻿using System;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class PlayerMovement : MonoBehaviour
 {
@@ -39,7 +40,10 @@ public class PlayerMovement : MonoBehaviour
         // for pc
         if (Input.GetKeyDown(KeyCode.LeftShift) && moveMode != MoveMode.noEnergy)
         {
-            _Tutorail.GetComponent<Tutorail>().TutorailShowOff(2);
+            if(SceneManager.GetActiveScene().buildIndex == 1)
+            {
+                _Tutorail.GetComponent<Tutorail>().TutorailShowOff(2);
+            }
             moveMode = MoveMode.run;
             animator.SetBool("Run",true);
         }

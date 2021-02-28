@@ -18,8 +18,9 @@ public class items : MonoBehaviour
     {
         _itemName = this.GetComponent<SpriteRenderer>().name;
         _itemSprite = this.GetComponent<SpriteRenderer>().sprite;
+
     }
-    private void OnMouseDown()
+    private void OnMouseDown ()
     {
         if (!isDocument)
         {

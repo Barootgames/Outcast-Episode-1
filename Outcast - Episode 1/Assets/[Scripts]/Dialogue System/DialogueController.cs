@@ -48,6 +48,8 @@ public class DialogueController : MonoBehaviour
     private string CameraIn;
     [SerializeField] private GameObject [] characters;
     // artan
+
+    [SerializeField] private GameObject _Manger;
     
     // Start is called before the first frame update
     void Start()
@@ -135,8 +137,8 @@ public class DialogueController : MonoBehaviour
         {
             CameraGoTo = "Jamshid";
         }
-        
-        
+
+  
         if (conversation.lines.Length > lineIndex && !uncheckedLines.Contains(lineIndex))
         {
             DialogueText.text = conversation.lines[lineIndex].text;
@@ -211,6 +213,18 @@ public class DialogueController : MonoBehaviour
             else
                 next.gameObject.SetActive(false);
         }
+
+
+        if (lineIndex == 8)
+        {
+            _Manger.GetComponent<Scene3>().AllLightOff();
+            for (int i = 0; i < transform.childCount; i++)
+            {
+                transform.GetChild(i).gameObject.SetActive(false);
+            }
+            StartCoroutine(WaitForNextDialog(2f));
+            return;
+        }
     }
 
     bool CheckConditions(Choice choice)
@@ -268,5 +282,15 @@ public class DialogueController : MonoBehaviour
         gameObject.SetActive(false);
 
         cam.gameObject.SetActive(false);
+    }
+
+    IEnumerator WaitForNextDialog (float WaitTime)
+    {
+        yield return new WaitForSeconds(WaitTime);
+
+        for (int i = 0; i < transform.childCount; i++)
+        {
+            transform.GetChild(i).gameObject.SetActive(true);
+        }
     }
 }

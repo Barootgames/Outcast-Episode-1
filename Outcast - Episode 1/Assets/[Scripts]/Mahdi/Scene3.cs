@@ -1,4 +1,5 @@
 ﻿using UnityEngine;
+using UnityEngine.Experimental.Rendering.Universal;
 
 public class Scene3 : MonoBehaviour
 {
@@ -16,6 +17,14 @@ public class Scene3 : MonoBehaviour
 
     [SerializeField] private GameObject ControlsButton;
     [SerializeField] private GameObject Converstion;
+
+
+    [SerializeField] private Light2D [] _lights;
+    [SerializeField] private Light2D _mainLight;
+    [SerializeField] private float [] IntensityValues;
+
+
+
 
     void Start()
     {
@@ -70,5 +79,23 @@ public class Scene3 : MonoBehaviour
     public void MarginClose ()
     {
         Margin.SetBool("Show", false);
+    }
+
+    public void AllLightOff ()
+    {
+        for (int i = 0; i < _lights.Length; i++)
+        {
+            _lights[i].intensity = 0f;
+        }
+        _mainLight.intensity = 0.1f;
+    }
+
+    public void AllLightOn ()
+    {
+        for (int i = 0; i < _lights.Length; i++)
+        {
+            _lights[i].intensity = IntensityValues[i];
+        }
+        _mainLight.intensity = 0.2f;
     }
 }

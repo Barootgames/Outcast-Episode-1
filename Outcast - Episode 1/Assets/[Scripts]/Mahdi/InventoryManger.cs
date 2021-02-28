@@ -21,9 +21,7 @@ public class InventoryManger : MonoBehaviour
     // document
     private Document [] documents = new Document[200];
     private int PageInDoc = 0;
-    
-    
-    
+   
     
     public void AddItem (string itemName,Sprite itemImage)
     {
@@ -44,7 +42,7 @@ public class InventoryManger : MonoBehaviour
 
         numberItemInInvenory++;
 
-        GameDataController.instance.gameData.AddItem(itemName);
+       // GameDataController.instance.gameData.AddItem(itemName);
     }
 
     public void AddItemFromLoad(string itemName, Sprite itemImage)
@@ -80,7 +78,7 @@ public class InventoryManger : MonoBehaviour
                 slots[i].name = null;
             }
         }
-        GameDataController.instance.gameData.RemoveItem(itemName);
+       // GameDataController.instance.gameData.RemoveItem(itemName);
     }
 
     public void AddDocument(Sprite docImage, string docTitle , string docInfo)
@@ -124,6 +122,17 @@ public class InventoryManger : MonoBehaviour
                 AddItem(_combinItems[i].result.name,_combinItems[i].result);
                 GameDataController.instance.gameData.Combine(_combinItems[i].item1.name, _combinItems[i].item2.name, _combinItems[i].result.name);
             }
+
+            #region Special
+
+            if(item_drag_name == "Fuse2" && item_drop_name == "FusePlace")
+            {
+                RemoveItem("Fuse2");
+                GameObject.FindObjectOfType<Scene2>().fuseInside = true;
+                GameObject.FindObjectOfType<Scene2>().FuseCheck();
+            }
+  
+            #endregion
         }
     }
     

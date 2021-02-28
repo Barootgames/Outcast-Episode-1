@@ -3965,6 +3965,21 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 1076581827}
     m_Modifications:
+    - target: {fileID: 5331235781797833486, guid: bfdbc3c29adba064f9c6f4f73926cb0f,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5331235782292379713, guid: bfdbc3c29adba064f9c6f4f73926cb0f,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5331235782936630466, guid: bfdbc3c29adba064f9c6f4f73926cb0f,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 5331235783459709916, guid: bfdbc3c29adba064f9c6f4f73926cb0f,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -4025,6 +4040,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: DialogueHolderEdited
       objectReference: {fileID: 0}
+    - target: {fileID: 5331235783459709917, guid: bfdbc3c29adba064f9c6f4f73926cb0f,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 5331235783459709919, guid: bfdbc3c29adba064f9c6f4f73926cb0f,
         type: 3}
       propertyPath: margin
@@ -4050,6 +4070,16 @@ PrefabInstance:
       propertyPath: characters.Array.data[1]
       value: 
       objectReference: {fileID: 1529756839}
+    - target: {fileID: 5331235783459709919, guid: bfdbc3c29adba064f9c6f4f73926cb0f,
+        type: 3}
+      propertyPath: _Manger
+      value: 
+      objectReference: {fileID: 2031672067}
+    - target: {fileID: 5331235783672130033, guid: bfdbc3c29adba064f9c6f4f73926cb0f,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: bfdbc3c29adba064f9c6f4f73926cb0f, type: 3}
 --- !u!1 &741472900
@@ -12707,6 +12737,23 @@ MonoBehaviour:
   JamshidSpeed: 1.5
   ControlsButton: {fileID: 1955871582}
   Converstion: {fileID: 1388513643}
+  _lights:
+  - {fileID: 126014350}
+  - {fileID: 18321365}
+  - {fileID: 1607431150}
+  - {fileID: 1262489763}
+  - {fileID: 811607045}
+  - {fileID: 737425110}
+  - {fileID: 1526442374}
+  _mainLight: {fileID: 1198830050}
+  IntensityValues:
+  - 0.6
+  - 1
+  - 0.33
+  - 0.7
+  - 0.5
+  - 0.7
+  - 1
 --- !u!1 &2037677355
 GameObject:
   m_ObjectHideFlags: 0

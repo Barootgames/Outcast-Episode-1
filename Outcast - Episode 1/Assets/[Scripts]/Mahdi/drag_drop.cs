@@ -13,7 +13,7 @@ public class drag_drop : MonoBehaviour , IBeginDragHandler, IEndDragHandler , ID
     {
         _rec = GetComponent<RectTransform>();
         _orgin_pos = _rec.anchoredPosition;
-        _player = GameObject.Find("inventoryManger");
+        _player = GameObject.Find("InventoryManger");
     }
 
     public void OnBeginDrag(PointerEventData eventData)
