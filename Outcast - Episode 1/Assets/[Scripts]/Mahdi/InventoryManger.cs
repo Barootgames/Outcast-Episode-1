@@ -128,7 +128,7 @@ public class InventoryManger : MonoBehaviour
             if(item_drag_name == "Fuse2" && item_drop_name == "FusePlace")
             {
                 RemoveItem("Fuse2");
-                GameObject.FindObjectOfType<Scene2>().fuseInside = true;
+                GameObject.FindObjectOfType<Step>().DoWork(9);
                 GameObject.FindObjectOfType<Scene2>().FuseCheck();
             }
   

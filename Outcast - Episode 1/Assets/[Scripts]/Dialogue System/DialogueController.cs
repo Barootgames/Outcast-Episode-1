@@ -122,6 +122,7 @@ public class DialogueController : MonoBehaviour
         if ( (lineIndex +1 ) >= conversation.lines.Length)
         {
             margin.GetComponent<Animator>().SetBool("Show", false);
+            _Manger.GetComponent<Step>().DoWork(7);
             CloseDialogue();
             return;
         }

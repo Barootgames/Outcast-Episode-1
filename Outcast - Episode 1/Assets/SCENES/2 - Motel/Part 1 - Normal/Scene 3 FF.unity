@@ -98,7 +98,7 @@ LightmapSettings:
     m_TrainingDataDestination: TrainingData
     m_LightProbeSampleCountMultiplier: 4
   m_LightingDataAsset: {fileID: 0}
-  m_UseShadowmask: 1
+  m_UseShadowmask: 0
 --- !u!196 &4
 NavMeshSettings:
   serializedVersion: 2
@@ -12697,6 +12697,7 @@ GameObject:
   m_Component:
   - component: {fileID: 2031672068}
   - component: {fileID: 2031672069}
+  - component: {fileID: 2031672070}
   m_Layer: 0
   m_Name: GameController
   m_TagString: GameController
@@ -12754,6 +12755,19 @@ MonoBehaviour:
   - 0.5
   - 0.7
   - 1
+--- !u!114 &2031672070
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2031672067}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: abd14e76339411b47994d5fab146a930, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Steps: 0000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000
 --- !u!1 &2037677355
 GameObject:
   m_ObjectHideFlags: 0
@@ -13588,6 +13602,7 @@ MonoBehaviour:
   textFadeTime: 2
   isInTrigger: 1
   textBubble: {fileID: 0}
+  itemImage: {fileID: 0}
 --- !u!4 &1787465636211417626
 Transform:
   m_ObjectHideFlags: 0

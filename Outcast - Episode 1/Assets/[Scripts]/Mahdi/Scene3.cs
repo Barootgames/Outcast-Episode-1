@@ -23,11 +23,18 @@ public class Scene3 : MonoBehaviour
     [SerializeField] private Light2D _mainLight;
     [SerializeField] private float [] IntensityValues;
 
-
+    private Step _step;
 
 
     void Start()
     {
+        _step = GetComponent<Step>();
+
+        if(_step.Steps[7])
+        {
+            AllLightOff();
+        }
+
         JamshidAnimator = _Jamshid.GetComponent<Animator>();
     }
 
@@ -89,7 +96,6 @@ public class Scene3 : MonoBehaviour
         }
         _mainLight.intensity = 0.1f;
     }
-
     public void AllLightOn ()
     {
         for (int i = 0; i < _lights.Length; i++)
