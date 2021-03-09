@@ -31,6 +31,7 @@ public class InteractionController : MonoBehaviour
 
     // mahdi
     private GameObject Controller;
+    [SerializeField] private Sprite itemImage;
     
 
     // Start is called before the first frame update
@@ -48,13 +49,14 @@ public class InteractionController : MonoBehaviour
         //mahdi
         Controller = GameObject.Find("GameController");
 
-        GameDataController gameData = FindObjectOfType<GameDataController>();
+        /*
+         GameDataController gameData = FindObjectOfType<GameDataController>();
         if (!gameData)
         {
             GameObject gameDataController = new GameObject();
             gameDataController.AddComponent<GameDataController>();
         }
-
+        */
     }
 
     // Update is called once per frame
@@ -74,10 +76,31 @@ public class InteractionController : MonoBehaviour
         {
             Vector2 origin = Camera.main.ScreenToWorldPoint(Input.mousePosition);
             RaycastHit2D hit = Physics2D.Raycast(origin, Vector2.zero, 0f, whatIsInteractable);
+
             if (hit)
-            {
+            { 
                 if (hit.collider.gameObject.name.Equals(gameObject.name))
                 {
+
+                    if (hit.transform.gameObject.tag == "Item")
+                    {
+
+                        if(itemImage == null)
+                        {
+                            GameObject.FindObjectOfType<InventoryManger>().AddItem
+                               (this.name, this.GetComponent<SpriteRenderer>().sprite);
+                        }
+                        else
+                        {
+                            GameObject.FindObjectOfType<InventoryManger>().AddItem
+                              (this.name, itemImage);
+                        }
+
+
+
+                        Destroy(gameObject);
+                    }
+
                     Interact();
                     if(Controller && Controller.GetComponent<Scene2>())
                     #region mahdi
@@ -91,7 +114,7 @@ public class InteractionController : MonoBehaviour
                     }
                     #endregion
                 }
-                    
+
             }
         }
     }
@@ -131,7 +154,8 @@ public class InteractionController : MonoBehaviour
 
     public void Interact()
     {
-        if (!GameDataController.instance.gameData.isOnCanvas)
+
+       // if (!GameDataController.instance.gameData.isOnCanvas)
         {
             if (isAudio)
             {

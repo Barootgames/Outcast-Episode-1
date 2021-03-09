@@ -1,32 +1,88 @@
 ﻿using UnityEngine;
+using UnityEngine.Experimental.Rendering.Universal;
 
 public class Scene3 : MonoBehaviour
 {
     private int RingTheBellTime;
     [SerializeField] private Animator Margin;
 
+    [SerializeField] private GameObject _Player;
+    [SerializeField] private GameObject _Jamshid;
+    [SerializeField] private Transform JamshidPosTarget;
+    [SerializeField] private float JamshidSpeed;
+
+
+    private Animator JamshidAnimator;
+    private bool JamshidWork = false;
+
+    [SerializeField] private GameObject ControlsButton;
+    [SerializeField] private GameObject Converstion;
+
+
+    [SerializeField] private Light2D [] _lights;
+    [SerializeField] private Light2D _mainLight;
+    [SerializeField] private float [] IntensityValues;
+
+    private Step _step;
+
+    [SerializeField] private Sprite _keyArtanRoom;
+
     void Start()
     {
-        
-    }
+        #region Steps
 
-    void Update()
-    {
-        if(Input.GetKeyDown(KeyCode.UpArrow))
+        JamshidAnimator = _Jamshid.GetComponent<Animator>();
+        _step = GetComponent<Step>();
+
+        if(_step.Steps[7] && !_step.Steps[10])
         {
-            MarginOpen();
+            JamshidAnimator.SetBool("Walk", false);
+            _Jamshid.transform.position = JamshidPosTarget.position;
+            AllLightOff();
         }
 
-        if(Input.GetKeyDown(KeyCode.DownArrow))
+        if(_step.Steps[10])
         {
-            MarginClose();
+            JamshidAnimator.SetBool("Walk", false);
+            _Jamshid.transform.position = JamshidPosTarget.position;
+        }
+
+        #endregion
+
+    }
+
+    void FixedUpdate()
+    {
+        if(!_step.Steps[7])
+        {
+            if (JamshidWork && _Jamshid.transform.position != JamshidPosTarget.position)
+            {
+                _Jamshid.transform.position = Vector3.MoveTowards(_Jamshid.transform.position,
+                    JamshidPosTarget.position, JamshidSpeed * Time.fixedDeltaTime);
+            }
+            if (_Jamshid.transform.position == JamshidPosTarget.position &&
+                JamshidAnimator.GetBool("Walk"))
+            {
+
+                JamshidAnimator.SetBool("Walk", false);
+                Converstion.GetComponent<DialogueInteraction>().OnDialogueStarted(_Player);
+            }
         }
     }
 
     public void RingTheBell ()
     {
-        RingTheBellTime++;
-        print("ringThebellTime : " + RingTheBellTime);
+        if(!_step.Steps[7])
+        {
+            RingTheBellTime++;
+
+            if (RingTheBellTime == 2)
+            {
+                MarginOpen();
+                JamshidWork = true;
+                ControlsButton.SetActive(false);
+            }
+        }
     }
 
     public void CheckTouch (string name)
@@ -35,7 +91,16 @@ public class Scene3 : MonoBehaviour
         {
             RingTheBell();
         }
+
+        if(name == "JamshidMH" && _step.Steps[10])
+        {
+             MarginOpen();
+             JamshidWork = true;
+             ControlsButton.SetActive(false);
+            Converstion.GetComponent<DialogueInteraction>().OnDialogueStarted(_Player);
+        }
     }
+
 
     public void MarginOpen ()
     {
@@ -45,5 +110,29 @@ public class Scene3 : MonoBehaviour
     public void MarginClose ()
     {
         Margin.SetBool("Show", false);
+
+        if (_step.Steps[10])
+        {
+            GameObject.FindObjectOfType<InventoryManger>().AddItemFromLoad("KeyArtanRoom", _keyArtanRoom);
+            _step.DoWork(11);
+        }
+
+    }
+
+    public void AllLightOff ()
+    {
+        for (int i = 0; i < _lights.Length; i++)
+        {
+            _lights[i].intensity = 0f;
+        }
+        _mainLight.intensity = 0.1f;
+    }
+    public void AllLightOn ()
+    {
+        for (int i = 0; i < _lights.Length; i++)
+        {
+            _lights[i].intensity = IntensityValues[i];
+        }
+        _mainLight.intensity = 0.2f;
     }
 }

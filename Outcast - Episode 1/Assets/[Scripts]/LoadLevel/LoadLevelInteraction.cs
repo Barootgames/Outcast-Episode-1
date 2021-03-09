@@ -27,6 +27,7 @@ public class LoadLevelInteraction : MonoBehaviour
     public int respawnLocationIndex;
     public bool faceRightAfterLoad;
 
+
     void Start()
     {
         LoadLevelController loadLevel = FindObjectOfType<LoadLevelController>();
@@ -109,6 +110,21 @@ public class LoadLevelInteraction : MonoBehaviour
     {
         if (CheckCondition())
         {
+            if(SceneManager.GetActiveScene().buildIndex == 3)
+            {
+                if(nextSceneName == "Scene 4 VIP Room")
+                {
+                    if (!GameObject.FindObjectOfType<Step>().Steps[12])
+                                   return;
+
+
+
+
+
+                }
+            }
+
+
             audioSource.clip = audioClipOK;
             audioSource.Play();
             CheckPoint();

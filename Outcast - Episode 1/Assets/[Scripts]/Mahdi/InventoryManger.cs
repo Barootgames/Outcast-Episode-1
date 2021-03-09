@@ -21,9 +21,7 @@ public class InventoryManger : MonoBehaviour
     // document
     private Document [] documents = new Document[200];
     private int PageInDoc = 0;
-    
-    
-    
+   
     
     public void AddItem (string itemName,Sprite itemImage)
     {
@@ -124,6 +122,23 @@ public class InventoryManger : MonoBehaviour
                 AddItem(_combinItems[i].result.name,_combinItems[i].result);
                 GameDataController.instance.gameData.Combine(_combinItems[i].item1.name, _combinItems[i].item2.name, _combinItems[i].result.name);
             }
+
+            #region Special
+
+            if(item_drag_name == "Fuse2" && item_drop_name == "FusePlace")
+            {
+                RemoveItem("Fuse2");
+                GameObject.FindObjectOfType<Step>().DoWork(9);
+                GameObject.FindObjectOfType<Scene2>().FuseCheck();
+            }
+
+            if(item_drag_name == "KeyArtanRoom" && item_drop_name == "Door4VIP")
+            {
+                RemoveItem("KeyArtanRoom");
+                GameObject.FindObjectOfType<Step>().DoWork(12);
+            }
+  
+            #endregion
         }
     }
     

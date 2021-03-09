@@ -12,7 +12,6 @@ public class Tutorail : MonoBehaviour
 
     void Start()
     {
-        TutorailShow(1);
     }
 
     void Update()

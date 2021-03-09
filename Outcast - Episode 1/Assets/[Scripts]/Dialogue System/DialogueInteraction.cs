@@ -1,6 +1,4 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+﻿using UnityEngine;
 
 public class DialogueInteraction : MonoBehaviour
 {
@@ -29,6 +27,21 @@ public class DialogueInteraction : MonoBehaviour
     {
         
     }
+
+
+    public void OnDialogueStarted (GameObject _char)
+    {
+        character = _char.GetComponent<CharacterController2D>();
+        playerMovement = _char.GetComponent<PlayerMovement>();
+        dialogueController.conversation = introConversation;
+        dialogueController.SetDialogueInteraction(this);
+        dialogueController.gameObject.SetActive(true);
+        dialogueController.ResetDialogue();
+        playerMovement.enabled = false;
+        character.enabled = false;
+        playerMovement.gameObject.GetComponent<Animator>().SetFloat("Speed", 0f);
+    }
+
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
