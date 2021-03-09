@@ -60,8 +60,6 @@ public class DialogueController : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-<<<<<<< HEAD
-=======
         _step = GameObject.FindObjectOfType<Step>();
 
 
@@ -94,8 +92,7 @@ public class DialogueController : MonoBehaviour
         cam.orthographicSize = 2.94f;
 
         cam.gameObject.SetActive(true);
-
->>>>>>> refs/remotes/origin/main
+        
         conversation = introConversation;
         lineIndex = -1;
         UpdateName();
