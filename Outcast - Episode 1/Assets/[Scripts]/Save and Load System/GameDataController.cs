@@ -9,7 +9,7 @@ public class GameDataController : MonoBehaviour
     
     void Start()
     {
-        /*
+        
 
         inventoryManger = FindObjectOfType<InventoryManger>();
         if(instance == null)
@@ -39,7 +39,7 @@ public class GameDataController : MonoBehaviour
         }
        
 
-        */
+        
 
     }
 

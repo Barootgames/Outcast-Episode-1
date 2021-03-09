@@ -4,11 +4,11 @@ using UnityEngine.EventSystems;
 
 public class drop : MonoBehaviour , IDropHandler
 {
-    private GameObject manger;
+    private InventoryManger manger;
     
     private void Start()
     {
-        manger = GameObject.Find("InventoryManger");
+        manger = GameObject.FindObjectOfType<InventoryManger>();
     }
 
     void IDropHandler.OnDrop(PointerEventData eventData)

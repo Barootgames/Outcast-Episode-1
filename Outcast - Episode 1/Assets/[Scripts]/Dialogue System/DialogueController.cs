@@ -36,7 +36,6 @@ public class DialogueController : MonoBehaviour
     int conversationIndex = 0;
 
     //--------------
-    [SerializeField] private GameObject margin;
     [SerializeField] private GameObject moveHolder;
     [SerializeField] private Camera cam;
     [SerializeField] private float SpeedCamera;
@@ -50,11 +49,39 @@ public class DialogueController : MonoBehaviour
     // artan
 
     [SerializeField] private GameObject _Manger;
-    
+    private Step _step;
+
+    //--------------
+    [SerializeField] private ConversationObject jamshid1;
+    [SerializeField] private ConversationObject jamshid2;
+
+
+
     // Start is called before the first frame update
     void Start()
     {
-        if(cam == null)
+        _step = GameObject.FindObjectOfType<Step>();
+
+
+        #region dialog
+
+        if(!_step.Steps[7])
+        {
+            introConversation = jamshid1;
+            mainConversation = jamshid1;
+            exitConversation = jamshid1;
+        }
+
+        if (_step.Steps[10])
+        {
+            introConversation = jamshid2;
+            mainConversation = jamshid2;
+            exitConversation = jamshid2;
+        }
+
+        #endregion
+
+        if (cam == null)
         {
             cam = GameObject.FindGameObjectWithTag("MainCamera").GetComponent<Camera>();
         }
@@ -121,7 +148,7 @@ public class DialogueController : MonoBehaviour
     {
         if ( (lineIndex +1 ) >= conversation.lines.Length)
         {
-            margin.GetComponent<Animator>().SetBool("Show", false);
+            _Manger.GetComponent<Scene3>().MarginClose();
             _Manger.GetComponent<Step>().DoWork(7);
             CloseDialogue();
             return;
@@ -216,7 +243,7 @@ public class DialogueController : MonoBehaviour
         }
 
 
-        if (lineIndex == 8)
+        if (lineIndex == 8 && introConversation == jamshid1)
         {
             _Manger.GetComponent<Scene3>().AllLightOff();
             for (int i = 0; i < transform.childCount; i++)

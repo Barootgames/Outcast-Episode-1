@@ -25,48 +25,64 @@ public class Scene3 : MonoBehaviour
 
     private Step _step;
 
+    [SerializeField] private Sprite _keyArtanRoom;
 
     void Start()
     {
+        #region Steps
+
+        JamshidAnimator = _Jamshid.GetComponent<Animator>();
         _step = GetComponent<Step>();
 
-        if(_step.Steps[7])
+        if(_step.Steps[7] && !_step.Steps[10])
         {
+            JamshidAnimator.SetBool("Walk", false);
+            _Jamshid.transform.position = JamshidPosTarget.position;
             AllLightOff();
         }
 
-        JamshidAnimator = _Jamshid.GetComponent<Animator>();
+        if(_step.Steps[10])
+        {
+            JamshidAnimator.SetBool("Walk", false);
+            _Jamshid.transform.position = JamshidPosTarget.position;
+        }
+
+        #endregion
+
     }
 
     void FixedUpdate()
     {
-        if(JamshidWork && _Jamshid.transform.position != JamshidPosTarget.position)
+        if(!_step.Steps[7])
         {
-            _Jamshid.transform.position = Vector3.MoveTowards(_Jamshid.transform.position,
-                JamshidPosTarget.position, JamshidSpeed * Time.fixedDeltaTime);
-        }
-        if (_Jamshid.transform.position == JamshidPosTarget.position && 
-            JamshidAnimator.GetBool("Walk"))
-        {
-            
-            JamshidAnimator.SetBool("Walk", false);
-            Converstion.GetComponent<DialogueInteraction>().OnDialogueStarted(_Player);
+            if (JamshidWork && _Jamshid.transform.position != JamshidPosTarget.position)
+            {
+                _Jamshid.transform.position = Vector3.MoveTowards(_Jamshid.transform.position,
+                    JamshidPosTarget.position, JamshidSpeed * Time.fixedDeltaTime);
+            }
+            if (_Jamshid.transform.position == JamshidPosTarget.position &&
+                JamshidAnimator.GetBool("Walk"))
+            {
+
+                JamshidAnimator.SetBool("Walk", false);
+                Converstion.GetComponent<DialogueInteraction>().OnDialogueStarted(_Player);
+            }
         }
     }
 
     public void RingTheBell ()
     {
-        RingTheBellTime++;
-
-        if(RingTheBellTime == 2)
+        if(!_step.Steps[7])
         {
-            MarginOpen();
-            JamshidWork = true;
+            RingTheBellTime++;
 
-            ControlsButton.SetActive(false);
+            if (RingTheBellTime == 2)
+            {
+                MarginOpen();
+                JamshidWork = true;
+                ControlsButton.SetActive(false);
+            }
         }
-
-
     }
 
     public void CheckTouch (string name)
@@ -74,6 +90,14 @@ public class Scene3 : MonoBehaviour
         if (name == "Interaction Bell")
         {
             RingTheBell();
+        }
+
+        if(name == "JamshidMH" && _step.Steps[10])
+        {
+             MarginOpen();
+             JamshidWork = true;
+             ControlsButton.SetActive(false);
+            Converstion.GetComponent<DialogueInteraction>().OnDialogueStarted(_Player);
         }
     }
 
@@ -86,6 +110,13 @@ public class Scene3 : MonoBehaviour
     public void MarginClose ()
     {
         Margin.SetBool("Show", false);
+
+        if (_step.Steps[10])
+        {
+            GameObject.FindObjectOfType<InventoryManger>().AddItemFromLoad("KeyArtanRoom", _keyArtanRoom);
+            _step.DoWork(11);
+        }
+
     }
 
     public void AllLightOff ()

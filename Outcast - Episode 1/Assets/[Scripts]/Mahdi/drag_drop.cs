@@ -7,13 +7,13 @@ public class drag_drop : MonoBehaviour , IBeginDragHandler, IEndDragHandler , ID
     [SerializeField] private Canvas _can;
     private Vector2 _orgin_pos;
     private RectTransform _rec;
-    private GameObject _player;
+    private InventoryManger _player;
 
     private void Awake()
     {
         _rec = GetComponent<RectTransform>();
         _orgin_pos = _rec.anchoredPosition;
-        _player = GameObject.Find("InventoryManger");
+        _player = GameObject.FindObjectOfType<InventoryManger>();
     }
 
     public void OnBeginDrag(PointerEventData eventData)

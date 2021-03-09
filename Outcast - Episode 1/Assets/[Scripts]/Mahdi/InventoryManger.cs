@@ -42,7 +42,7 @@ public class InventoryManger : MonoBehaviour
 
         numberItemInInvenory++;
 
-       // GameDataController.instance.gameData.AddItem(itemName);
+        GameDataController.instance.gameData.AddItem(itemName);
     }
 
     public void AddItemFromLoad(string itemName, Sprite itemImage)
@@ -78,7 +78,7 @@ public class InventoryManger : MonoBehaviour
                 slots[i].name = null;
             }
         }
-       // GameDataController.instance.gameData.RemoveItem(itemName);
+        GameDataController.instance.gameData.RemoveItem(itemName);
     }
 
     public void AddDocument(Sprite docImage, string docTitle , string docInfo)
@@ -130,6 +130,12 @@ public class InventoryManger : MonoBehaviour
                 RemoveItem("Fuse2");
                 GameObject.FindObjectOfType<Step>().DoWork(9);
                 GameObject.FindObjectOfType<Scene2>().FuseCheck();
+            }
+
+            if(item_drag_name == "KeyArtanRoom" && item_drop_name == "Door4VIP")
+            {
+                RemoveItem("KeyArtanRoom");
+                GameObject.FindObjectOfType<Step>().DoWork(12);
             }
   
             #endregion

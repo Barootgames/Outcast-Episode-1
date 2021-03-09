@@ -3,36 +3,43 @@ using UnityEngine.SceneManagement;
 
 public class ObjectDrop : MonoBehaviour
 {
-    public LayerMask itemlayer;
-    [SerializeField] private InventoryManger _inventoryManger;
-    [SerializeField] private GameObject _MangerScene;
+    private InventoryManger _inventoryManger;
+    private bool Used = false;
 
     void Start()
     {
-       
-        
-        if(SceneManager.GetActiveScene().buildIndex == 1)
-        {
-            _MangerScene = GameObject.Find("GameController");
-        }
-
+        _inventoryManger = GameObject.FindObjectOfType<InventoryManger>();
     }
 
 
 
-    void Update ()
+    void Update()
     {
-        Vector2 origin = Camera.main.ScreenToWorldPoint(Input.mousePosition);
-        RaycastHit2D hit = Physics2D.Raycast(origin, Vector2.zero, 0f,itemlayer );
-
-        if(hit)
+        if(Used)
         {
+            this.GetComponent<ObjectDrop>().enabled = false;
+            return;
+        }
+
+
+        Vector2 origin = Camera.main.ScreenToWorldPoint(Input.mousePosition);
+        RaycastHit2D hit = Physics2D.Raycast(origin, Vector2.zero, 0f);
+
+        if (hit)
+        {
+
             if (hit.collider.gameObject.name == (gameObject.name))
             {
-                // events
-                
+                if(GameObject.FindObjectOfType<InventoryManger>().item_drag_name == "KeyArtanRoom" &&
+                    this.name == "Door4VIP")
+                {
+                    _inventoryManger.item_drop_name = gameObject.name;
+                    _inventoryManger.TryToCombin();
+                    _inventoryManger.item_drag_name = "";
+                    _inventoryManger.item_drop_name = "";
+                    Used = true;
+                }
             }
         }
-     
     }
 }
