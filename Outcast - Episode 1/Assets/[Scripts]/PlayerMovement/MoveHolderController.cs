@@ -63,6 +63,9 @@ public class MoveHolderController : MonoBehaviour, IPointerDownHandler, IPointer
     // Update is called once per frame
     void Update()
     {
-        
+        if(!move)
+        {
+            move = FindObjectOfType<PlayerMovement>();
+        }
     }
 }

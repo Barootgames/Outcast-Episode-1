@@ -111,8 +111,8 @@ public class LoadLevelInteraction : MonoBehaviour
         {
             audioSource.clip = audioClipOK;
             audioSource.Play();
+            CheckPoint();
             LoadLevelController.faceRightAfterLoad = faceRightAfterLoad;
-            print(LoadLevelController.faceRightAfterLoad);
             LoadLevelController.respawnLocationIndex = respawnLocationIndex;
             LoadLevelController.loadLevelController.LoadSceneAsync(nextSceneName);
         }
@@ -121,6 +121,17 @@ public class LoadLevelInteraction : MonoBehaviour
             audioSource.clip = audioClipNOK;
             audioSource.Play();
             textInfoText.text = textInfo;
+        }
+    }
+
+    void CheckPoint()
+    {
+        if (GameDataController.instance && GameDataController.instance.gameData)
+        {
+            GameDataController.instance.gameData.FaceRight = faceRightAfterLoad;
+            GameDataController.instance.gameData.CurrentSceneName = nextSceneName;
+            GameDataController.instance.gameData.RespawnPoint = respawnLocationIndex;
+            SaveAndLoadSystem.SaveGame(GameDataController.instance.gameData);
         }
     }
 

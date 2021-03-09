@@ -47,7 +47,7 @@ public class DialogueController : MonoBehaviour
     
     // Start is called before the first frame update
     void Start()
-    {;
+    {
         conversation = introConversation;
         lineIndex = -1;
         UpdateName();
