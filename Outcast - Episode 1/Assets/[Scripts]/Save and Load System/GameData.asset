@@ -15,6 +15,7 @@ MonoBehaviour:
   CurrentSceneName: Scene 5
   RespawnPoint: 0
   FaceRight: 1
+  isOnCanvas: 0
   inventoryItems:
   - ItemId: Tape
     ItemName: Tape
@@ -39,6 +40,4 @@ MonoBehaviour:
     ItemSprite: {fileID: 21300000, guid: a089820cb34348f41920e639e2798132, type: 3}
     hasViewed: 0
   itemIds:
-  - "\u0646\u0627\u0645\u0647"
-  - BookR
-  - Tape
+  - KeyArtanRoom
