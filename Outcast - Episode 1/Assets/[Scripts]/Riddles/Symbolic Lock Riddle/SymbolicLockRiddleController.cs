@@ -24,9 +24,17 @@ public class SymbolicLockRiddleController : MonoBehaviour
     // Start is called before the first frame update
 
     public bool canClick = true;
+
+    [SerializeField] private GameObject TriggerPedram;
+    [SerializeField] private GameObject ThisInteraction;
+    [SerializeField] private GameObject SafeInteraction;
+
     void Start()
     {
-        //PrintOrder();
+         if(GameObject.FindObjectOfType<Step>().Steps[27])
+        {
+            SafeInteraction.SetActive(true);
+        }
     }
 
     // Update is called once per frame
@@ -34,9 +42,18 @@ public class SymbolicLockRiddleController : MonoBehaviour
     {
         if (isCorrect && !finished)
         {
+            GameObject.FindObjectOfType<Step>().DoWork(27);
             finished = true;
             LockHandleAnim.SetTrigger("Open");
+            TriggerPedram.SetActive(true);
+            ThisInteraction.SetActive(false);
+            StartCoroutine(CloseThisPanel(1.5f));
+            SafeInteraction.SetActive(true);
         }
+
+        //fellan
+        if (Input.GetKeyDown(KeyCode.Space))
+            isCorrect = true;
     }
 
 
@@ -120,6 +137,7 @@ public class SymbolicLockRiddleController : MonoBehaviour
             if (LockSymbols[i] != CorrectOrder[i])
                 return false;
         }
+
         return true;
     }
 
@@ -131,5 +149,11 @@ public class SymbolicLockRiddleController : MonoBehaviour
         public Image Middle;
         public Image Down;
         public Image Down1;
+    }
+
+    IEnumerator CloseThisPanel (float waitTime)
+    {
+        yield return new WaitForSeconds(waitTime);
+        LockHandleAnim.transform.parent.gameObject.SetActive(false);
     }
 }

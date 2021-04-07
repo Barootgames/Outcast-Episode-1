@@ -41,7 +41,10 @@ public class RemoteControlRiddle : MonoBehaviour
             currentPatternText.color = Color.green;
             GameDataController.instance.gameData.isOnCanvas = false;
             symbol.SetActive(true);
-            gameObject.SetActive(false);
+            gameObject.transform.parent.gameObject.SetActive(false);
+
+
+            GameObject.FindObjectOfType<VIPDream>().HalControl();
         }
         else
         {

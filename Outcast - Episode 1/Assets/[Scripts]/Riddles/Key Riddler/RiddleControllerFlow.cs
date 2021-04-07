@@ -44,6 +44,7 @@ public class RiddleControllerFlow : MonoBehaviour
             //this.gameObject.SetActive(false);
             print("win");
             coverAnimator.SetTrigger("Cover");
+            GameObject.FindObjectOfType<Scene3Dream>().KeyHolderOut();
         }
     }
 

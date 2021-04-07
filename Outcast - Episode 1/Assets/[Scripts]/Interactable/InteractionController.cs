@@ -29,10 +29,17 @@ public class InteractionController : MonoBehaviour
 
     bool canClick = true;
 
-    // mahdi
+    [SerializeField] [Header("Mahdi- item - or - Document")]
     private GameObject Controller;
     [SerializeField] private Sprite itemImage;
-    
+    [SerializeField] private Sprite BackDoc;
+    [SerializeField] private bool IsDocument;
+    [SerializeField] private string NameDoc;
+    [SerializeField] private string ShortInfo;
+    [SerializeField] [TextArea] private string MainInfo;
+
+
+    private string SceneName;
 
     // Start is called before the first frame update
     void Start()
@@ -48,15 +55,15 @@ public class InteractionController : MonoBehaviour
         
         //mahdi
         Controller = GameObject.Find("GameController");
-
-        /*
+        SceneName = SceneManager.GetActiveScene().name;
+        
          GameDataController gameData = FindObjectOfType<GameDataController>();
         if (!gameData)
         {
             GameObject gameDataController = new GameObject();
             gameDataController.AddComponent<GameDataController>();
         }
-        */
+        
     }
 
     // Update is called once per frame
@@ -67,7 +74,8 @@ public class InteractionController : MonoBehaviour
             CheckForClick();
             CheckForTouch();
         }
-        interactableIcon.SetActive(isInTrigger);
+        if(this.tag != "Item")
+              interactableIcon.SetActive(isInTrigger);
     }
 
     void CheckForClick()
@@ -84,34 +92,61 @@ public class InteractionController : MonoBehaviour
 
                     if (hit.transform.gameObject.tag == "Item")
                     {
-
-                        if(itemImage == null)
+                        if(!IsDocument)
                         {
-                            GameObject.FindObjectOfType<InventoryManger>().AddItem
-                               (this.name, this.GetComponent<SpriteRenderer>().sprite);
+                            if (itemImage == null)
+                            {
+                                GameObject.FindObjectOfType<InventoryManger>().AddItem
+                                   (this.name, this.GetComponent<SpriteRenderer>().sprite);
+                            }
+                            else
+                            {
+                                GameObject.FindObjectOfType<InventoryManger>().AddItem
+                                  (this.name, itemImage);
+                            }
                         }
                         else
                         {
-                            GameObject.FindObjectOfType<InventoryManger>().AddItem
-                              (this.name, itemImage);
+                            GameObject.FindObjectOfType<InventoryManger>().
+                                AddDocument(itemImage ,BackDoc, NameDoc, ShortInfo, MainInfo);                             
                         }
-
-
 
                         Destroy(gameObject);
                     }
 
                     Interact();
-                    if(Controller && Controller.GetComponent<Scene2>())
+
                     #region mahdi
+
+                    if (Controller && Controller.GetComponent<Scene2>())
                         Controller.GetComponent<Scene2>().CheckTouch(this.name);
-                    if(SceneManager.GetActiveScene().buildIndex == 1) 
-                      Controller.GetComponent<Scene2>().CheckTouch(this.name);
+
+
+                    if(SceneName == "Scene 2") 
+                         Controller.GetComponent<Scene2>().CheckTouch(this.name);
+
+
 
                    else if (SceneManager.GetActiveScene().buildIndex == 2)
                     {
                         Controller.GetComponent<Scene3>().CheckTouch(this.name);
                     }
+
+                    if(SceneName == "Scene 4-1 VIP Room - Dream")
+                        Controller.GetComponent<VIPDream>().CheckTouch(this.name);
+
+                    if (SceneName == "Scene 3-1 FF - Dream")
+                        Controller.GetComponent<Scene3Dream>().CheckTouch(this.name);
+
+                    if (SceneName == "Scene 3-2 SF - LongDream")
+                        Controller.GetComponent<SFLong>().CheckTouch(this.name);
+
+                    if (SceneName == "Scene 3 WC")
+                        Controller.GetComponent<WC>().CheckTouch(this.name);
+
+                    if (SceneName == "Scene 3 SF")
+                        Controller.GetComponent<Scene3SF>().CheckTouch(this.name);
+
                     #endregion
                 }
 
@@ -180,6 +215,9 @@ public class InteractionController : MonoBehaviour
         textBubble.ClearText();
         textBubble.transform.GetChild(0).gameObject.SetActive(false);
         canClick = true;
+
+        if (SceneName == "Scene 4 VIP Room")
+            Controller.GetComponent<Scene4VIP>().EndInteraction(this.name);
     }
 
     private void OnTriggerEnter2D(Collider2D other)

@@ -1,6 +1,7 @@
 ﻿using System;
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using UnityEngine.Experimental.U2D.Animation;
 
 public class PlayerMovement : MonoBehaviour
 {
@@ -22,9 +23,18 @@ public class PlayerMovement : MonoBehaviour
     private float timeEnergy; 
     private MoveMode moveMode;
 
+    private Step _step;
+
 
     void Start()
     {
+        _step = GameObject.FindObjectOfType<Step>();
+
+        if(_step.Steps[13] && !_step.Steps[39])
+        {
+            ChangeClothes(1);
+        }
+
         timeRest = TimeRest;
         timeEnergy = TimeCanRun;
         moveMode = MoveMode.idle;
@@ -84,7 +94,9 @@ public class PlayerMovement : MonoBehaviour
                 moveMode = MoveMode.noEnergy;
                 timeRest = TimeRest;
                 timeEnergy = 0.5f;
-                _controller.GetComponent<Scene2>().CheckEvent(1);
+
+                if(SceneManager.GetActiveScene().name == "Scene 2")
+                       _controller.GetComponent<Scene2>().CheckEvent(1);
             }
         }
         
@@ -154,12 +166,51 @@ public class PlayerMovement : MonoBehaviour
             animator.SetBool("Run",false);
         }
     }
+
+    public void ChangeClothes (int a)
+    {
+        if (a == 0)
+        {
+            // orginal
+
+            transform.GetChild(2)
+                .GetComponent<SpriteResolver>().SetCategoryAndLabel("BaseBody", "Original");
+
+            transform.GetChild(10)
+               .GetComponent<SpriteResolver>().SetCategoryAndLabel("LeftArm", "Original");
+
+            transform.GetChild(13)
+              .GetComponent<SpriteResolver>().SetCategoryAndLabel("LeftUpArm", "Original");
+
+            transform.GetChild(18)
+              .GetComponent<SpriteResolver>().SetCategoryAndLabel("RightArm", "Original");
+
+            transform.GetChild(21)
+              .GetComponent<SpriteResolver>().SetCategoryAndLabel("RightUpArm", "Original");
+        }
+
+        if (a == 1)
+        {
+            // Lebas Zir
+
+            transform.GetChild(2)
+                .GetComponent<SpriteResolver>().SetCategoryAndLabel("BaseBody", "BlackRekabi");
+
+            transform.GetChild(10)
+               .GetComponent<SpriteResolver>().SetCategoryAndLabel("LeftArm", "BlackRekabi");
+
+            transform.GetChild(13)
+              .GetComponent<SpriteResolver>().SetCategoryAndLabel("LeftUpArm", "BlackRekabi");
+
+            transform.GetChild(18)
+              .GetComponent<SpriteResolver>().SetCategoryAndLabel("RightArm", "BlackRekabi");
+
+            transform.GetChild(21)
+              .GetComponent<SpriteResolver>().SetCategoryAndLabel("RightUpArm", "BlackRekabi");
+        }
+    }
     
 }
-
-
-
-
 
 
 [Serializable]

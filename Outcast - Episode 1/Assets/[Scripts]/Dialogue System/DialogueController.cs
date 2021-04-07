@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.SceneManagement;
 
 public class DialogueController : MonoBehaviour
 {
@@ -13,7 +14,7 @@ public class DialogueController : MonoBehaviour
 
     public GameObject ChoicePrefab;
 
-    public Transform ChoiceHolder;
+  
 
     public Text DialogueText;
 
@@ -25,8 +26,6 @@ public class DialogueController : MonoBehaviour
 
 
     public string currentLineName;
-
-    public Transform[] choiceButtons;
 
     public Sprite BlackSprite;
     public Sprite RedSprite;
@@ -65,19 +64,24 @@ public class DialogueController : MonoBehaviour
 
         #region dialog
 
-        if(!_step.Steps[7])
+        if(SceneManager.GetActiveScene().name == "Scene 3")
         {
-            introConversation = jamshid1;
-            mainConversation = jamshid1;
-            exitConversation = jamshid1;
-        }
 
-        if (_step.Steps[10])
-        {
-            introConversation = jamshid2;
-            mainConversation = jamshid2;
-            exitConversation = jamshid2;
+            if (!_step.Steps[7])
+            {
+                introConversation = jamshid1;
+                mainConversation = jamshid1;
+                exitConversation = jamshid1;
+            }
+
+            if (_step.Steps[10])
+            {
+                introConversation = jamshid2;
+                mainConversation = jamshid2;
+                exitConversation = jamshid2;
+            } 
         }
+       
 
         #endregion
 
@@ -85,14 +89,15 @@ public class DialogueController : MonoBehaviour
         {
             cam = GameObject.FindGameObjectWithTag("MainCamera").GetComponent<Camera>();
         }
+        cam.gameObject.SetActive(true);
 
         cam.transform.position = new Vector3
             (characters[0].transform.position.x, characters[0].transform.position.y, -10);
 
         cam.orthographicSize = 2.94f;
 
-        cam.gameObject.SetActive(true);
-        
+
+       
         conversation = introConversation;
         lineIndex = -1;
         UpdateName();
@@ -132,7 +137,21 @@ public class DialogueController : MonoBehaviour
                     new Vector3(characters[1].transform.position.x, characters[1].transform.position.y, -10),
                     SpeedCamera * Time.fixedDeltaTime);
             }
+
+            if(CameraGoTo == "Lida")
+            {
+                cam.transform.position = Vector3.MoveTowards(cam.transform.position,
+                   new Vector3(characters[1].transform.position.x, characters[1].transform.position.y, -10),
+                  SpeedCamera * Time.fixedDeltaTime);
+            }
         }
+    }
+
+    public void SetDialog (ConversationObject dialog)
+    {
+        introConversation = dialog;
+        mainConversation = dialog;
+        exitConversation = dialog;
     }
 
     public void ResetDialogue()
@@ -148,9 +167,35 @@ public class DialogueController : MonoBehaviour
     {
         if ( (lineIndex +1 ) >= conversation.lines.Length)
         {
-            _Manger.GetComponent<Scene3>().MarginClose();
-            _Manger.GetComponent<Step>().DoWork(7);
-            CloseDialogue();
+            if (SceneManager.GetActiveScene().name == "Scene 3 FF")
+            {
+                _Manger.GetComponent<Scene3>().MarginClose();
+                _Manger.GetComponent<Step>().DoWork(7);
+                CloseDialogue();
+                FindObjectOfType<GameDataController>().gameData.SetGameEventAsFinished("CantUpFloor");
+            }
+            else if (SceneManager.GetActiveScene().name == "Scene 3-1 FF - Dream")
+            {
+                _Manger.GetComponent<Scene3Dream>().MarginClose();
+                CloseDialogue();
+            }
+            else if (SceneManager.GetActiveScene().name == "Scene 4 VIP Room")
+            {
+                _Manger.GetComponent<Scene4VIP>().MarginClose();
+                CloseDialogue();
+            }
+
+            else if (SceneManager.GetActiveScene().name == "Scene 3 SF")
+            {
+                CloseDialogue();
+                _Manger.GetComponent<Scene3SF>().MarginClose();
+            }
+            else if (SceneManager.GetActiveScene().name == "Scene 2")
+            {
+                CloseDialogue();
+                _Manger.GetComponent<Scene2>().MarginClose();
+            }
+
             return;
         }
 
@@ -164,6 +209,11 @@ public class DialogueController : MonoBehaviour
         if(mainConversation.lines[lineIndex].character.fullName == "متلدار")
         {
             CameraGoTo = "Jamshid";
+        }
+
+        if(mainConversation.lines[lineIndex].character.fullName == "ليدا")
+        {
+            CameraGoTo = "Lida";
         }
 
   
@@ -181,31 +231,7 @@ public class DialogueController : MonoBehaviour
                         Choice _choice = conversation.lines[lineIndex].choices[i];
                         if (!_choice.hasViewed)
                         {
-                            GameObject choice = Instantiate(ChoicePrefab.gameObject, ChoiceHolder);
-                            if (_choice.isMandatory)
-                            {
-                                choice.GetComponent<Image>().sprite = RedSprite;
-                            }
-                            else
-                            {
-                                choice.GetComponent<Image>().sprite = BlackSprite;
-                            }
-                            choice.transform.position = choiceButtons[i].position;
-                            choice.GetComponentInChildren<Text>().text = conversation.lines[lineIndex].choices[i].choice;
-                            int nextLineIndex = conversation.lines[lineIndex].choices[i].lineIndex;
-                            int choiceIndex = i;
-                            choice.GetComponent<Button>().onClick.AddListener(delegate ()
-                            {
-                                conversation.lines[lineIndex].choices[choiceIndex].hasViewed = true;
-                                for (int j = 0; j < conversation.lines[lineIndex].choices.Length; j++)
-                                {
-                                    if (conversation.lines[lineIndex].choices[j].lineIndex != nextLineIndex)
-                                    {
-                                        uncheckedLines.Add(conversation.lines[lineIndex].choices[j].lineIndex);
-                                    }
-                                }
-                                SelectChoice(nextLineIndex);
-                            });
+                            
                         }
                     }
                 }
@@ -308,7 +334,6 @@ public class DialogueController : MonoBehaviour
         moveHolder.SetActive(true);
         dialogueInteraction.OnDialogueEnded();
         gameObject.SetActive(false);
-
         cam.gameObject.SetActive(false);
     }
 

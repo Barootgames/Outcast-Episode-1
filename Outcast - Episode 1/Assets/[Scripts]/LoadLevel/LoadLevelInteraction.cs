@@ -19,7 +19,7 @@ public class LoadLevelInteraction : MonoBehaviour
     public ConditionObject condition;
     public bool hasCondition;
 
-    AudioSource audioSource;
+    [SerializeField]  AudioSource audioSource;
 
     public AudioClip audioClipOK;
     public AudioClip audioClipNOK;
@@ -110,21 +110,6 @@ public class LoadLevelInteraction : MonoBehaviour
     {
         if (CheckCondition())
         {
-            if(SceneManager.GetActiveScene().buildIndex == 3)
-            {
-                if(nextSceneName == "Scene 4 VIP Room")
-                {
-                    if (!GameObject.FindObjectOfType<Step>().Steps[12])
-                                   return;
-
-
-
-
-
-                }
-            }
-
-
             audioSource.clip = audioClipOK;
             audioSource.Play();
             CheckPoint();

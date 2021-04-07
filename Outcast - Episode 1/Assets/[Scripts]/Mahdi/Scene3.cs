@@ -47,6 +47,11 @@ public class Scene3 : MonoBehaviour
             _Jamshid.transform.position = JamshidPosTarget.position;
         }
 
+        if(_step.Steps[39])
+        {
+            _Jamshid.SetActive(false);
+        }
+
         #endregion
 
     }
@@ -94,9 +99,9 @@ public class Scene3 : MonoBehaviour
 
         if(name == "JamshidMH" && _step.Steps[10])
         {
-             MarginOpen();
-             JamshidWork = true;
-             ControlsButton.SetActive(false);
+            MarginOpen();
+            JamshidWork = true;
+            ControlsButton.SetActive(false);
             Converstion.GetComponent<DialogueInteraction>().OnDialogueStarted(_Player);
         }
     }

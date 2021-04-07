@@ -33,12 +33,35 @@ public class ObjectDrop : MonoBehaviour
                 if(GameObject.FindObjectOfType<InventoryManger>().item_drag_name == "KeyArtanRoom" &&
                     this.name == "Door4VIP")
                 {
-                    _inventoryManger.item_drop_name = gameObject.name;
-                    _inventoryManger.TryToCombin();
+
+                    _inventoryManger.SpecialCombin(1);
                     _inventoryManger.item_drag_name = "";
                     _inventoryManger.item_drop_name = "";
                     Used = true;
                 }
+
+                if (GameObject.FindObjectOfType<InventoryManger>().item_drag_name == "Battery" &&
+                      this.name == "Control TV")
+                {
+                    _inventoryManger.SpecialCombin(3);
+                    _inventoryManger.item_drag_name = "";
+                    _inventoryManger.item_drop_name = "";
+                    Used = true;
+                }
+
+                if (GameObject.FindObjectOfType<InventoryManger>().item_drag_name == "Zero Key" &&
+                           this.name == "Door0")
+                {
+                    print("ok");
+
+
+                    _inventoryManger.SpecialCombin(4);
+                    _inventoryManger.item_drag_name = "";
+                    _inventoryManger.item_drop_name = "";
+                    Used = true;
+                }
+
+
             }
         }
     }

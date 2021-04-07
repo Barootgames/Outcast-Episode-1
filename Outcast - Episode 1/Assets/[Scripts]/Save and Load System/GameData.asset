@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b8d4506dcc506ae41bcbc8bcff7f7948, type: 3}
   m_Name: GameData
   m_EditorClassIdentifier: 
-  CurrentSceneName: Scene 5
+  CurrentSceneName: Scene 2
   RespawnPoint: 0
   FaceRight: 1
   isOnCanvas: 0
@@ -21,23 +21,95 @@ MonoBehaviour:
     ItemName: Tape
     isDocument: 0
     DocumentName: 
-    Info: 
+    ShortInfo: 
+    MainInfo: 
     ItemSprite: {fileID: 21300000, guid: 7eb42b66e8b56c349950e135e4d4d73c, type: 3}
+    BackDocument: {fileID: 0}
     hasViewed: 0
   - ItemId: BookR
-    ItemName: "\u06A9\u062A\u0627\u0628"
+    ItemName: BookR
     isDocument: 0
     DocumentName: 
-    Info: 
+    ShortInfo: 
+    MainInfo: 
     ItemSprite: {fileID: 21300000, guid: ea13fe5d34583304fb9e1b8368c04238, type: 3}
+    BackDocument: {fileID: 0}
     hasViewed: 0
-  - ItemId: "\u0646\u0627\u0645\u0647"
-    ItemName: "\u0646\u0627\u0645\u0647"
-    isDocument: 1
-    DocumentName: "\u0646\u0627\u0645\u0647"
-    Info: "\u0646\u0627\u0645\u0647 \u0627\u064A \u06A9\u0647 \u0641\u06A9\u0631
-      \u06A9\u0646\u0645 \u0645\u0627\u0644 \u0645\u0646 \u0646\u064A\u0633\u062A"
+  - ItemId: Book
+    ItemName: Book
+    isDocument: 0
+    DocumentName: 
+    ShortInfo: 
+    MainInfo: 
     ItemSprite: {fileID: 21300000, guid: a089820cb34348f41920e639e2798132, type: 3}
+    BackDocument: {fileID: 0}
     hasViewed: 0
-  itemIds:
-  - KeyArtanRoom
+  - ItemId: Battery
+    ItemName: Battery
+    isDocument: 0
+    DocumentName: 
+    ShortInfo: 
+    MainInfo: 
+    ItemSprite: {fileID: 21300000, guid: 75af788ca149f704397087b6a3be0e63, type: 3}
+    BackDocument: {fileID: 0}
+    hasViewed: 0
+  - ItemId: KeyArtanRoom
+    ItemName: KeyArtanRoom
+    isDocument: 0
+    DocumentName: 
+    ShortInfo: 
+    MainInfo: 
+    ItemSprite: {fileID: 21300000, guid: 47ea72b79dc94b744aa6feeec4f8cc40, type: 3}
+    BackDocument: {fileID: 0}
+    hasViewed: 0
+  - ItemId: Zero Key
+    ItemName: Zero Key
+    isDocument: 0
+    DocumentName: 
+    ShortInfo: 
+    MainInfo: 
+    ItemSprite: {fileID: 21300000, guid: 4b025bda059d731478a3f44689d1c5db, type: 3}
+    BackDocument: {fileID: 0}
+    hasViewed: 0
+  gameEvents:
+  - EventId: 0
+    EventName: Test
+    isFinished: 1
+  - EventId: 5
+    EventName: CantUpFloor
+    isFinished: 1
+  - EventId: 8
+    EventName: TurnOnElectricity
+    isFinished: 0
+  - EventId: 11
+    EventName: Sleep
+    isFinished: 0
+  - EventId: 14
+    EventName: DreamDoorSound
+    isFinished: 0
+  - EventId: 17
+    EventName: LightningIfTTouched
+    isFinished: 0
+  - EventId: 111
+    EventName: CorridorLength
+    isFinished: 0
+  - EventId: 113
+    EventName: LightsAndTVRemote
+    isFinished: 0
+  - EventId: 116
+    EventName: KeyRiddle
+    isFinished: 0
+  - EventId: 118
+    EventName: TVRemoteRiddle
+    isFinished: 0
+  - EventId: 119
+    EventName: RoomZeroKey
+    isFinished: 0
+  - EventId: 121
+    EventName: ExitDoorZero
+    isFinished: 0
+  itemIds: []
+  missions: []
+  currentMission: 
+  currentMissionIndex: 0
+  steps: 00000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000

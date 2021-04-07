@@ -12,12 +12,16 @@ public class InventoryItemDataClass
 
     public bool isDocument;
     public string DocumentName;
+    public string ShortInfo;
 
     [TextArea(2, 5)]
-    public string Info;
+    public string MainInfo;
+
+
 
 
     public Sprite ItemSprite;
+    public Sprite BackDocument;
 
     public bool hasViewed;
 }

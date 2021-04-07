@@ -2,7 +2,7 @@
 using UnityEngine.EventSystems;
 using UnityEngine.UI;
 
-public class drag_drop : MonoBehaviour , IBeginDragHandler, IEndDragHandler , IDragHandler 
+public class drag_drop : MonoBehaviour, IBeginDragHandler, IEndDragHandler, IDragHandler
 {
     [SerializeField] private Canvas _can;
     private Vector2 _orgin_pos;
@@ -29,7 +29,7 @@ public class drag_drop : MonoBehaviour , IBeginDragHandler, IEndDragHandler , ID
 
     public void OnDrag(PointerEventData eventData)
     {
-        if(this.GetComponent<Image>().sprite != null)
+        if (this.GetComponent<Image>().sprite != null)
         {
             _rec.anchoredPosition += eventData.delta / _can.scaleFactor;
         }

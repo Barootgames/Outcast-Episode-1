@@ -9,8 +9,6 @@ public class GameDataController : MonoBehaviour
     
     void Start()
     {
-        
-
         inventoryManger = FindObjectOfType<InventoryManger>();
         if(instance == null)
         {
@@ -18,11 +16,9 @@ public class GameDataController : MonoBehaviour
         }
         DontDestroyOnLoad(gameObject);
 
-        GameDataBinary data = SaveAndLoadSystem.LoadGame();
-
-        if (data != null)
+        if (gameData != null)
         {
-            foreach (string id in data.InventoryItemIds)
+            foreach (string id in gameData.itemIds)
             {
                 instance.gameData.AddItem(id);
                 foreach (InventoryItemDataClass item in gameData.inventoryItems)
@@ -32,21 +28,18 @@ public class GameDataController : MonoBehaviour
                         if (!item.isDocument)
                             FindObjectOfType<InventoryManger>().AddItemFromLoad(item.ItemName, item.ItemSprite);
                         else
-                            FindObjectOfType<InventoryManger>().AddDocumentFromLoad(item.ItemSprite, item.DocumentName, item.Info);
+                            FindObjectOfType<InventoryManger>().AddDocumentFromLoad(item.ItemSprite,item.BackDocument,item.DocumentName, item.ShortInfo,item.MainInfo);
                     }
                 }
             }
         }
        
-
-        
-
+           
     }
 
 
     // Update is called once per frame
     void Update()
     {
-        
     }
 }
