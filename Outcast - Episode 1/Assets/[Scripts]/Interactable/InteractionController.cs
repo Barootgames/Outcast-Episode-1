@@ -41,6 +41,8 @@ public class InteractionController : MonoBehaviour
 
     private string SceneName;
 
+    GameDataController gameData;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -57,7 +59,7 @@ public class InteractionController : MonoBehaviour
         Controller = GameObject.Find("GameController");
         SceneName = SceneManager.GetActiveScene().name;
         
-         GameDataController gameData = FindObjectOfType<GameDataController>();
+         gameData = FindObjectOfType<GameDataController>();
         if (!gameData)
         {
             GameObject gameDataController = new GameObject();
@@ -69,13 +71,16 @@ public class InteractionController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (isInTrigger && canClick)
+        if (!gameData.gameData.isOnCanvas)
         {
-            CheckForClick();
-            CheckForTouch();
+            if (isInTrigger && canClick)
+            {
+                CheckForClick();
+                CheckForTouch();
+            }
+            if (this.tag != "Item")
+                interactableIcon.SetActive(isInTrigger);
         }
-        if(this.tag != "Item")
-              interactableIcon.SetActive(isInTrigger);
     }
 
     void CheckForClick()

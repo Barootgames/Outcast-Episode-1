@@ -232,6 +232,7 @@ public class Scene3Dream : MonoBehaviour
         if (a == "Zero Key" && !_step.Steps[33])
         {
             _step.DoWork(33);
+            FindObjectOfType<GameDataController>().gameData.isOnCanvas = false;
         }
     }
 

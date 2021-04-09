@@ -107,6 +107,8 @@ public class InteractionControllerItemActivate : MonoBehaviour
         if(!isRiddle)
             item.GetComponent<Image>().sprite = imageSprite;
         item.SetActive(true);
+        if(isRiddle)
+            FindObjectOfType<GameDataController>().gameData.isOnCanvas = true;
     }
 
     private void OnTriggerEnter2D(Collider2D other)
