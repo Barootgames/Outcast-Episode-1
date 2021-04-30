@@ -3,6 +3,9 @@ using UnityEngine.Experimental.Rendering.Universal;
 
 public class Scene3 : MonoBehaviour
 {
+
+    [SerializeField] private AudioSource ringBellPlayer;
+
     private int RingTheBellTime;
     [SerializeField] private Animator Margin;
 
@@ -53,7 +56,6 @@ public class Scene3 : MonoBehaviour
         }
 
         #endregion
-
     }
 
     void FixedUpdate()
@@ -79,6 +81,8 @@ public class Scene3 : MonoBehaviour
     {
         if(!_step.Steps[7])
         {
+            ringBellPlayer.Play();
+
             RingTheBellTime++;
 
             if (RingTheBellTime == 2)
@@ -115,6 +119,7 @@ public class Scene3 : MonoBehaviour
     public void MarginClose ()
     {
         Margin.SetBool("Show", false);
+
 
         if (_step.Steps[10])
         {

@@ -13,101 +13,11 @@ MonoBehaviour:
   m_Name: GameData
   m_EditorClassIdentifier: 
   CurrentSceneName: Scene 2
-  RespawnPoint: 0
-  FaceRight: 1
+  RespawnPoint: 1
+  FaceRight: 0
   isOnCanvas: 0
-  inventoryItems:
-  - ItemId: Tape
-    ItemName: Tape
-    isDocument: 0
-    DocumentName: 
-    ShortInfo: 
-    MainInfo: 
-    ItemSprite: {fileID: 21300000, guid: 7eb42b66e8b56c349950e135e4d4d73c, type: 3}
-    BackDocument: {fileID: 0}
-    hasViewed: 0
-  - ItemId: BookR
-    ItemName: BookR
-    isDocument: 0
-    DocumentName: 
-    ShortInfo: 
-    MainInfo: 
-    ItemSprite: {fileID: 21300000, guid: ea13fe5d34583304fb9e1b8368c04238, type: 3}
-    BackDocument: {fileID: 0}
-    hasViewed: 0
-  - ItemId: Book
-    ItemName: Book
-    isDocument: 0
-    DocumentName: 
-    ShortInfo: 
-    MainInfo: 
-    ItemSprite: {fileID: 21300000, guid: a089820cb34348f41920e639e2798132, type: 3}
-    BackDocument: {fileID: 0}
-    hasViewed: 0
-  - ItemId: Battery
-    ItemName: Battery
-    isDocument: 0
-    DocumentName: 
-    ShortInfo: 
-    MainInfo: 
-    ItemSprite: {fileID: 21300000, guid: 75af788ca149f704397087b6a3be0e63, type: 3}
-    BackDocument: {fileID: 0}
-    hasViewed: 0
-  - ItemId: KeyArtanRoom
-    ItemName: KeyArtanRoom
-    isDocument: 0
-    DocumentName: 
-    ShortInfo: 
-    MainInfo: 
-    ItemSprite: {fileID: 21300000, guid: 47ea72b79dc94b744aa6feeec4f8cc40, type: 3}
-    BackDocument: {fileID: 0}
-    hasViewed: 0
-  - ItemId: Zero Key
-    ItemName: Zero Key
-    isDocument: 0
-    DocumentName: 
-    ShortInfo: 
-    MainInfo: 
-    ItemSprite: {fileID: 21300000, guid: 4b025bda059d731478a3f44689d1c5db, type: 3}
-    BackDocument: {fileID: 0}
-    hasViewed: 0
-  gameEvents:
-  - EventId: 0
-    EventName: Test
-    isFinished: 1
-  - EventId: 5
-    EventName: CantUpFloor
-    isFinished: 1
-  - EventId: 8
-    EventName: TurnOnElectricity
-    isFinished: 0
-  - EventId: 11
-    EventName: Sleep
-    isFinished: 0
-  - EventId: 14
-    EventName: DreamDoorSound
-    isFinished: 0
-  - EventId: 17
-    EventName: LightningIfTTouched
-    isFinished: 0
-  - EventId: 111
-    EventName: CorridorLength
-    isFinished: 0
-  - EventId: 113
-    EventName: LightsAndTVRemote
-    isFinished: 0
-  - EventId: 116
-    EventName: KeyRiddle
-    isFinished: 0
-  - EventId: 118
-    EventName: TVRemoteRiddle
-    isFinished: 0
-  - EventId: 119
-    EventName: RoomZeroKey
-    isFinished: 0
-  - EventId: 121
-    EventName: ExitDoorZero
-    isFinished: 0
+  inventoryItems: []
+  gameEvents: []
   itemIds: []
   missions: []
   currentMission: 

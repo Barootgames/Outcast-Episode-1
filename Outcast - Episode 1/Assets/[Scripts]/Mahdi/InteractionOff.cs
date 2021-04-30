@@ -5,23 +5,20 @@ using UnityEngine;
 public class InteractionOff : MonoBehaviour
 {
 
-    InteractionController [] all;
+   public GameDataController gamedata;
+
+    public void Awake()
+    {
+        gamedata = GameObject.FindObjectOfType<GameDataController>();
+    }
 
     public void OnEnable()
     {
-        all = GameObject.FindObjectsOfType<InteractionController>();
-
-        for (int i = 0; i < all.Length; i++)
-        {
-            all[i].enabled = false;
-        }
+        gamedata.gameData.isOnCanvas = true;
     }
 
     public void OnDisable()
     {
-        for (int i = 0; i < all.Length; i++)
-        {
-            all[i].enabled = true;
-        }
+        gamedata.gameData.isOnCanvas = false;
     }
 }

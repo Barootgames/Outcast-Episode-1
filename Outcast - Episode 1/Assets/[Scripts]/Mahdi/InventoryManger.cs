@@ -6,7 +6,13 @@ using UnityEngine;
 using UnityEngine.UI;
 
 public class InventoryManger : MonoBehaviour
-{ 
+{
+    [SerializeField] private AudioClip DocRotSound;
+    [SerializeField] [Range(0, 1)] private float DocRotVolume;
+    [SerializeField] private AudioClip PickNewItemSound;
+    [SerializeField] [Range(0, 1)] private float PickNewItemVolume;
+
+
     private int numberItemInInvenory = 0;
     private int numberDocInInventory = 0;
     private string [] inventory = new string[6];
@@ -39,6 +45,11 @@ public class InventoryManger : MonoBehaviour
     private bool isFront = true;
     private bool isChangeImage = true;
     [SerializeField] private float Speed;
+    [SerializeField] private GameObject NewItemPanel;
+    [SerializeField] private Text NameItemNewShower;
+    [SerializeField] private Image SpriteItemNewShower;
+    [SerializeField] private Text ShortInfoNewShower;
+
     
     public void AddItem (string itemName,Sprite itemImage)
     {
@@ -48,9 +59,15 @@ public class InventoryManger : MonoBehaviour
             // inventory is full
             return;
         }
-        
+
+        audioSource.clip = PickNewItemSound;
+        audioSource.volume = PickNewItemVolume;
+        audioSource.Play();
+
+        PanelNew(itemName, itemImage, "", false);
+       
         // add to inventory
-        
+
         inventory[numberItemInInvenory] = itemName;
         slots[numberItemInInvenory].name = itemName;
         slots[numberItemInInvenory].sprite = itemImage;
@@ -100,6 +117,9 @@ public class InventoryManger : MonoBehaviour
 
     public void AddDocument(Sprite docImage, Sprite Backdoc , string docTitle , string docInfo,string MainInfo)
     {
+
+        PanelNew(docTitle,docImage,docInfo,true);
+
         numberDocInInventory++;
         documents[numberDocInInventory].ShortInfo = docInfo;
         documents[numberDocInInventory].nameDocument = docTitle;
@@ -230,6 +250,8 @@ public class InventoryManger : MonoBehaviour
 
         if( (Angle <= 0.1f && Angle >= -0.1f ) || (Angle <= 180.1f && Angle >= 179.9f))
         {
+            audioSource.clip = DocRotSound;
+            audioSource.volume = DocRotVolume;
             audioSource.Play();
             isFront = !isFront;
             isChangeImage = false;
@@ -290,8 +312,6 @@ public class InventoryManger : MonoBehaviour
         
     }
 
-
-    // felean
     private void Update()
     {
         if(Input.GetKeyDown(KeyCode.Delete))
@@ -326,6 +346,20 @@ public class InventoryManger : MonoBehaviour
             ImageShower.sprite = documents[PageInDoc].ImageDocument;
         }
 
+    }
+
+    public void PanelNew (string nameItem , Sprite spriteItem , string Shortinfo , bool isDoc)
+    {
+
+        NewItemPanel.SetActive(true);
+
+        NameItemNewShower.text = nameItem;
+        SpriteItemNewShower.sprite = spriteItem;
+
+        if (isDoc)
+            ShortInfoNewShower.text = Shortinfo;
+        else
+            ShortInfoNewShower.text = "";
     }
 
 }

@@ -20,6 +20,13 @@ public class Scene2 : MonoBehaviour
     [SerializeField] private float birdSpeed;
     private bool CanbirdRun;
 
+
+    [SerializeField] private AudioClip SoundFuseInPlace;
+    [SerializeField] [Range(0, 1)] private float VolumeFuseInPlace = 0.5f;
+    [SerializeField] private AudioClip SoundFuseButton;
+    [SerializeField] [Range(0, 1)] private float VolumeFuseButton = 0.5f;
+
+
     [SerializeField] private AudioClip SoundCarStart;
     [SerializeField] [Range(0, 1)] private float VolumeCarStart = 0.5f;
     [SerializeField] private AudioClip SoundCarEngine;
@@ -139,7 +146,8 @@ public class Scene2 : MonoBehaviour
         MainThunder.GetComponent<Animator>().Play("Thunder_Light_Long");
         Soundplayer = GetComponent<AudioSource>();
 
- 
+
+        PlaySound(Soundthunder1,false, Volume1);
 
     }
     
@@ -298,6 +306,9 @@ public class Scene2 : MonoBehaviour
             FuseBox.transform.GetChild(0).transform.GetChild(0).GetComponent<SpriteRenderer>().sprite = greenLight;
             FuseBox.transform.GetChild(0).transform.GetChild(3).gameObject.SetActive(true);
 
+
+            PlaySound(SoundFuseInPlace, false, VolumeFuseInPlace);
+
             _step.DoWork(9);
         }
     }
@@ -314,6 +325,7 @@ public class Scene2 : MonoBehaviour
             FuseBox.transform.GetChild(0).transform.GetChild(2).gameObject.SetActive(true);
             FuseBox.transform.GetChild(0).transform.GetChild(3).gameObject.SetActive(true);
 
+            PlaySound(SoundFuseButton, false, VolumeFuseButton);
 
             _step.DoWork(10);
             FindObjectOfType<GameDataController>().gameData.SetGameEventAsFinished("TurnOnElectricity");

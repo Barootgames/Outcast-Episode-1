@@ -32,12 +32,14 @@ public class InteractionController : MonoBehaviour
     [SerializeField] [Header("Mahdi- item - or - Document")]
     private GameObject Controller;
     [SerializeField] private Sprite itemImage;
-    [SerializeField] private Sprite BackDoc;
+
     [SerializeField] private bool IsDocument;
+    [SerializeField] private Sprite BackDoc;
     [SerializeField] private string NameDoc;
     [SerializeField] private string ShortInfo;
     [SerializeField] [TextArea] private string MainInfo;
 
+    
 
     private string SceneName;
 
@@ -97,7 +99,8 @@ public class InteractionController : MonoBehaviour
 
                     if (hit.transform.gameObject.tag == "Item")
                     {
-                        if(!IsDocument)
+
+                        if (!IsDocument)
                         {
                             if (itemImage == null)
                             {
@@ -108,12 +111,15 @@ public class InteractionController : MonoBehaviour
                             {
                                 GameObject.FindObjectOfType<InventoryManger>().AddItem
                                   (this.name, itemImage);
-                            }
+                            }                         
+
                         }
                         else
                         {
                             GameObject.FindObjectOfType<InventoryManger>().
-                                AddDocument(itemImage ,BackDoc, NameDoc, ShortInfo, MainInfo);                             
+                                AddDocument(itemImage ,BackDoc, NameDoc, ShortInfo, MainInfo);  
+                            
+
                         }
 
                         Destroy(gameObject);

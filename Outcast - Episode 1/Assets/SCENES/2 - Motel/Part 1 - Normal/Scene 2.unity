@@ -98,7 +98,7 @@ LightmapSettings:
     m_TrainingDataDestination: TrainingData
     m_LightProbeSampleCountMultiplier: 4
   m_LightingDataAsset: {fileID: 0}
-  m_UseShadowmask: 0
+  m_UseShadowmask: 1
 --- !u!196 &4
 NavMeshSettings:
   serializedVersion: 2
@@ -21992,7 +21992,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -25.46271, y: -3.4701471}
+  m_AnchoredPosition: {x: -25.461634, y: -3.4701471}
   m_SizeDelta: {x: 100, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &745415227
@@ -27837,8 +27837,8 @@ MonoBehaviour:
   textBubble: {fileID: 0}
   Controller: {fileID: 0}
   itemImage: {fileID: 0}
-  BackDoc: {fileID: 0}
   IsDocument: 0
+  BackDoc: {fileID: 0}
   NameDoc: 
   ShortInfo: 
   MainInfo: 
@@ -28414,6 +28414,16 @@ PrefabInstance:
       propertyPath: m_IsActive
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 2036929579764869098, guid: 3229fd995f9a2b24c8d2c0f4843ace65,
+        type: 3}
+      propertyPath: DocRotSound
+      value: 
+      objectReference: {fileID: 8300000, guid: dee1a4da3648e264cb56d509ec50ca38, type: 3}
+    - target: {fileID: 2036929579764869098, guid: 3229fd995f9a2b24c8d2c0f4843ace65,
+        type: 3}
+      propertyPath: PickNewItemSound
+      value: 
+      objectReference: {fileID: 8300000, guid: dee1a4da3648e264cb56d509ec50ca38, type: 3}
     - target: {fileID: 7865944842030117285, guid: 3229fd995f9a2b24c8d2c0f4843ace65,
         type: 3}
       propertyPath: _can
@@ -36268,7 +36278,7 @@ MonoBehaviour:
     ModeOverride: 0
     LensShift: {x: 0, y: 0}
     GateFit: 0
-    m_SensorSize: {x: 1.7774193, y: 1}
+    m_SensorSize: {x: 1.7777778, y: 1}
   m_Transitions:
     m_BlendHint: 0
     m_InheritPosition: 0
@@ -36872,8 +36882,8 @@ MonoBehaviour:
   textBubble: {fileID: 0}
   Controller: {fileID: 0}
   itemImage: {fileID: 21300000, guid: d43d5ef94e976794699181913cf4424d, type: 3}
-  BackDoc: {fileID: 0}
   IsDocument: 0
+  BackDoc: {fileID: 0}
   NameDoc: 
   ShortInfo: 
   MainInfo: 
@@ -40628,7 +40638,7 @@ MonoBehaviour:
   SoundCarEngine: {fileID: 0}
   VolumeCarEngine: 0.5
   MainThunder: {fileID: 1463282939}
-  Soundthunder1: {fileID: 8300000, guid: dee1a4da3648e264cb56d509ec50ca38, type: 3}
+  Soundthunder1: {fileID: 8300000, guid: 53b9f6384465c2f4a9d973aedb10c309, type: 3}
   Volume1: 0.5
   Soundthunder2: {fileID: 8300000, guid: dee1a4da3648e264cb56d509ec50ca38, type: 3}
   Volume2: 0.5
