@@ -64,7 +64,7 @@ public class DialogueController : MonoBehaviour
 
         #region dialog
 
-        if(SceneManager.GetActiveScene().name == "Scene 3")
+        if(SceneManager.GetActiveScene().name == "Scene 3 FF")
         {
 
             if (!_step.Steps[7])
