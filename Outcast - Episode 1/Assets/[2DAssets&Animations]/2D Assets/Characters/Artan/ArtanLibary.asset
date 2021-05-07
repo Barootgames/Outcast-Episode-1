@@ -24,6 +24,10 @@ MonoBehaviour:
       m_Hash: 1689685905
       m_Sprite: {fileID: 3756174362542911091, guid: 511e1f37e38387047af81a53de475f43,
         type: 3}
+    - m_Name: New
+      m_Hash: 1403912869
+      m_Sprite: {fileID: 1850583625808748370, guid: db5872b0d7735924b9c53ecd564c8708,
+        type: 3}
   - m_Name: RightUpArm
     m_Hash: -1728975798
     m_CategoryList:
@@ -34,6 +38,10 @@ MonoBehaviour:
     - m_Name: BlackRekabi
       m_Hash: 1689685905
       m_Sprite: {fileID: 5220636469888838976, guid: 511e1f37e38387047af81a53de475f43,
+        type: 3}
+    - m_Name: New
+      m_Hash: 1403912869
+      m_Sprite: {fileID: -3900513023885569395, guid: db5872b0d7735924b9c53ecd564c8708,
         type: 3}
   - m_Name: RightHand
     m_Hash: 1979272496
@@ -46,6 +54,10 @@ MonoBehaviour:
       m_Hash: 1689685905
       m_Sprite: {fileID: 1354207247251802625, guid: 511e1f37e38387047af81a53de475f43,
         type: 3}
+    - m_Name: New
+      m_Hash: 1403912869
+      m_Sprite: {fileID: 4022277700656164982, guid: 0ebc3d2192191924a89d222e8fc6751e,
+        type: 3}
   - m_Name: Hair
     m_Hash: 1019596327
     m_CategoryList:
@@ -57,6 +69,10 @@ MonoBehaviour:
       m_Hash: 1689685905
       m_Sprite: {fileID: -8423090088402143290, guid: 0ebc3d2192191924a89d222e8fc6751e,
         type: 3}
+    - m_Name: New
+      m_Hash: 1403912869
+      m_Sprite: {fileID: 123138940415417127, guid: db5872b0d7735924b9c53ecd564c8708,
+        type: 3}
   - m_Name: Eyebrows
     m_Hash: -307554463
     m_CategoryList:
@@ -66,6 +82,10 @@ MonoBehaviour:
         type: 3}
     - m_Name: BlackRekabi
       m_Hash: 1689685905
+      m_Sprite: {fileID: 7129814717210204498, guid: 511e1f37e38387047af81a53de475f43,
+        type: 3}
+    - m_Name: New
+      m_Hash: 1403912869
       m_Sprite: {fileID: 7129814717210204498, guid: 511e1f37e38387047af81a53de475f43,
         type: 3}
   - m_Name: Beard
@@ -79,6 +99,10 @@ MonoBehaviour:
       m_Hash: 1689685905
       m_Sprite: {fileID: -8454350998435427469, guid: 511e1f37e38387047af81a53de475f43,
         type: 3}
+    - m_Name: New
+      m_Hash: 1403912869
+      m_Sprite: {fileID: -8454350998435427469, guid: 511e1f37e38387047af81a53de475f43,
+        type: 3}
   - m_Name: Nose
     m_Hash: 550421485
     m_CategoryList:
@@ -88,6 +112,10 @@ MonoBehaviour:
         type: 3}
     - m_Name: BlackRekabi
       m_Hash: 1689685905
+      m_Sprite: {fileID: -239383997413840808, guid: 511e1f37e38387047af81a53de475f43,
+        type: 3}
+    - m_Name: New
+      m_Hash: 1403912869
       m_Sprite: {fileID: -239383997413840808, guid: 511e1f37e38387047af81a53de475f43,
         type: 3}
   - m_Name: HairOn
@@ -101,6 +129,10 @@ MonoBehaviour:
       m_Hash: 1689685905
       m_Sprite: {fileID: -6456955773605525560, guid: 511e1f37e38387047af81a53de475f43,
         type: 3}
+    - m_Name: New
+      m_Hash: 1403912869
+      m_Sprite: {fileID: 245174801486652024, guid: db5872b0d7735924b9c53ecd564c8708,
+        type: 3}
   - m_Name: Eyes
     m_Hash: 120101800
     m_CategoryList:
@@ -110,6 +142,10 @@ MonoBehaviour:
         type: 3}
     - m_Name: BlackRekabi
       m_Hash: 1689685905
+      m_Sprite: {fileID: -1015100671563454315, guid: 511e1f37e38387047af81a53de475f43,
+        type: 3}
+    - m_Name: New
+      m_Hash: 1403912869
       m_Sprite: {fileID: -1015100671563454315, guid: 511e1f37e38387047af81a53de475f43,
         type: 3}
   - m_Name: Pupil1
@@ -123,6 +159,10 @@ MonoBehaviour:
       m_Hash: 1689685905
       m_Sprite: {fileID: -426366445864037782, guid: 511e1f37e38387047af81a53de475f43,
         type: 3}
+    - m_Name: New
+      m_Hash: 1403912869
+      m_Sprite: {fileID: -426366445864037782, guid: 511e1f37e38387047af81a53de475f43,
+        type: 3}
   - m_Name: Pupil2
     m_Hash: -1579621389
     m_CategoryList:
@@ -132,6 +172,10 @@ MonoBehaviour:
         type: 3}
     - m_Name: BlackRekabi
       m_Hash: 1689685905
+      m_Sprite: {fileID: 8792376118660869783, guid: 511e1f37e38387047af81a53de475f43,
+        type: 3}
+    - m_Name: New
+      m_Hash: 1403912869
       m_Sprite: {fileID: 8792376118660869783, guid: 511e1f37e38387047af81a53de475f43,
         type: 3}
   - m_Name: THEWHITE
@@ -145,6 +189,10 @@ MonoBehaviour:
       m_Hash: 1689685905
       m_Sprite: {fileID: -7849589438035000096, guid: 0ebc3d2192191924a89d222e8fc6751e,
         type: 3}
+    - m_Name: New
+      m_Hash: 1403912869
+      m_Sprite: {fileID: -7849589438035000096, guid: 0ebc3d2192191924a89d222e8fc6751e,
+        type: 3}
   - m_Name: Lip
     m_Hash: 1660619876
     m_CategoryList:
@@ -154,6 +202,10 @@ MonoBehaviour:
         type: 3}
     - m_Name: BlackRekabi
       m_Hash: 1689685905
+      m_Sprite: {fileID: -8156283036030556361, guid: 0ebc3d2192191924a89d222e8fc6751e,
+        type: 3}
+    - m_Name: New
+      m_Hash: 1403912869
       m_Sprite: {fileID: -8156283036030556361, guid: 0ebc3d2192191924a89d222e8fc6751e,
         type: 3}
   - m_Name: Head
@@ -167,6 +219,10 @@ MonoBehaviour:
       m_Hash: 1689685905
       m_Sprite: {fileID: 3158645680116866029, guid: 511e1f37e38387047af81a53de475f43,
         type: 3}
+    - m_Name: New
+      m_Hash: 1403912869
+      m_Sprite: {fileID: 3158645680116866029, guid: 511e1f37e38387047af81a53de475f43,
+        type: 3}
   - m_Name: BackOfHair
     m_Hash: 284540452
     m_CategoryList:
@@ -176,6 +232,10 @@ MonoBehaviour:
         type: 3}
     - m_Name: BlackRekabi
       m_Hash: 1689685905
+      m_Sprite: {fileID: -6236339020909938244, guid: 0ebc3d2192191924a89d222e8fc6751e,
+        type: 3}
+    - m_Name: New
+      m_Hash: 1403912869
       m_Sprite: {fileID: -6236339020909938244, guid: 0ebc3d2192191924a89d222e8fc6751e,
         type: 3}
   - m_Name: BaseBody
@@ -189,6 +249,10 @@ MonoBehaviour:
       m_Hash: 1689685905
       m_Sprite: {fileID: 6255559571550010142, guid: 511e1f37e38387047af81a53de475f43,
         type: 3}
+    - m_Name: New
+      m_Hash: 1403912869
+      m_Sprite: {fileID: 1162892387051856136, guid: db5872b0d7735924b9c53ecd564c8708,
+        type: 3}
   - m_Name: RightLeg
     m_Hash: -2042820100
     m_CategoryList:
@@ -199,6 +263,10 @@ MonoBehaviour:
     - m_Name: BlackRekabi
       m_Hash: 1689685905
       m_Sprite: {fileID: 5439254151027106577, guid: 511e1f37e38387047af81a53de475f43,
+        type: 3}
+    - m_Name: New
+      m_Hash: 1403912869
+      m_Sprite: {fileID: -6018550385221100519, guid: db5872b0d7735924b9c53ecd564c8708,
         type: 3}
   - m_Name: UpRightLeg
     m_Hash: -1358221254
@@ -211,6 +279,10 @@ MonoBehaviour:
       m_Hash: 1689685905
       m_Sprite: {fileID: 7031753090273132550, guid: 0ebc3d2192191924a89d222e8fc6751e,
         type: 3}
+    - m_Name: New
+      m_Hash: 1403912869
+      m_Sprite: {fileID: -1425067865161505755, guid: db5872b0d7735924b9c53ecd564c8708,
+        type: 3}
   - m_Name: RightShoe
     m_Hash: -1825789962
     m_CategoryList:
@@ -221,6 +293,10 @@ MonoBehaviour:
     - m_Name: BlackRekabi
       m_Hash: 1689685905
       m_Sprite: {fileID: -7234587566078408740, guid: 0ebc3d2192191924a89d222e8fc6751e,
+        type: 3}
+    - m_Name: New
+      m_Hash: 1403912869
+      m_Sprite: {fileID: -7310081698346435105, guid: db5872b0d7735924b9c53ecd564c8708,
         type: 3}
   - m_Name: LeftLeg
     m_Hash: 101577729
@@ -233,6 +309,10 @@ MonoBehaviour:
       m_Hash: 1689685905
       m_Sprite: {fileID: -1577355644167286859, guid: 0ebc3d2192191924a89d222e8fc6751e,
         type: 3}
+    - m_Name: New
+      m_Hash: 1403912869
+      m_Sprite: {fileID: 7692506829546050865, guid: db5872b0d7735924b9c53ecd564c8708,
+        type: 3}
   - m_Name: UpLeftLeg
     m_Hash: -369251720
     m_CategoryList:
@@ -243,6 +323,10 @@ MonoBehaviour:
     - m_Name: BlackRekabi
       m_Hash: 1689685905
       m_Sprite: {fileID: -8722876071678845314, guid: 0ebc3d2192191924a89d222e8fc6751e,
+        type: 3}
+    - m_Name: New
+      m_Hash: 1403912869
+      m_Sprite: {fileID: 709150940839811614, guid: db5872b0d7735924b9c53ecd564c8708,
         type: 3}
   - m_Name: LeftShoe
     m_Hash: 1352669610
@@ -255,6 +339,10 @@ MonoBehaviour:
       m_Hash: 1689685905
       m_Sprite: {fileID: -8238937258414340138, guid: 511e1f37e38387047af81a53de475f43,
         type: 3}
+    - m_Name: New
+      m_Hash: 1403912869
+      m_Sprite: {fileID: -2152070897887402433, guid: db5872b0d7735924b9c53ecd564c8708,
+        type: 3}
   - m_Name: LeftArm
     m_Hash: -343733542
     m_CategoryList:
@@ -265,6 +353,10 @@ MonoBehaviour:
     - m_Name: BlackRekabi
       m_Hash: 1689685905
       m_Sprite: {fileID: 1330712560940861811, guid: 511e1f37e38387047af81a53de475f43,
+        type: 3}
+    - m_Name: New
+      m_Hash: 1403912869
+      m_Sprite: {fileID: 4160399979860900825, guid: db5872b0d7735924b9c53ecd564c8708,
         type: 3}
   - m_Name: LeftUpArm
     m_Hash: -84968149
@@ -277,6 +369,10 @@ MonoBehaviour:
       m_Hash: 1689685905
       m_Sprite: {fileID: 9131281405714159117, guid: 511e1f37e38387047af81a53de475f43,
         type: 3}
+    - m_Name: New
+      m_Hash: 1403912869
+      m_Sprite: {fileID: 431081141004681887, guid: db5872b0d7735924b9c53ecd564c8708,
+        type: 3}
   - m_Name: LeftHand
     m_Hash: -1233783956
     m_CategoryList:
@@ -286,6 +382,10 @@ MonoBehaviour:
         type: 3}
     - m_Name: BlackRekabi
       m_Hash: 1689685905
+      m_Sprite: {fileID: 7709476806717479885, guid: 511e1f37e38387047af81a53de475f43,
+        type: 3}
+    - m_Name: New
+      m_Hash: 1403912869
       m_Sprite: {fileID: 7709476806717479885, guid: 511e1f37e38387047af81a53de475f43,
         type: 3}
   - m_Name: Glasses

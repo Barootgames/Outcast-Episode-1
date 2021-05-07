@@ -98,7 +98,7 @@ LightmapSettings:
     m_TrainingDataDestination: TrainingData
     m_LightProbeSampleCountMultiplier: 4
   m_LightingDataAsset: {fileID: 0}
-  m_UseShadowmask: 0
+  m_UseShadowmask: 1
 --- !u!196 &4
 NavMeshSettings:
   serializedVersion: 2
@@ -3538,8 +3538,8 @@ MonoBehaviour:
   textBubble: {fileID: 0}
   Controller: {fileID: 831787544}
   itemImage: {fileID: 0}
-  BackDoc: {fileID: 0}
   IsDocument: 0
+  BackDoc: {fileID: 0}
   NameDoc: 
   ShortInfo: 
   MainInfo: 
@@ -4252,6 +4252,101 @@ PrefabInstance:
       propertyPath: m_Constraints
       value: 6
       objectReference: {fileID: 0}
+    - target: {fileID: 56934023139584641, guid: 553619230e3792a4e987d51035b977f6,
+        type: 3}
+      propertyPath: m_labelHash
+      value: 1.4947374e+12
+      objectReference: {fileID: 0}
+    - target: {fileID: 56934023139584651, guid: 553619230e3792a4e987d51035b977f6,
+        type: 3}
+      propertyPath: m_labelHash
+      value: 1.4947374e+12
+      objectReference: {fileID: 0}
+    - target: {fileID: 56934023139584684, guid: 553619230e3792a4e987d51035b977f6,
+        type: 3}
+      propertyPath: m_labelHash
+      value: 1.4947374e+12
+      objectReference: {fileID: 0}
+    - target: {fileID: 56934023139584685, guid: 553619230e3792a4e987d51035b977f6,
+        type: 3}
+      propertyPath: m_labelHash
+      value: 1.4947374e+12
+      objectReference: {fileID: 0}
+    - target: {fileID: 56934023139584688, guid: 553619230e3792a4e987d51035b977f6,
+        type: 3}
+      propertyPath: m_labelHash
+      value: 1.4947374e+12
+      objectReference: {fileID: 0}
+    - target: {fileID: 56934023139584689, guid: 553619230e3792a4e987d51035b977f6,
+        type: 3}
+      propertyPath: m_labelHash
+      value: 1.4947374e+12
+      objectReference: {fileID: 0}
+    - target: {fileID: 56934023139584691, guid: 553619230e3792a4e987d51035b977f6,
+        type: 3}
+      propertyPath: m_labelHash
+      value: 1.4947374e+12
+      objectReference: {fileID: 0}
+    - target: {fileID: 56934023139584692, guid: 553619230e3792a4e987d51035b977f6,
+        type: 3}
+      propertyPath: m_labelHash
+      value: 1.4947374e+12
+      objectReference: {fileID: 0}
+    - target: {fileID: 56934023139584694, guid: 553619230e3792a4e987d51035b977f6,
+        type: 3}
+      propertyPath: m_labelHash
+      value: 1.4947374e+12
+      objectReference: {fileID: 0}
+    - target: {fileID: 56934023139584697, guid: 553619230e3792a4e987d51035b977f6,
+        type: 3}
+      propertyPath: m_labelHash
+      value: 1.4947374e+12
+      objectReference: {fileID: 0}
+    - target: {fileID: 56934023139584700, guid: 553619230e3792a4e987d51035b977f6,
+        type: 3}
+      propertyPath: m_labelHash
+      value: 1.4947374e+12
+      objectReference: {fileID: 0}
+    - target: {fileID: 56934023139584701, guid: 553619230e3792a4e987d51035b977f6,
+        type: 3}
+      propertyPath: m_labelHash
+      value: 1.4947374e+12
+      objectReference: {fileID: 0}
+    - target: {fileID: 56934023139584702, guid: 553619230e3792a4e987d51035b977f6,
+        type: 3}
+      propertyPath: m_labelHash
+      value: 1.4947374e+12
+      objectReference: {fileID: 0}
+    - target: {fileID: 1193569048401549486, guid: 553619230e3792a4e987d51035b977f6,
+        type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: -6018550385221100519, guid: db5872b0d7735924b9c53ecd564c8708,
+        type: 3}
+    - target: {fileID: 2273384548106887916, guid: 553619230e3792a4e987d51035b977f6,
+        type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 709150940839811614, guid: db5872b0d7735924b9c53ecd564c8708,
+        type: 3}
+    - target: {fileID: 2359258581232062254, guid: 553619230e3792a4e987d51035b977f6,
+        type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 431081141004681887, guid: db5872b0d7735924b9c53ecd564c8708,
+        type: 3}
+    - target: {fileID: 3630446649877580108, guid: 553619230e3792a4e987d51035b977f6,
+        type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 1162892387051856136, guid: db5872b0d7735924b9c53ecd564c8708,
+        type: 3}
+    - target: {fileID: 3748642532826801912, guid: 553619230e3792a4e987d51035b977f6,
+        type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: -3900513023885569395, guid: db5872b0d7735924b9c53ecd564c8708,
+        type: 3}
     - target: {fileID: 4189445770920155465, guid: 553619230e3792a4e987d51035b977f6,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -4307,11 +4402,59 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 4257017242877480347, guid: 553619230e3792a4e987d51035b977f6,
+        type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 1850583625808748370, guid: db5872b0d7735924b9c53ecd564c8708,
+        type: 3}
+    - target: {fileID: 5052032066541165709, guid: 553619230e3792a4e987d51035b977f6,
+        type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: -1425067865161505755, guid: db5872b0d7735924b9c53ecd564c8708,
+        type: 3}
+    - target: {fileID: 6071693120810831087, guid: 553619230e3792a4e987d51035b977f6,
+        type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: -2152070897887402433, guid: db5872b0d7735924b9c53ecd564c8708,
+        type: 3}
+    - target: {fileID: 6279026450709367311, guid: 553619230e3792a4e987d51035b977f6,
+        type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 4160399979860900825, guid: db5872b0d7735924b9c53ecd564c8708,
+        type: 3}
     - target: {fileID: 8383809924083911485, guid: 553619230e3792a4e987d51035b977f6,
         type: 3}
       propertyPath: m_Name
       value: Artan
       objectReference: {fileID: 0}
+    - target: {fileID: 8549929189695407142, guid: 553619230e3792a4e987d51035b977f6,
+        type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 245174801486652024, guid: db5872b0d7735924b9c53ecd564c8708,
+        type: 3}
+    - target: {fileID: 8559795093692295168, guid: 553619230e3792a4e987d51035b977f6,
+        type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 7692506829546050865, guid: db5872b0d7735924b9c53ecd564c8708,
+        type: 3}
+    - target: {fileID: 8889452365605364079, guid: 553619230e3792a4e987d51035b977f6,
+        type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 123138940415417127, guid: db5872b0d7735924b9c53ecd564c8708,
+        type: 3}
+    - target: {fileID: 8977605063567926573, guid: 553619230e3792a4e987d51035b977f6,
+        type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: -7310081698346435105, guid: db5872b0d7735924b9c53ecd564c8708,
+        type: 3}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 553619230e3792a4e987d51035b977f6, type: 3}
 --- !u!1 &860840530 stripped
@@ -7441,8 +7584,8 @@ MonoBehaviour:
   textBubble: {fileID: 0}
   Controller: {fileID: 831787544}
   itemImage: {fileID: 0}
-  BackDoc: {fileID: 0}
   IsDocument: 0
+  BackDoc: {fileID: 0}
   NameDoc: 
   ShortInfo: 
   MainInfo: 
@@ -9445,7 +9588,7 @@ MonoBehaviour:
     ModeOverride: 0
     LensShift: {x: 0, y: 0}
     GateFit: 0
-    m_SensorSize: {x: 1.7777778, y: 1}
+    m_SensorSize: {x: 1.7781955, y: 1}
   m_Transitions:
     m_BlendHint: 0
     m_InheritPosition: 0
