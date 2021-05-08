@@ -7,6 +7,9 @@ using UnityEngine.UI;
 
 public class InventoryManger : MonoBehaviour
 {
+    public GameObject QuickInventory;
+    public GameObject InfoButton;
+
     [SerializeField] private AudioClip DocRotSound;
     [SerializeField] [Range(0, 1)] private float DocRotVolume;
     [SerializeField] private AudioClip PickNewItemSound;
@@ -218,11 +221,18 @@ public class InventoryManger : MonoBehaviour
     
     public void inventoryBtn()
     {
-        transform.GetChild(0).gameObject.SetActive(!transform.GetChild(0).gameObject.activeInHierarchy);
-        transform.GetChild(2).gameObject.SetActive(!transform.GetChild(2).gameObject.activeInHierarchy);
-        if (!transform.GetChild(0).gameObject.activeInHierarchy)
+        if(QuickInventory.activeInHierarchy)
         {
-            transform.GetChild(1).gameObject.SetActive(false);
+            info.SetActive(false);
+            QuickInventory.SetActive(false);
+            InfoButton.SetActive(false);
+            
+        }
+        else
+        {
+            QuickInventory.SetActive(true);
+            InfoButton.SetActive(true);
+            info.SetActive(false);
         }
     }
     

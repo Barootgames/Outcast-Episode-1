@@ -5,6 +5,12 @@ using UnityEngine.UI;
 
 public class VIPDream : MonoBehaviour
 {
+    [SerializeField] private AudioClip SoundRefrigeratorOpen;
+    [SerializeField] [Range(0, 1)] private float VolumeRefrigeratorOpen;
+    [SerializeField] private AudioClip SoundRefrigeratorClose;
+    [SerializeField] [Range(0, 1)] private float VolumeRefrigeratorClose;
+
+
     [SerializeField] private GameObject Noise;
     [SerializeField] private GameObject Noise2;
     [SerializeField] private GameObject Page1Tv;
@@ -34,6 +40,12 @@ public class VIPDream : MonoBehaviour
     [SerializeField] private GameObject PanelControl;
 
     private Step _step;
+
+    [SerializeField] private GameObject RefrigeratorOpen;
+    [SerializeField] private GameObject RefrigeratorClose;
+
+    [SerializeField] private GameObject RefrigeratorOpen2;
+    [SerializeField] private GameObject RefrigeratorClose2;
 
     void Start()
     {
@@ -159,6 +171,36 @@ public class VIPDream : MonoBehaviour
         _step.DoWork(28);
     }
 
+    void RefrigeratorIntraction ()
+    {
+        if(RefrigeratorOpen.activeInHierarchy)
+        {
+            RefrigeratorOpen.SetActive(false);
+            RefrigeratorClose.SetActive(true);
+        }
+        else
+        {
+            RefrigeratorOpen.SetActive(true);
+            RefrigeratorClose.SetActive(false);
+        }
+
+    }
+
+    void RefrigeratorIntraction2()
+    {
+        if (RefrigeratorOpen2.activeInHierarchy)
+        {
+            RefrigeratorOpen2.SetActive(false);
+            RefrigeratorClose2.SetActive(true);
+        }
+        else
+        {
+            RefrigeratorOpen2.SetActive(true);
+            RefrigeratorClose2.SetActive(false);
+        }
+
+    }
+
     public void CheckTouch(string a)
     {
         if(a == "Interaction T" && !_step.Steps[18])
@@ -190,6 +232,16 @@ public class VIPDream : MonoBehaviour
         if (a == "Interaction Control")
         {
             PanelControl.SetActive(true);
+        }
+
+        if(a == "Refrigerator")
+        {
+            RefrigeratorIntraction();
+        }
+
+        if (a == "Refrigerator2")
+        {
+            RefrigeratorIntraction2();
         }
     }
 
