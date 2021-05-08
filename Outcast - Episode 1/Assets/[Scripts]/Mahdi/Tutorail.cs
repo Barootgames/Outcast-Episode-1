@@ -7,17 +7,8 @@ public class Tutorail : MonoBehaviour
     [SerializeField] [TextArea] string [] infoTutorail;
     [SerializeField] private GameObject TutorailPanel;
     [SerializeField] private Text TutorailText;
-    [SerializeField] private Button[] MoveButtons;
-    [SerializeField] private Button RunButton;
-
-    void Start()
-    {
-    }
-
-    void Update()
-    {
-        
-    }
+    [SerializeField] private Image [] MoveButtons;
+    [SerializeField] private Image RunButton;
 
     public void TutorailShow (int a)
     {
@@ -25,15 +16,15 @@ public class Tutorail : MonoBehaviour
         TutorailPanel.SetActive(true);
         if (a == 1)
         {
-            MoveButtons[0].image.color = new Color(255, 255, 255, 255);
-            MoveButtons[1].image.color = new Color(255, 255, 255, 255);
+            MoveButtons[0].color = new Color(255, 255, 255, 255);
+            MoveButtons[1].color = new Color(255, 255, 255, 255);
 
             TutorailText.text = infoTutorail[0];
         }
 
         if(a == 2)
         {
-            RunButton.image.color = new Color(255, 255, 255, 255);
+            RunButton.color = new Color(255, 255, 255, 255);
             TutorailText.text = infoTutorail[1];
             RunButton.transform.parent.gameObject.SetActive(true);
         }
@@ -56,14 +47,14 @@ public class Tutorail : MonoBehaviour
         if (TutorailPanel.activeInHierarchy && a == 1)
         {
             TutorailPanel.SetActive(false);
-            MoveButtons[0].image.color = new Color(255, 255, 255, 0.823f);
-            MoveButtons[1].image.color = new Color(255, 255, 255, 0.823f);
+            MoveButtons[0].color = new Color(255, 255, 255, 0.823f);
+            MoveButtons[1].color = new Color(255, 255, 255, 0.823f);
         }
 
         if(TutorailPanel.activeInHierarchy && a == 2)
         {
             TutorailPanel.SetActive(false);
-            RunButton.image.color = new Color(255, 255, 255, 0.823f);
+            RunButton.color = new Color(255, 255, 255, 0.823f);
         }
 
     }

@@ -35,7 +35,6 @@ public class DialogueController : MonoBehaviour
     int conversationIndex = 0;
 
     //--------------
-    [SerializeField] private GameObject moveHolder;
     [SerializeField] private Camera cam;
     [SerializeField] private float SpeedCamera;
     [SerializeField] private float MaxCameraZoom = 1.75f;
@@ -331,7 +330,6 @@ public class DialogueController : MonoBehaviour
 
     public void CloseDialogue()
     {
-        moveHolder.SetActive(true);
         dialogueInteraction.OnDialogueEnded();
         gameObject.SetActive(false);
         cam.gameObject.SetActive(false);

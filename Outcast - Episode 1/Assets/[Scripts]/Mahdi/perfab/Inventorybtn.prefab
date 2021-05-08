@@ -9,6 +9,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 7220183231515105160}
+  - component: {fileID: 7848623886218815847}
   m_Layer: 5
   m_Name: Inventorybtn
   m_TagString: Untagged
@@ -36,6 +37,25 @@ RectTransform:
   m_AnchoredPosition: {x: -813, y: -442}
   m_SizeDelta: {x: 400.7002, y: 219.70166}
   m_Pivot: {x: 0, y: 0}
+--- !u!95 &7848623886218815847
+Animator:
+  serializedVersion: 3
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7220183231515105167}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: c67a03f50f1ead940a8ff58393d434bb, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0
 --- !u!1 &7220183233059033769
 GameObject:
   m_ObjectHideFlags: 0

@@ -8,7 +8,6 @@ public class Scene4VIP : MonoBehaviour
     [SerializeField] private AudioSource KnockKnockPlayer;
     [SerializeField] private float TimeKnockKnock = 5f;
 
-    [SerializeField] private GameObject Noise;
     [SerializeField] private GameObject PanelChoice;
     [SerializeField] private GameObject PanelFade;
     [SerializeField] private Animator Margin;
@@ -28,7 +27,6 @@ public class Scene4VIP : MonoBehaviour
 
     void Start()
     {
-        Noise.SetActive(false);
         _step = GameObject.FindObjectOfType<Step>();
 
         if(_step.Steps[36] && !_step.Steps[37])

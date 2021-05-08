@@ -160,6 +160,7 @@ GameObject:
   - component: {fileID: 3230374384977076744}
   - component: {fileID: 3230374384977076751}
   - component: {fileID: 3230374384977076745}
+  - component: {fileID: -6248944465409028899}
   m_Layer: 5
   m_Name: Margin
   m_TagString: Untagged
@@ -244,3 +245,16 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorControllerStateOnDisable: 0
+--- !u!114 &-6248944465409028899
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3230374384977076749}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f2cd69a56a8ff5b49ba173aec820e207, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  gamedata: {fileID: 0}

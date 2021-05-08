@@ -196,6 +196,7 @@ public class PlayerMovement : MonoBehaviour
             transform.GetChild(2)
                 .GetComponent<SpriteResolver>().SetCategoryAndLabel("BaseBody", "BlackRekabi");
 
+
             transform.GetChild(10)
                .GetComponent<SpriteResolver>().SetCategoryAndLabel("LeftArm", "BlackRekabi");
 

@@ -18,7 +18,6 @@ public class Scene3 : MonoBehaviour
     private Animator JamshidAnimator;
     private bool JamshidWork = false;
 
-    [SerializeField] private GameObject ControlsButton;
     [SerializeField] private GameObject Converstion;
 
 
@@ -89,7 +88,6 @@ public class Scene3 : MonoBehaviour
             {
                 MarginOpen();
                 JamshidWork = true;
-                ControlsButton.SetActive(false);
             }
         }
     }
@@ -105,7 +103,6 @@ public class Scene3 : MonoBehaviour
         {
             MarginOpen();
             JamshidWork = true;
-            ControlsButton.SetActive(false);
             Converstion.GetComponent<DialogueInteraction>().OnDialogueStarted(_Player);
         }
     }

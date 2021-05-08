@@ -12,6 +12,7 @@ public class VIPDream : MonoBehaviour
 
 
     [SerializeField] private GameObject Noise;
+    [SerializeField] private GameObject TvLight;
     [SerializeField] private GameObject Noise2;
     [SerializeField] private GameObject Page1Tv;
     [SerializeField] private GameObject Page2Tv;
@@ -76,6 +77,7 @@ public class VIPDream : MonoBehaviour
         if(_step.Steps[20])
         {
             Noise.SetActive(true);
+            TvLight.SetActive(true);
             Noise2.SetActive(true);
             NoisePlayer.Play();
             _load.nextSceneName = "Scene 3-2 SF - LongDream";
@@ -214,6 +216,7 @@ public class VIPDream : MonoBehaviour
         {
             _step.DoWork(20);
             Noise.SetActive(true);
+            TvLight.SetActive(true);
             Noise2.SetActive(true);
             NoisePlayer.Play();
             _load.nextSceneName = "Scene 3-2 SF - LongDream";
