@@ -71,10 +71,13 @@ public class LoadLevelInteraction : MonoBehaviour
             if (hit)
             {
                 if (hit.collider.gameObject.name.Equals(gameObject.name))
-                    Interact();
+                         Interact();
+
+                   
             }
         }
     }
+
 
     void CheckForTouch()
     {

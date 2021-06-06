@@ -32,10 +32,7 @@ public class SFLong : MonoBehaviour
 
     public void CheckTouch (string a)
     {
-        if(a == "BookR")
-        {
-            _step.DoWork(22);
-        }
+
 
     }
 

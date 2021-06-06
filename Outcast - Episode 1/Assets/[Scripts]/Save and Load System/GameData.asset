@@ -12,25 +12,72 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b8d4506dcc506ae41bcbc8bcff7f7948, type: 3}
   m_Name: GameData
   m_EditorClassIdentifier: 
-  CurrentSceneName: Scene 3 FF
-  RespawnPoint: 0
-  FaceRight: 1
+  CurrentSceneName: Scene 3-1 FF - Dream
+  RespawnPoint: 1
+  FaceRight: 0
   isOnCanvas: 0
   inventoryItems:
-  - ItemId: 0
-    ItemName: 0
+  - ItemId: Fuse
+    ItemName: Fuse
     isDocument: 0
     DocumentName: 
     ShortInfo: 
     MainInfo: 
-    ItemSprite: {fileID: -4166746460642079921, guid: b439d014fd982b048a09788232ecc3e8,
-      type: 3}
+    ItemSprite: {fileID: 21300000, guid: 1e9259ad5ea4dc54aa173f22b9b66867, type: 3}
+    BackDocument: {fileID: 0}
+    hasViewed: 0
+  - ItemId: Battery
+    ItemName: Battery
+    isDocument: 0
+    DocumentName: 
+    ShortInfo: 
+    MainInfo: 
+    ItemSprite: {fileID: 21300000, guid: 8baad58f7e5e6a24e8a3d3af6ef318be, type: 3}
+    BackDocument: {fileID: 0}
+    hasViewed: 0
+  - ItemId: ZeroKey
+    ItemName: ZeroKey
+    isDocument: 0
+    DocumentName: 
+    ShortInfo: 
+    MainInfo: 
+    ItemSprite: {fileID: 21300000, guid: 4b025bda059d731478a3f44689d1c5db, type: 3}
+    BackDocument: {fileID: 0}
+    hasViewed: 0
+  - ItemId: KeyArtanRoom
+    ItemName: KeyArtanRoom
+    isDocument: 0
+    DocumentName: 
+    ShortInfo: 
+    MainInfo: 
+    ItemSprite: {fileID: 21300000, guid: 002318b551950de45b04bb4adbba5811, type: 3}
+    BackDocument: {fileID: 0}
+    hasViewed: 0
+  - ItemId: Tape
+    ItemName: Tape
+    isDocument: 0
+    DocumentName: 
+    ShortInfo: 
+    MainInfo: 
+    ItemSprite: {fileID: 21300000, guid: 7eb42b66e8b56c349950e135e4d4d73c, type: 3}
+    BackDocument: {fileID: 0}
+    hasViewed: 0
+  - ItemId: BookR
+    ItemName: BookR
+    isDocument: 0
+    DocumentName: 
+    ShortInfo: 
+    MainInfo: 
+    ItemSprite: {fileID: 21300000, guid: ea13fe5d34583304fb9e1b8368c04238, type: 3}
     BackDocument: {fileID: 0}
     hasViewed: 0
   gameEvents: []
   itemIds:
-  - 0
+  - 
+  - "\u0631\u0648\u0632\u0646\u0627\u0645\u0647"
+  - "\uFEEA\uFEE3\uFE8E\uFEE7\u0632\u0648\u0631"
+  - m
   missions: []
   currentMission: 
   currentMissionIndex: 0
-  steps: 00000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000
+  steps: 01010101010000010000000100010101010101010101010101010000000000000000010100000000000000000000000000000000000000000000000000000000000000000000

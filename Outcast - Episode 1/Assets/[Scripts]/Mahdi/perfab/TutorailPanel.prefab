@@ -273,7 +273,6 @@ GameObject:
   - component: {fileID: 6591833663144284669}
   - component: {fileID: 6591833663144284671}
   - component: {fileID: 6591833663144284668}
-  - component: {fileID: -2719730874888127806}
   m_Layer: 5
   m_Name: TutorailPanel
   m_TagString: Untagged
@@ -339,15 +338,3 @@ MonoBehaviour:
   m_FillOrigin: 0
   m_UseSpriteMesh: 0
   m_PixelsPerUnitMultiplier: 1
---- !u!114 &-2719730874888127806
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6591833663144284666}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f2cd69a56a8ff5b49ba173aec820e207, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 

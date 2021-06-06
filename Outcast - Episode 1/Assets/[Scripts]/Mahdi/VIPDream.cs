@@ -222,11 +222,6 @@ public class VIPDream : MonoBehaviour
             _load.nextSceneName = "Scene 3-2 SF - LongDream";
         }
 
-        if(a == "NewsPaper" && !_step.Steps[29])
-        {
-            _step.DoWork(29);
-        }
-
         if(a == "Interaction Tv" && _step.Steps[26])
         {
             PanelTV.SetActive(true);

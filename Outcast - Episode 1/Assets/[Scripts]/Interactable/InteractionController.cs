@@ -44,6 +44,7 @@ public class InteractionController : MonoBehaviour
     private string SceneName;
 
     GameDataController gameData;
+    PlayerMovement playermovment;
 
     // Start is called before the first frame update
     void Start()
@@ -67,12 +68,18 @@ public class InteractionController : MonoBehaviour
             GameObject gameDataController = new GameObject();
             gameDataController.AddComponent<GameDataController>();
         }
+
+        playermovment = GameObject.FindObjectOfType<PlayerMovement>();
         
     }
 
     // Update is called once per frame
     void Update()
     {
+        if(playermovment.moveMode == MoveMode.run)
+              return;
+
+
         if (!gameData.gameData.isOnCanvas)
         {
             if (isInTrigger && canClick)
@@ -104,25 +111,23 @@ public class InteractionController : MonoBehaviour
                         {
                             if (itemImage == null)
                             {
-                                GameObject.FindObjectOfType<InventoryManger>().AddItem
-                                   (this.name, this.GetComponent<SpriteRenderer>().sprite);
+                                GameObject.FindObjectOfType<InventoryManger>().PanelNew
+                                    (this.name,GetComponent<SpriteRenderer>().sprite, "", false , gameObject);
+
                             }
                             else
                             {
-                                GameObject.FindObjectOfType<InventoryManger>().AddItem
-                                  (this.name, itemImage);
-                            }                         
+                                GameObject.FindObjectOfType<InventoryManger>().PanelNew
+                                    (this.name,itemImage, "", false , gameObject);
+                            }       
 
                         }
                         else
                         {
                             GameObject.FindObjectOfType<InventoryManger>().
-                                AddDocument(itemImage ,BackDoc, NameDoc, ShortInfo, MainInfo);  
-                            
-
+                                AddDocument(itemImage ,BackDoc, NameDoc, ShortInfo, MainInfo , gameObject);  
+                           
                         }
-
-                        Destroy(gameObject);
                     }
 
                     Interact();
@@ -210,6 +215,7 @@ public class InteractionController : MonoBehaviour
 
             if (isText)
             {
+                playermovment.enabled = false;
                 StopCoroutine(TextInfoCoroutine());
                 StartCoroutine(TextInfoCoroutine());
             }
@@ -229,6 +235,9 @@ public class InteractionController : MonoBehaviour
 
         if (SceneName == "Scene 4 VIP Room")
             Controller.GetComponent<Scene4VIP>().EndInteraction(this.name);
+
+        // end interaction
+        playermovment.enabled = true;
     }
 
     private void OnTriggerEnter2D(Collider2D other)
