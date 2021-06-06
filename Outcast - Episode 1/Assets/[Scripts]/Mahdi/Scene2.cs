@@ -178,22 +178,16 @@ public class Scene2 : MonoBehaviour
             DoTouch = true;
         }
 
-
         if (name == "Interaction FuseBox" && FuseBox.transform.GetChild(0).gameObject.activeInHierarchy)
-        {
-            PanelFuseBox.SetActive(true);
-            FusePlace.SetActive(true);
+        { 
+            FusePlace.SetActive(true);          
         }
 
         if (name == "Interaction FuseBox" && !FuseBox.transform.GetChild(0).gameObject.activeInHierarchy && _step.Steps[7] && !_step.Steps[10])
         {
             FuseBox.transform.GetChild(0).gameObject.SetActive(true);
             FuseBox.transform.GetChild(1).gameObject.SetActive(false);
-        }
-
-        if(name == "Fuse2")
-        {
-            _step.DoWork(8);
+            PanelFuseBox.SetActive(true);
         }
 
     }

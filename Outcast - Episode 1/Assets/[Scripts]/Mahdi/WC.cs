@@ -63,11 +63,6 @@ public class WC : MonoBehaviour
             OpenCabinet2();
             _step.DoWork(34);
         }
-
-        if (a == "Tape")
-        {
-            _step.DoWork(21);
-        }
     }
 
     private void OpenCabinet ()

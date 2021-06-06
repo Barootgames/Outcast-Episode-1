@@ -227,13 +227,6 @@ public class Scene3Dream : MonoBehaviour
             CloseSafe.SetActive(false);
             OpenSafe.SetActive(true);
         }
-
-
-        if (a == "Zero Key" && !_step.Steps[33])
-        {
-            _step.DoWork(33);
-            FindObjectOfType<GameDataController>().gameData.isOnCanvas = false;
-        }
     }
 
     public void CheckTriggerExit (string a)

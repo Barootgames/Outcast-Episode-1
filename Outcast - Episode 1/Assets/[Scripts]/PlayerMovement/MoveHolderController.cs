@@ -9,6 +9,8 @@ public class MoveHolderController : MonoBehaviour, IPointerDownHandler, IPointer
     public int buttonCode;
     public GameObject run;
     PlayerMovement move;
+    GameObject inventorybtn;
+
 
     public void OnPointerDown(PointerEventData eventData)
     {
@@ -30,6 +32,7 @@ public class MoveHolderController : MonoBehaviour, IPointerDownHandler, IPointer
         if (buttonCode == 2) //run
         {
             move.Run();
+            inventorybtn.SetActive(false);
         }
     }
 
@@ -48,19 +51,20 @@ public class MoveHolderController : MonoBehaviour, IPointerDownHandler, IPointer
         if(buttonCode == 2)
         {
             move.RunStop();
+            inventorybtn.SetActive(true);
         }
 
     }
 
-    // Start is called before the first frame update
     void Start()
     {
         if (run)
             run.SetActive(false);
         move = FindObjectOfType<PlayerMovement>();
+
+        inventorybtn = GameObject.Find("Inventorybtn");
     }
 
-    // Update is called once per frame
     void Update()
     {
         if(!move)

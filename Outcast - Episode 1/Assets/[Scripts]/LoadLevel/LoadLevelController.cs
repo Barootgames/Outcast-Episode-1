@@ -5,29 +5,59 @@ using UnityEngine.SceneManagement;
 
 public class LoadLevelController : MonoBehaviour
 {
-
     public static LoadLevelController loadLevelController;
 
     public static int respawnLocationIndex = -1;
     public static bool faceRightAfterLoad = true;
-    // Start is called before the first frame update
-    void Start()
+
+    private Animator quickFade;
+   
+    void Awake()
     {
         if(loadLevelController == null)
         {
             loadLevelController = this;
         }
         DontDestroyOnLoad(gameObject);
+
+        if(quickFade == null)
+          quickFade = GameObject.Find("QuickFade").transform.GetChild(0).GetComponent<Animator>();
     }
 
-    // Update is called once per frame
-    void Update()
+    private void OnLevelWasLoaded()
     {
-        
+        if (quickFade == null)
+            quickFade = GameObject.Find("QuickFade").transform.GetChild(0).GetComponent<Animator>();
+
+
+        if (!quickFade.gameObject.activeInHierarchy)
+              quickFade.gameObject.SetActive(true);
+
+
+        quickFade.Play("QuickFadeOut");
+
+        StartCoroutine(PanelFadeClosed());
     }
+
+    IEnumerator PanelFadeClosed ()
+    {
+        yield return new WaitForSeconds(1);
+        quickFade.gameObject.SetActive(false);
+    }
+
 
     public void LoadSceneAsync(string nextSceneName)
     {
-        SceneManager.LoadSceneAsync(nextSceneName);
+        if(!quickFade.gameObject.activeInHierarchy)
+                quickFade.gameObject.SetActive(true);
+        quickFade.Play("QuickFadeIn");
+        StartCoroutine(WaitForFadeIn(1, nextSceneName));
     }
+
+    IEnumerator WaitForFadeIn (float WaitTime , string _name)
+    {
+        yield return new WaitForSeconds(WaitTime);
+        SceneManager.LoadSceneAsync(_name);
+    }
+
 }

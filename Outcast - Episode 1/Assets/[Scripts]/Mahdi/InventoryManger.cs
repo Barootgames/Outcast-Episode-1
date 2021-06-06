@@ -53,7 +53,17 @@ public class InventoryManger : MonoBehaviour
     [SerializeField] private Image SpriteItemNewShower;
     [SerializeField] private Text ShortInfoNewShower;
 
-    
+    [SerializeField] private GameObject BackGround;
+
+    GameObject DestroyItem;
+    Step _step;
+
+    private void Start()
+    {
+        _step = GameObject.FindObjectOfType<Step>();
+    }
+
+
     public void AddItem (string itemName,Sprite itemImage)
     {
 
@@ -67,9 +77,40 @@ public class InventoryManger : MonoBehaviour
         audioSource.volume = PickNewItemVolume;
         audioSource.Play();
 
-        PanelNew(itemName, itemImage, "", false);
-       
         // add to inventory
+
+
+        StartCoroutine(CloseInventoryByDelay(0.8f));
+
+
+        #region Step
+
+        if (itemName == "Fuse")
+        {
+            _step.DoWork(8);
+        }
+
+        if (itemName == "Tape")
+        {
+            _step.DoWork(21);
+        }
+
+        if (itemName == "BookR")
+        {
+            _step.DoWork(22);
+        }
+
+        if(itemName == "Battery")
+        {
+            _step.DoWork(24);
+        }
+
+        if (itemName == "Zero Key")
+        {
+            _step.DoWork(33);
+        }
+
+        #endregion
 
         inventory[numberItemInInvenory] = itemName;
         slots[numberItemInInvenory].name = itemName;
@@ -118,10 +159,11 @@ public class InventoryManger : MonoBehaviour
         GameDataController.instance.gameData.RemoveItem(itemName);
     }
 
-    public void AddDocument(Sprite docImage, Sprite Backdoc , string docTitle , string docInfo,string MainInfo)
+    public void AddDocument(Sprite docImage, Sprite Backdoc , string docTitle , string docInfo,string MainInfo, GameObject a)
     {
+        if(a != null)
+           a.SetActive(false);
 
-        PanelNew(docTitle,docImage,docInfo,true);
 
         numberDocInInventory++;
         documents[numberDocInInventory].ShortInfo = docInfo;
@@ -131,10 +173,18 @@ public class InventoryManger : MonoBehaviour
         GameDataController.instance.gameData.AddItem(docTitle);
         documents[numberDocInInventory].BackDoc = Backdoc;
 
+
+        StartCoroutine(CloseInventoryByDelay(0.8f));
+
         if (numberDocInInventory == 1)
             PageInDoc = 1;
 
         DocumentShow();
+
+        if (docTitle == "NewsPaper")
+        {
+            _step.DoWork(29);
+        }
     }
 
     public void AddDocumentFromLoad(Sprite docImage, Sprite Backdoc , string docTitle, string docInfo, string MainInfo)
@@ -159,6 +209,7 @@ public class InventoryManger : MonoBehaviour
                 RemoveItem(_combinItems[i].item2.name);
                 AddItem(_combinItems[i].result.name,_combinItems[i].result);
                 GameDataController.instance.gameData.Combine(_combinItems[i].item1.name, _combinItems[i].item2.name, _combinItems[i].result.name);
+                StartCoroutine(CloseInventoryByDelay(0.8f));
             }
             
             if (item_drag_name == _combinItems[i].item2.name && item_drop_name == _combinItems[i].item1.name)
@@ -167,24 +218,39 @@ public class InventoryManger : MonoBehaviour
                 RemoveItem(_combinItems[i].item2.name);
                 AddItem(_combinItems[i].result.name,_combinItems[i].result);
                 GameDataController.instance.gameData.Combine(_combinItems[i].item1.name, _combinItems[i].item2.name, _combinItems[i].result.name);
+                StartCoroutine(CloseInventoryByDelay(0.8f));
             }
 
             #region Special
 
-            if(item_drag_name == "Fuse2" && item_drop_name == "FusePlace")
+            if (item_drag_name == "Fuse" && item_drop_name == "FusePlace")
             {
-                RemoveItem("Fuse2");
+                RemoveItem("Fuse");
                 GameObject.FindObjectOfType<Step>().DoWork(9);
                 GameObject.FindObjectOfType<Scene2>().FuseCheck();
+
+                StartCoroutine(CloseInventoryByDelay(0.8f));
             }
 
             if (item_drag_name == "Tape" && item_drop_name == "BookR")
             {
                 RemoveItem("Tape");
                 RemoveItem("BookR");
-                AddDocument(AllDocument[0].ImageDocument,AllDocument[0].BackDoc, "a", "a", "a");
+                AddDocument(AllDocument[0].ImageDocument,AllDocument[0].BackDoc,AllDocument[0].nameDocument , AllDocument[0].ShortInfo,AllDocument[0].infoDocument, null);
+
+                StartCoroutine(CloseInventoryByDelay(0.8f));
 
             }
+
+            if (item_drag_name == "BookR" && item_drop_name == "Tape")
+            {
+                RemoveItem("Tape");
+                RemoveItem("BookR");
+                AddDocument(AllDocument[0].ImageDocument, AllDocument[0].BackDoc, AllDocument[0].nameDocument, AllDocument[0].ShortInfo, AllDocument[0].infoDocument, null);
+
+                StartCoroutine(CloseInventoryByDelay(0.8f));
+            }
+
 
             #endregion
         }
@@ -203,7 +269,6 @@ public class InventoryManger : MonoBehaviour
         {
             RemoveItem("BookR");
             RemoveItem("Tape");
-            print("a");
         }
 
         if (a == 3)
@@ -226,13 +291,15 @@ public class InventoryManger : MonoBehaviour
             info.SetActive(false);
             QuickInventory.SetActive(false);
             InfoButton.SetActive(false);
-            
+            BackGround.SetActive(false);           
         }
         else
         {
             QuickInventory.SetActive(true);
             InfoButton.SetActive(true);
             info.SetActive(false);
+
+            BackGround.SetActive(true);
         }
     }
     
@@ -324,14 +391,6 @@ public class InventoryManger : MonoBehaviour
 
     private void Update()
     {
-        if(Input.GetKeyDown(KeyCode.Delete))
-        {
-            for (int i = 0; i < 6; i++)
-            {
-                RemoveItem(inventory[i]);
-            }
-        }
-
         if(!isFront && ImageShower.transform.eulerAngles.y < 180)
         {
             ImageShower.transform.Rotate(0, Speed, 0);
@@ -358,9 +417,9 @@ public class InventoryManger : MonoBehaviour
 
     }
 
-    public void PanelNew (string nameItem , Sprite spriteItem , string Shortinfo , bool isDoc)
+    public void PanelNew (string nameItem , Sprite spriteItem , string Shortinfo , bool isDoc , GameObject DestroyMeOrNo)
     {
-
+        DestroyItem = DestroyMeOrNo;
         NewItemPanel.SetActive(true);
 
         NameItemNewShower.text = nameItem;
@@ -370,8 +429,36 @@ public class InventoryManger : MonoBehaviour
             ShortInfoNewShower.text = Shortinfo;
         else
             ShortInfoNewShower.text = "";
+
+        if(!QuickInventory.activeInHierarchy)
+        {
+            QuickInventory.SetActive(true);
+            InfoButton.SetActive(true);
+            info.SetActive(false);
+
+            BackGround.SetActive(true);
+        }
     }
 
+    public void Pick ()
+    {
+        if(NewItemPanel.activeInHierarchy)
+        {
+            AddItem(NameItemNewShower.text, SpriteItemNewShower.sprite);
+
+            if (DestroyItem != null)
+                DestroyItem.SetActive(false);
+        }
+    }
+
+    IEnumerator CloseInventoryByDelay (float a)
+    {
+        yield return new WaitForSeconds(a);
+        info.SetActive(false);
+        QuickInventory.SetActive(false);
+        InfoButton.SetActive(false);
+        BackGround.SetActive(false);
+    }
 }
 
 [Serializable] public struct Documents

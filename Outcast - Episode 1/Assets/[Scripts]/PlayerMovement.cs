@@ -21,9 +21,12 @@ public class PlayerMovement : MonoBehaviour
     
     private float timeRest;
     private float timeEnergy; 
-    private MoveMode moveMode;
+    public MoveMode moveMode;
 
     private Step _step;
+
+    private bool CantMoveRight = false;
+    private bool CantMoveLeft = false;
 
 
     void Start()
@@ -39,10 +42,38 @@ public class PlayerMovement : MonoBehaviour
         timeEnergy = TimeCanRun;
         moveMode = MoveMode.idle;
     }
-    
+
+
+    private void OnCollisionEnter2D(Collision2D collision)
+    {
+        if (collision.transform.tag == "Earth")
+            return;
+
+        if(horizontalMove > 0.1)
+        {
+            CantMoveRight = true;
+        }
+        else if (horizontalMove < -0.1)
+        {
+            CantMoveLeft = true;
+        }
+
+        if (moveMode == MoveMode.run)
+            RunStop();
+
+           Stop();
+
+    }
+
+    private void OnCollisionExit2D(Collision2D collision)
+    {
+        CantMoveRight = false;
+        CantMoveLeft = false;
+    }
+
     void Update()
     {
-        animator.SetFloat("Speed", Mathf.Abs(horizontalMove));
+        animator.SetFloat("Speed", Mathf.Abs(horizontalMove));       
     }
 
     void FixedUpdate ()
@@ -64,6 +95,12 @@ public class PlayerMovement : MonoBehaviour
             animator.SetBool("Run",false);
         }
 
+        StateChecker();    
+    }
+
+    public void StateChecker ()
+    {
+
         if (moveMode == MoveMode.idle)
         {
             if (timeEnergy < TimeCanRun)
@@ -71,7 +108,7 @@ public class PlayerMovement : MonoBehaviour
                 timeEnergy += (EnergyBackSpeed * 2 * Time.fixedDeltaTime);
             }
         }
-        
+
         else if (moveMode == MoveMode.walk)
         {
             controller.Move(horizontalMove * WalkSpeed * Time.fixedDeltaTime, false, false);
@@ -80,7 +117,7 @@ public class PlayerMovement : MonoBehaviour
                 timeEnergy += EnergyBackSpeed * Time.fixedDeltaTime;
             }
         }
-        
+
         else if (moveMode == MoveMode.run)
         {
             controller.Move(horizontalMove * RunSpeed * Time.fixedDeltaTime, false, false);
@@ -90,16 +127,16 @@ public class PlayerMovement : MonoBehaviour
             }
             else
             {
-                animator.SetBool("NoEnergy",true);
+                animator.SetBool("NoEnergy", true);
                 moveMode = MoveMode.noEnergy;
                 timeRest = TimeRest;
                 timeEnergy = 0.5f;
 
-                if(SceneManager.GetActiveScene().name == "Scene 2")
-                       _controller.GetComponent<Scene2>().CheckEvent(1);
+                if (SceneManager.GetActiveScene().name == "Scene 2")
+                    _controller.GetComponent<Scene2>().CheckEvent(1);
             }
         }
-        
+
         else if (moveMode == MoveMode.noEnergy)
         {
             if (timeRest > 0)
@@ -109,18 +146,19 @@ public class PlayerMovement : MonoBehaviour
             else
             {
                 horizontalMove = 0;
-                animator.SetBool("Run",false);
-                animator.SetBool("NoEnergy",false);
+                animator.SetBool("Run", false);
+                animator.SetBool("NoEnergy", false);
                 moveMode = MoveMode.idle;
             }
         }
-        
-        
-        
+
     }
-    
+
     public void MoveRight()
     {
+
+        if (CantMoveRight)
+            return;
 
         if (moveMode != MoveMode.noEnergy)
         {
@@ -132,6 +170,8 @@ public class PlayerMovement : MonoBehaviour
     
     public void MoveLeft()
     {
+        if (CantMoveLeft)
+            return;
 
         if (moveMode != MoveMode.noEnergy)
         {

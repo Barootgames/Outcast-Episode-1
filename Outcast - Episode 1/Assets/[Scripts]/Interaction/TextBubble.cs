@@ -14,14 +14,23 @@ public class TextBubble : MonoBehaviour
     public bool facingRight = true;
     public float localX = -23f;
 
+    public Transform ChangePos;
+    private Vector3 orginPos;
+    private Transform Holder;
+
     private void Start()
     {
+        Holder = transform.GetChild(0);
+
+        orginPos = Holder.position;
+
         controller2D = FindObjectOfType<CharacterController2D>();
         facingRight = controller2D.IsFacingRight();
     }
 
     private void Update()
     {
+
         if (!controller2D.IsFacingRight() && facingRight)
         {
             facingRight = controller2D.IsFacingRight();
@@ -32,6 +41,7 @@ public class TextBubble : MonoBehaviour
             facingRight = controller2D.IsFacingRight();
             Flip(false);
         }
+
     }
     public void TypeText(string str)
     {
@@ -87,5 +97,22 @@ public class TextBubble : MonoBehaviour
             localPos.x = 0;
         }
         transform.GetChild(0).localPosition = localPos;
+    }
+
+    private void OnTriggerEnter2D(Collider2D collision)
+    {
+        if (collision.tag == "Wall")
+        {
+            Holder.position = ChangePos.position;
+        }
+    }
+
+    private void OnTriggerExit2D(Collider2D collision)
+    {
+        if(collision.tag == "Wall")
+        {
+            Holder.position = orginPos;
+        }
+           
     }
 }
