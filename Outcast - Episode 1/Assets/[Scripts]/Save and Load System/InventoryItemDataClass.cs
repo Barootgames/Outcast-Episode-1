@@ -17,9 +17,6 @@ public class InventoryItemDataClass
     [TextArea(2, 5)]
     public string MainInfo;
 
-
-
-
     public Sprite ItemSprite;
     public Sprite BackDocument;
 

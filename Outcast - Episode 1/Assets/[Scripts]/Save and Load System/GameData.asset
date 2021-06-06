@@ -16,20 +16,9 @@ MonoBehaviour:
   RespawnPoint: 0
   FaceRight: 1
   isOnCanvas: 0
-  inventoryItems:
-  - ItemId: 0
-    ItemName: 0
-    isDocument: 0
-    DocumentName: 
-    ShortInfo: 
-    MainInfo: 
-    ItemSprite: {fileID: -4166746460642079921, guid: b439d014fd982b048a09788232ecc3e8,
-      type: 3}
-    BackDocument: {fileID: 0}
-    hasViewed: 0
+  inventoryItems: []
   gameEvents: []
-  itemIds:
-  - 0
+  itemIds: []
   missions: []
   currentMission: 
   currentMissionIndex: 0

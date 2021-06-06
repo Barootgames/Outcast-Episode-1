@@ -88,4 +88,22 @@ public class GameData : ScriptableObject
         }
         itemIds = data.InventoryItemIds;
     }
+
+    public void ResetGameData()
+    {
+        gameEvents = new List<GameEventDataClass>();
+        itemIds = new List<string>();
+        missions = new List<string>();
+
+        itemIds = new List<string>();
+        missions = new List<string>();
+        steps = new bool[70];
+
+        isOnCanvas = false;
+
+        for (int i = 0; i < steps.Length; i++)
+        {
+            steps[i] = false;
+        }
+    }
 }
