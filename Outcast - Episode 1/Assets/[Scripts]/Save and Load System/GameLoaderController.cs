@@ -8,7 +8,6 @@ public class GameLoaderController : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        DontDestroyOnLoad(gameObject);
         dataController = FindObjectOfType<GameDataController>();
         GameDataBinary data = SaveAndLoadSystem.LoadGame();
         dataController.gameData.LoadFromGameDataBinary(data);

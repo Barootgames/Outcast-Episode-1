@@ -1,4 +1,5 @@
 ﻿using UnityEngine;
+using UnityEngine.Experimental.Rendering.Universal;
 
 public class GameDataController : MonoBehaviour
 {
@@ -14,7 +15,6 @@ public class GameDataController : MonoBehaviour
         {
             instance = this;
         }
-        DontDestroyOnLoad(gameObject);
 
         if (gameData != null)
         {
@@ -33,7 +33,16 @@ public class GameDataController : MonoBehaviour
                 }
             }
         }
-       
+
+        Light2D[] lights = FindObjectsOfType<Light2D>();
+
+        foreach(Light2D light in lights)
+        {
+            if(light.lightType == Light2D.LightType.Global)
+            {
+                light.intensity = LightController.GlobalIntesity;
+            }
+        }
            
     }
 

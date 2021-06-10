@@ -143,7 +143,7 @@ public class InteractionController : MonoBehaviour
 
 
 
-                   else if (SceneManager.GetActiveScene().buildIndex == 2)
+                   else if (SceneManager.GetActiveScene().name.Equals("Scene 3 FF"))
                     {
                         Controller.GetComponent<Scene3>().CheckTouch(this.name);
                     }

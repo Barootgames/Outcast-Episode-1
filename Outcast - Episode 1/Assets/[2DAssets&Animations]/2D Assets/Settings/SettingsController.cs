@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.Audio;
+using UnityEngine.Experimental.Rendering.Universal;
 
 public class SettingsController : MonoBehaviour
 {
@@ -12,6 +13,8 @@ public class SettingsController : MonoBehaviour
 
     public Slider MusicSlider;
     public Slider SFXSlider;
+
+    public Slider LightingSlider;
 
     public float MusicVolumeValue;
     public float SFXVolumeValue;
@@ -44,6 +47,21 @@ public class SettingsController : MonoBehaviour
     void Update()
     {
         
+    }
+
+    public void OnVolumeChangedLighting()
+    {
+        LightController.GlobalIntesity = LightingSlider.value;
+
+        Light2D[] lights = FindObjectsOfType<Light2D>();
+
+        foreach (Light2D light in lights)
+        {
+            if (light.lightType == Light2D.LightType.Global)
+            {
+                light.intensity = LightController.GlobalIntesity;
+            }
+        }
     }
 
     public void OnVolumeChanged()

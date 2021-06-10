@@ -78,15 +78,18 @@ public class GameData : ScriptableObject
 
     public void LoadFromGameDataBinary(GameDataBinary data)
     {
-        CurrentSceneName = data.CurrentSceneName;
-        RespawnPoint = data.RespawnPoint;
-        FaceRight = data.FaceRight;
-        for (int i = 0; i < data.steps.Length; i++)
+        if(data != null)
         {
-            steps[i] = data.steps[i];
-            Step._steps[i] = data.steps[i];
+            CurrentSceneName = data.CurrentSceneName;
+            RespawnPoint = data.RespawnPoint;
+            FaceRight = data.FaceRight;
+            for (int i = 0; i < data.steps.Length; i++)
+            {
+                steps[i] = data.steps[i];
+                Step._steps[i] = data.steps[i];
+            }
+            itemIds = data.InventoryItemIds;
         }
-        itemIds = data.InventoryItemIds;
     }
 
     public void ResetGameData()

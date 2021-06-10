@@ -12,9 +12,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b8d4506dcc506ae41bcbc8bcff7f7948, type: 3}
   m_Name: GameData
   m_EditorClassIdentifier: 
-  CurrentSceneName: Scene 3-1 FF - Dream
-  RespawnPoint: 1
-  FaceRight: 0
+  CurrentSceneName: Scene 2
+  RespawnPoint: 0
+  FaceRight: 1
   isOnCanvas: 0
   inventoryItems:
   - ItemId: Fuse
@@ -72,12 +72,8 @@ MonoBehaviour:
     BackDocument: {fileID: 0}
     hasViewed: 0
   gameEvents: []
-  itemIds:
-  - 
-  - "\u0631\u0648\u0632\u0646\u0627\u0645\u0647"
-  - "\uFEEA\uFEE3\uFE8E\uFEE7\u0632\u0648\u0631"
-  - m
+  itemIds: []
   missions: []
   currentMission: 
   currentMissionIndex: 0
-  steps: 01010101010000010000000100010101010101010101010101010000000000000000010100000000000000000000000000000000000000000000000000000000000000000000
+  steps: 01010000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000
