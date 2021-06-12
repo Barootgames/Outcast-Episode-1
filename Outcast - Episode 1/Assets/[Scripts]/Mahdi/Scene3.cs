@@ -120,7 +120,7 @@ public class Scene3 : MonoBehaviour
 
         if (_step.Steps[10])
         {
-            GameObject.FindObjectOfType<InventoryManger>().AddItemFromLoad("KeyArtanRoom", _keyArtanRoom);
+            GameObject.FindObjectOfType<InventoryManger>().AddItem("KeyArtanRoom", _keyArtanRoom);
             _step.DoWork(11);
         }
 

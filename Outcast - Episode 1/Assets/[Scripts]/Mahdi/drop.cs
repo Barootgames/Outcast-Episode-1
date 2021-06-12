@@ -2,7 +2,7 @@
 using UnityEngine.EventSystems;
 
 
-public class drop : MonoBehaviour, IDropHandler , IPointerEnterHandler
+public class drop : MonoBehaviour, IDropHandler
 {
     private InventoryManger manger;
 
@@ -11,34 +11,14 @@ public class drop : MonoBehaviour, IDropHandler , IPointerEnterHandler
         manger = GameObject.FindObjectOfType<InventoryManger>();
     }
 
-    void  IPointerEnterHandler.OnPointerEnter(PointerEventData eventData)
-    {
-
-
-        manger.transform.GetChild(1).GetChild(5).SetAsFirstSibling();
-
-        manger.GetComponent<InventoryManger>().item_drop_name = gameObject.name;
-        
-        manger.GetComponent<InventoryManger>().TryToCombin();
-        manger.GetComponent<InventoryManger>().item_drag_name = "";
-        manger.GetComponent<InventoryManger>().item_drop_name = "";
-
-    }
-
 
     void IDropHandler.OnDrop(PointerEventData eventData)
     {
-        /*
-        manger.transform.GetChild(0).GetChild(5).SetAsFirstSibling();
+        manger.transform.GetChild(1).GetChild(5).SetAsFirstSibling();
 
+        manger.GetComponent<InventoryManger>().TryToCombin(this.name);
 
-
-        print( "Drag:" + manger.item_drag_name);
-        print(  "Drop:" + manger.item_drop_name);
-
-        manger.GetComponent<InventoryManger>().TryToCombin();
         manger.GetComponent<InventoryManger>().item_drag_name = "";
         manger.GetComponent<InventoryManger>().item_drop_name = "";
-        */
     }
 }

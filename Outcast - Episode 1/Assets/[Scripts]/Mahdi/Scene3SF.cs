@@ -39,13 +39,20 @@ public class Scene3SF : MonoBehaviour
     
     void Start()
     {
+
         #region Steps
         _step = GameObject.FindObjectOfType<Step>();
 
         if(!_step.Steps[12])
         {
+            Door4Interaction.SetActive(false);
             DoorRoom4VIP.SetActive(true);
         }
+        else
+        {
+            Door4Interaction.SetActive(true);
+            DoorRoom4VIP.SetActive(false);
+        }           
 
         if(_step.Steps[36] && !_step.Steps[37])
         {
@@ -164,6 +171,7 @@ public class Scene3SF : MonoBehaviour
             VolumeUp();
     }
 
+
     public void PlaySound(AudioClip clip, float volume)
     {
         SoundPlayer.clip = clip;
@@ -182,6 +190,12 @@ public class Scene3SF : MonoBehaviour
                 Lida.SetActive(false);
             }
         }
+    }
+
+    public void KeyUsed ()
+    {
+        Door4Interaction.SetActive(true);
+        DoorRoom4VIP.SetActive(false);
     }
 
     void ArtanWear ()

@@ -134,19 +134,15 @@ public class InteractionController : MonoBehaviour
 
                     #region mahdi
 
-                    if (Controller && Controller.GetComponent<Scene2>())
-                        Controller.GetComponent<Scene2>().CheckTouch(this.name);
-
-
-                    if(SceneName == "Scene 2") 
-                         Controller.GetComponent<Scene2>().CheckTouch(this.name);
-
-
-
-                   else if (SceneManager.GetActiveScene().name.Equals("Scene 3 FF"))
+                    if(SceneName == "Scene 2")
                     {
-                        Controller.GetComponent<Scene3>().CheckTouch(this.name);
+                        Controller.GetComponent<Scene2>().CheckTouch(this.name);
+                        print("OK");
                     }
+                       
+
+                    if(SceneManager.GetActiveScene().name.Equals("Scene 3 FF"))
+                        Controller.GetComponent<Scene3>().CheckTouch(this.name);
 
                     if(SceneName == "Scene 4-1 VIP Room - Dream")
                         Controller.GetComponent<VIPDream>().CheckTouch(this.name);

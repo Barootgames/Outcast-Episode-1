@@ -31,7 +31,6 @@ public class Scene4VIP : MonoBehaviour
 
         if(_step.Steps[36] && !_step.Steps[37])
         {
-            //  StartCoroutine(KnockKnockLoop(TimeKnockKnock));
             music.volume = 0f;
             music2.volume = 0f;
             AfterSleep = true;
@@ -70,7 +69,7 @@ public class Scene4VIP : MonoBehaviour
     {
         yield return new WaitForSeconds(wait);
         GameObject.FindObjectOfType<Step>().DoWork(13);
-        SceneManager.LoadScene(7);
+        SceneManager.LoadScene("Scene 4-1 VIP Room - Dream");
     }
 
     IEnumerator KnockKnockLoop (float wait)
