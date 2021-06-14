@@ -11,8 +11,6 @@ public class ObjectDrop : MonoBehaviour
         _inventoryManger = GameObject.FindObjectOfType<InventoryManger>();
     }
 
-
-
     void Update()
     {
         if(Used)
@@ -49,12 +47,9 @@ public class ObjectDrop : MonoBehaviour
                     Used = true;
                 }
 
-                if (GameObject.FindObjectOfType<InventoryManger>().item_drag_name == "Zero Key" &&
+                if (GameObject.FindObjectOfType<InventoryManger>().item_drag_name == "ZeroKey" &&
                            this.name == "Door0")
                 {
-                    print("ok");
-
-
                     _inventoryManger.SpecialCombin(4);
                     _inventoryManger.item_drag_name = "";
                     _inventoryManger.item_drop_name = "";

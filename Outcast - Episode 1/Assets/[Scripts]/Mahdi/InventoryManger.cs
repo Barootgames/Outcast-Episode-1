@@ -63,7 +63,6 @@ public class InventoryManger : MonoBehaviour
         _step = GameObject.FindObjectOfType<Step>();
     }
 
-
     public void AddItem (string itemName,Sprite itemImage)
     {
 
@@ -80,7 +79,7 @@ public class InventoryManger : MonoBehaviour
         // add to inventory
 
 
-        StartCoroutine(CloseInventoryByDelay(0.8f));
+        Invoke("CloseInventoryByDelay", 0.5f);
 
 
         #region Step
@@ -174,7 +173,7 @@ public class InventoryManger : MonoBehaviour
         documents[numberDocInInventory].BackDoc = Backdoc;
 
 
-        StartCoroutine(CloseInventoryByDelay(0.8f));
+        Invoke("CloseInventoryByDelay", 0.5f);
 
         if (numberDocInInventory == 1)
             PageInDoc = 1;
@@ -199,8 +198,11 @@ public class InventoryManger : MonoBehaviour
         DocumentShow();
     }
 
-    public void TryToCombin()
+    public void TryToCombin(string dropName)
     {
+
+        item_drop_name = dropName;
+
         for (int i = 0; i < _combinItems.Length; i++)
         {
             if (item_drag_name == _combinItems[i].item1.name && item_drop_name == _combinItems[i].item2.name)
@@ -209,7 +211,7 @@ public class InventoryManger : MonoBehaviour
                 RemoveItem(_combinItems[i].item2.name);
                 AddItem(_combinItems[i].result.name,_combinItems[i].result);
                 GameDataController.instance.gameData.Combine(_combinItems[i].item1.name, _combinItems[i].item2.name, _combinItems[i].result.name);
-                StartCoroutine(CloseInventoryByDelay(0.8f));
+                Invoke("CloseInventoryByDelay", 0.5f);
             }
             
             if (item_drag_name == _combinItems[i].item2.name && item_drop_name == _combinItems[i].item1.name)
@@ -218,42 +220,44 @@ public class InventoryManger : MonoBehaviour
                 RemoveItem(_combinItems[i].item2.name);
                 AddItem(_combinItems[i].result.name,_combinItems[i].result);
                 GameDataController.instance.gameData.Combine(_combinItems[i].item1.name, _combinItems[i].item2.name, _combinItems[i].result.name);
-                StartCoroutine(CloseInventoryByDelay(0.8f));
+                Invoke("CloseInventoryByDelay", 0.5f);
             }
-
-            #region Special
-
-            if (item_drag_name == "Fuse" && item_drop_name == "FusePlace")
-            {
-                RemoveItem("Fuse");
-                GameObject.FindObjectOfType<Step>().DoWork(9);
-                GameObject.FindObjectOfType<Scene2>().FuseCheck();
-
-                StartCoroutine(CloseInventoryByDelay(0.8f));
-            }
-
-            if (item_drag_name == "Tape" && item_drop_name == "BookR")
-            {
-                RemoveItem("Tape");
-                RemoveItem("BookR");
-                AddDocument(AllDocument[0].ImageDocument,AllDocument[0].BackDoc,AllDocument[0].nameDocument , AllDocument[0].ShortInfo,AllDocument[0].infoDocument, null);
-
-                StartCoroutine(CloseInventoryByDelay(0.8f));
-
-            }
-
-            if (item_drag_name == "BookR" && item_drop_name == "Tape")
-            {
-                RemoveItem("Tape");
-                RemoveItem("BookR");
-                AddDocument(AllDocument[0].ImageDocument, AllDocument[0].BackDoc, AllDocument[0].nameDocument, AllDocument[0].ShortInfo, AllDocument[0].infoDocument, null);
-
-                StartCoroutine(CloseInventoryByDelay(0.8f));
-            }
-
-
-            #endregion
         }
+
+        #region Special
+
+        if (item_drag_name == "Fuse" && item_drop_name == "FusePlace")
+        {
+            RemoveItem("Fuse");
+            GameObject.FindObjectOfType<Step>().DoWork(9);
+            GameObject.FindObjectOfType<Scene2>().FuseCheck();
+
+            
+
+            Invoke("CloseInventoryByDelay", 0.5f);
+        }
+        else if (item_drag_name == "Tape" && item_drop_name == "BookR")
+        {
+            RemoveItem("Tape");
+            RemoveItem("BookR");
+            AddDocument(AllDocument[0].ImageDocument, AllDocument[0].BackDoc, AllDocument[0].nameDocument, AllDocument[0].ShortInfo, AllDocument[0].infoDocument, null);
+
+            Invoke("CloseInventoryByDelay", 0.5f);
+
+        }
+
+
+        if (item_drag_name == "BookR" && item_drop_name == "Tape")
+        {
+            RemoveItem("Tape");
+            RemoveItem("BookR");
+            AddDocument(AllDocument[0].ImageDocument, AllDocument[0].BackDoc, AllDocument[0].nameDocument, AllDocument[0].ShortInfo, AllDocument[0].infoDocument, null);
+
+            Invoke("CloseInventoryByDelay", 0.5f);
+        }
+
+
+        #endregion
     }
 
     public void SpecialCombin (int a)
@@ -263,24 +267,29 @@ public class InventoryManger : MonoBehaviour
         {
             RemoveItem("KeyArtanRoom");
             GameObject.FindObjectOfType<Step>().DoWork(12);
+            GameObject.FindObjectOfType<Scene3SF>().KeyUsed();
+            Invoke("CloseInventoryByDelay", 0.5f);
         }
 
         if (a == 2)
         {
             RemoveItem("BookR");
             RemoveItem("Tape");
+            Invoke("CloseInventoryByDelay", 0.5f);
         }
 
         if (a == 3)
         {
             RemoveItem("Battery");
-            GameObject.FindObjectOfType<VIPDream>().ControlFully();   
+            GameObject.FindObjectOfType<VIPDream>().ControlFully();
+            Invoke("CloseInventoryByDelay", 0.5f);
         }
 
         if(a == 4)
         {
             RemoveItem("Zero Key");
             GameObject.FindObjectOfType<SFLong>().Door0OPen();
+            Invoke("CloseInventoryByDelay", 0.5f);
         }
     }
     
@@ -451,9 +460,8 @@ public class InventoryManger : MonoBehaviour
         }
     }
 
-    IEnumerator CloseInventoryByDelay (float a)
+    public void CloseInventoryByDelay ()
     {
-        yield return new WaitForSeconds(a);
         info.SetActive(false);
         QuickInventory.SetActive(false);
         InfoButton.SetActive(false);

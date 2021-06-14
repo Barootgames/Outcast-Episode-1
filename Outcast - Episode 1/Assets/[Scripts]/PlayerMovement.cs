@@ -182,6 +182,9 @@ public class PlayerMovement : MonoBehaviour
 
     public void Stop()
     {
+        // Stop All
+        RunStop();
+
         if (moveMode != MoveMode.noEnergy)
         {     
             moveMode = MoveMode.idle;
@@ -214,19 +217,19 @@ public class PlayerMovement : MonoBehaviour
             // orginal
 
             transform.GetChild(2)
-                .GetComponent<SpriteResolver>().SetCategoryAndLabel("BaseBody", "Original");
+                .GetComponent<SpriteResolver>().SetCategoryAndLabel("BaseBody", "New");
 
             transform.GetChild(10)
-               .GetComponent<SpriteResolver>().SetCategoryAndLabel("LeftArm", "Original");
+               .GetComponent<SpriteResolver>().SetCategoryAndLabel("LeftArm", "New");
 
             transform.GetChild(13)
-              .GetComponent<SpriteResolver>().SetCategoryAndLabel("LeftUpArm", "Original");
+              .GetComponent<SpriteResolver>().SetCategoryAndLabel("LeftUpArm", "New");
 
             transform.GetChild(18)
-              .GetComponent<SpriteResolver>().SetCategoryAndLabel("RightArm", "Original");
+              .GetComponent<SpriteResolver>().SetCategoryAndLabel("RightArm", "New");
 
             transform.GetChild(21)
-              .GetComponent<SpriteResolver>().SetCategoryAndLabel("RightUpArm", "Original");
+              .GetComponent<SpriteResolver>().SetCategoryAndLabel("RightUpArm", "New");
         }
 
         if (a == 1)

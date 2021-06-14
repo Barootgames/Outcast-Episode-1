@@ -179,15 +179,19 @@ public class Scene2 : MonoBehaviour
         }
 
         if (name == "Interaction FuseBox" && FuseBox.transform.GetChild(0).gameObject.activeInHierarchy)
-        { 
-            FusePlace.SetActive(true);          
+        {
+            // Another Time
+            PanelFuseBox.SetActive(true);
+            FusePlace.SetActive(true);
         }
 
         if (name == "Interaction FuseBox" && !FuseBox.transform.GetChild(0).gameObject.activeInHierarchy && _step.Steps[7] && !_step.Steps[10])
         {
+            // First Time
             FuseBox.transform.GetChild(0).gameObject.SetActive(true);
             FuseBox.transform.GetChild(1).gameObject.SetActive(false);
             PanelFuseBox.SetActive(true);
+            FusePlace.SetActive(true);
         }
 
     }
