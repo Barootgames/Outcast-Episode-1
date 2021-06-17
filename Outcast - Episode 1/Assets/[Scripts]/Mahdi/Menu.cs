@@ -8,7 +8,21 @@ public class Menu : MonoBehaviour
 
     [SerializeField] private GameObject LoadingPanel;
     [SerializeField] private Slider loadingBar;
-    
+
+    [SerializeField] private GameObject Summary;
+
+    [SerializeField] private bool isOnSummary;
+
+    [SerializeField] private GameObject RedLabel;
+    [SerializeField] private GameObject RedLabelSelf;
+    [SerializeField] private GameObject SummaryTitle;
+    [SerializeField] private float SummaryTitleDefaultPosX;
+    [SerializeField] private float SummaryTitleSelectedPosX;
+
+    [SerializeField] private GameObject FirstTitle;
+    [SerializeField] private float FirstTitleDefaultPosX;
+    [SerializeField] private float FirstTitleSelectedPosX;
+
     void Start()
     {
         
@@ -21,7 +35,37 @@ public class Menu : MonoBehaviour
 
     public void buttonQuit()
     {
+        OnDataSummaryOff();
         Application.Quit();
+    }
+
+    public void OnDataSummary()
+    {
+        if (!Summary.activeInHierarchy)
+        {
+            Summary.SetActive(true);
+        }
+        if (!isOnSummary)
+        {
+            RedLabel.SetActive(false);
+            RedLabelSelf.SetActive(true);
+            SummaryTitle.GetComponent<RectTransform>().anchoredPosition = new Vector2(SummaryTitleSelectedPosX, SummaryTitle.GetComponent<RectTransform>().anchoredPosition.y);
+            FirstTitle.GetComponent<RectTransform>().anchoredPosition = new Vector2(FirstTitleSelectedPosX, FirstTitle.GetComponent<RectTransform>().anchoredPosition.y);
+        }
+        Summary.GetComponent<Animator>().SetBool("fade", true);
+        isOnSummary = true;
+    }
+
+    public void OnDataSummaryOff()
+    {
+        if (isOnSummary)
+        {
+            Summary.GetComponent<Animator>().SetBool("fade", false);
+            RedLabel.SetActive(true);
+            RedLabelSelf.SetActive(false);
+            SummaryTitle.GetComponent<RectTransform>().anchoredPosition = new Vector2(SummaryTitleDefaultPosX, SummaryTitle.GetComponent<RectTransform>().anchoredPosition.y);
+            FirstTitle.GetComponent<RectTransform>().anchoredPosition = new Vector2(FirstTitleDefaultPosX, FirstTitle.GetComponent<RectTransform>().anchoredPosition.y);
+        }
     }
 
     public void buttonStart(int SceneIndex)
