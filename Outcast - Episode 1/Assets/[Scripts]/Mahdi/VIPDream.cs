@@ -48,6 +48,12 @@ public class VIPDream : MonoBehaviour
     [SerializeField] private GameObject RefrigeratorOpen2;
     [SerializeField] private GameObject RefrigeratorClose2;
 
+
+    // 
+    [SerializeField] private Animator Margin;
+    [SerializeField] private ConversationObject dialog;
+    [SerializeField] private GameObject Artan;
+
     void Start()
     {
         _step = GameObject.FindObjectOfType<Step>();
@@ -62,6 +68,8 @@ public class VIPDream : MonoBehaviour
             StartCoroutine(GlassBrokenEvent(3f));
             music.volume = 0;
             music2.volume = 0;
+
+            GameObject.FindObjectOfType<CharacterController2D>().Flip();
             #endregion
         }
 
@@ -131,6 +139,7 @@ public class VIPDream : MonoBehaviour
     IEnumerator FadeEnd (float waitTime)
     {
         yield return new WaitForSeconds(waitTime);
+        MarginOpen();
         PanelFade.SetActive(false);
     }
 
@@ -241,6 +250,25 @@ public class VIPDream : MonoBehaviour
         {
             RefrigeratorIntraction2();
         }
+    }
+
+
+    public void MarginOpen()
+    {
+        Margin.gameObject.SetActive(true);
+        Margin.SetBool("Show", true);
+
+        GameObject.FindObjectOfType<DialogueInteraction>().OnDialogueStarted
+            (Artan);
+        GameObject.FindObjectOfType<DialogueController>().SetDialog(dialog);
+
+        GameObject.FindObjectOfType<PlayerMovement>().RunStop();
+        GameObject.FindObjectOfType<PlayerMovement>().Stop();
+
+    }
+    public void MarginClose()
+    {
+        Margin.SetBool("Show", false);
     }
 
     private void Update()

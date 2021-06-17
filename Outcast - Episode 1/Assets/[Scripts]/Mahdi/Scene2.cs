@@ -63,7 +63,6 @@ public class Scene2 : MonoBehaviour
     [SerializeField] private GameObject Lida;
     [SerializeField] private GameObject TriggerLida;
     [SerializeField] private Animator Margin;
-    [SerializeField] private GameObject MoveHolder;
     [SerializeField] private ConversationObject dialog;
     [SerializeField] private GameObject Artan;
 
@@ -232,7 +231,6 @@ public class Scene2 : MonoBehaviour
                 PlaySound(Soundthunder2, false, Volume2);
                 if(timeEnter == 5)
                 {
-
                     _step.DoWork(5);
                 }
             }
@@ -349,7 +347,7 @@ public class Scene2 : MonoBehaviour
     {
         Margin.gameObject.SetActive(true);
         Margin.SetBool("Show", true);
-        MoveHolder.SetActive(false);
+
 
         GameObject.FindObjectOfType<DialogueInteraction>().OnDialogueStarted
             (Artan);

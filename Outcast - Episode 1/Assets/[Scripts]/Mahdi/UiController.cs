@@ -11,7 +11,7 @@ public class UiController : MonoBehaviour
 
     private void Start()
     {
-        DontDestroyOnLoad(gameObject);
+       // DontDestroyOnLoad(gameObject);
 
         inventoryAnimator = GameObject.Find("Inventory").GetComponent<Animator>();
         btnInventoryAnimator = GameObject.Find("Inventorybtn").GetComponent<Animator>();

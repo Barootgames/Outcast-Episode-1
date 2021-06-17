@@ -27,7 +27,7 @@ public class RemoteControlRiddle : MonoBehaviour
     private void Start()
     {
         symbol.SetActive(false);
-        GameDataController.instance.gameData.isOnCanvas = true;
+       // GameDataController.instance.gameData.isOnCanvas = true;
     }
 
     private void Update()

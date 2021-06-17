@@ -22150,7 +22150,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -23.682184, y: -2.1701472}
+  m_AnchoredPosition: {x: -23.683855, y: -2.1701472}
   m_SizeDelta: {x: 100, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &745415227
@@ -32236,12 +32236,6 @@ MonoBehaviour:
   - {x: 0.5, y: -0.5, z: 0}
   - {x: 0.5, y: 0.5, z: 0}
   - {x: -0.5, y: 0.5, z: 0}
---- !u!1 &1291917597 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 5372467637972533623, guid: 58a027bf81147f94d96617527b404d58,
-    type: 3}
-  m_PrefabInstance: {fileID: 945503785}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &1306990851
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -36021,7 +36015,7 @@ BoxCollider2D:
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 7.44, y: 12.7}
+    oldSize: {x: 7.4414062, y: 12.7}
     newSize: {x: 5.52, y: 11.1}
     adaptiveTilingThreshold: 0.5
     drawMode: 0
@@ -36968,7 +36962,7 @@ MonoBehaviour:
     ModeOverride: 0
     LensShift: {x: 0, y: 0}
     GateFit: 0
-    m_SensorSize: {x: 1.7781955, y: 1}
+    m_SensorSize: {x: 1.7777778, y: 1}
   m_Transitions:
     m_BlendHint: 0
     m_InheritPosition: 0
@@ -37601,7 +37595,7 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 0.73, y: 2.82}
+  m_Size: {x: 1.3, y: 3.8}
   m_EdgeRadius: 0
 --- !u!82 &1719255329
 AudioSource:
@@ -38162,6 +38156,16 @@ PrefabInstance:
       propertyPath: _controller
       value: 
       objectReference: {fileID: 2118813504}
+    - target: {fileID: 56934022135014958, guid: 553619230e3792a4e987d51035b977f6,
+        type: 3}
+      propertyPath: MoveSounds.Array.data[1]
+      value: 
+      objectReference: {fileID: 8300000, guid: b616e7f97c49a424abbfc23937b7fd04, type: 3}
+    - target: {fileID: 56934022135014958, guid: 553619230e3792a4e987d51035b977f6,
+        type: 3}
+      propertyPath: MoveSounds.Array.data[2]
+      value: 
+      objectReference: {fileID: 8300000, guid: 146d05e27ef814a4c85614a658bd869c, type: 3}
     - target: {fileID: 4189445770920155465, guid: 553619230e3792a4e987d51035b977f6,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -41434,7 +41438,6 @@ MonoBehaviour:
   Lida: {fileID: 22892117}
   TriggerLida: {fileID: 194477358}
   Margin: {fileID: 2041456801}
-  MoveHolder: {fileID: 1291917597}
   dialog: {fileID: 11400000, guid: 65ed00cd86a7c054d833d1312adf14fc, type: 2}
   Artan: {fileID: 1751424285}
   PanelFade: {fileID: 1710218740}

@@ -137,7 +137,6 @@ public class InteractionController : MonoBehaviour
                     if(SceneName == "Scene 2")
                     {
                         Controller.GetComponent<Scene2>().CheckTouch(this.name);
-                        print("OK");
                     }
                        
 

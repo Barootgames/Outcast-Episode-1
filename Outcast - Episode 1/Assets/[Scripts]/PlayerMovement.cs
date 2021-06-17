@@ -1,4 +1,4 @@
-﻿using System;
+﻿//using System;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.Experimental.U2D.Animation;
@@ -28,6 +28,13 @@ public class PlayerMovement : MonoBehaviour
     private bool CantMoveRight = false;
     private bool CantMoveLeft = false;
 
+    public AudioSource audioSource;
+    public AudioClip[] MoveSounds;
+
+    public float BetweenTimeWalk;
+    public float BetweenTimeRun;
+
+    private int SoundIn;
 
     void Start()
     {
@@ -41,6 +48,9 @@ public class PlayerMovement : MonoBehaviour
         timeRest = TimeRest;
         timeEnergy = TimeCanRun;
         moveMode = MoveMode.idle;
+
+        if (audioSource == null)
+            audioSource = GetComponent<AudioSource>();
     }
 
 
@@ -164,6 +174,8 @@ public class PlayerMovement : MonoBehaviour
         {
             moveMode = MoveMode.walk;
             horizontalMove = 1;
+
+            SoundPlayer();
         }
 
     }
@@ -177,6 +189,8 @@ public class PlayerMovement : MonoBehaviour
         {
             moveMode = MoveMode.walk;
             horizontalMove = -1;
+
+            SoundPlayer();
         }
     }
 
@@ -198,6 +212,7 @@ public class PlayerMovement : MonoBehaviour
         {
             moveMode = MoveMode.run;
             animator.SetBool("Run",true);
+            SoundPlayer();
         }
     }
 
@@ -207,7 +222,11 @@ public class PlayerMovement : MonoBehaviour
         {
             moveMode = MoveMode.walk;
             animator.SetBool("Run",false);
+
+            SoundPlayer();
         }
+
+
     }
 
     public void ChangeClothes (int a)
@@ -253,11 +272,39 @@ public class PlayerMovement : MonoBehaviour
               .GetComponent<SpriteResolver>().SetCategoryAndLabel("RightUpArm", "BlackRekabi");
         }
     }
-    
+
+    private void SoundPlayer ()
+    {
+        if(moveMode == MoveMode.walk)
+        {
+            Invoke("SoundPlayer", BetweenTimeWalk);
+        }
+        else if (moveMode == MoveMode.run)
+        {
+            Invoke("SoundPlayer", BetweenTimeRun);
+        }
+        else if( moveMode == MoveMode.idle)
+        {
+            CancelInvoke("SoundPlayer");
+            return;
+        }
+
+
+        // audioSource.clip = MoveSounds[Random.Range(0, MoveSounds.Length)];
+        audioSource.clip = MoveSounds[SoundIn];
+        audioSource.Play();
+
+
+        SoundIn++;
+
+        if (SoundIn == MoveSounds.Length)
+            SoundIn = 0;
+
+    }
 }
 
 
-[Serializable]
+[System.Serializable]
 public enum MoveMode
 {
     idle , walk , run , noEnergy

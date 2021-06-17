@@ -164,6 +164,7 @@ public class DialogueController : MonoBehaviour
 
     public void NextLine()
     {
+
         if ( (lineIndex +1 ) >= conversation.lines.Length)
         {
             if (SceneManager.GetActiveScene().name == "Scene 3 FF")
@@ -181,6 +182,11 @@ public class DialogueController : MonoBehaviour
             else if (SceneManager.GetActiveScene().name == "Scene 4 VIP Room")
             {
                 _Manger.GetComponent<Scene4VIP>().MarginClose();
+                CloseDialogue();
+            }
+            else if (SceneManager.GetActiveScene().name == "Scene 4-1 VIP Room - Dream")
+            {
+                _Manger.GetComponent<VIPDream>().MarginClose();
                 CloseDialogue();
             }
 
