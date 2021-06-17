@@ -21,12 +21,6 @@ EditorBuildSettings:
     path: Assets/SCENES/2 - Motel/Part 1 - Normal/Scene 3 SF.unity
     guid: e96806bbcb8df3f4c8c182c5e80e5fc2
   - enabled: 1
-    path: Assets/SCENES/2 - Motel/Part 1 - Normal/Scene 4 Normal Room.unity
-    guid: 4554c7357c792f44191b62994a88a3fe
-  - enabled: 1
-    path: Assets/SCENES/2 - Motel/Part 2 - Dream/Scene 4-1 Normal Room - Dream.unity
-    guid: 36d9e05699b77a142b43261b47d1f9e0
-  - enabled: 1
     path: Assets/SCENES/2 - Motel/Part 1 - Normal/Scene 4 VIP Room.unity
     guid: d686c41163540ea469fd8bfb282559e7
   - enabled: 1
@@ -35,12 +29,6 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/SCENES/2 - Motel/Part 1 - Normal/Scene 3 WC.unity
     guid: 89f71f3f3eec79944bad0ed95a2090ef
-  - enabled: 1
-    path: Assets/SCENES/3 - Mansion/Scene 5.unity
-    guid: 708b00a3153a3cc418b8a2e775d9713b
-  - enabled: 1
-    path: Assets/SCENES/3 - Mansion/Scene 6.unity
-    guid: 31b61ac2224044f40bf0ba0605aaaee4
   - enabled: 1
     path: Assets/SCENES/2 - Motel/Part 2 - Dream/Scene 3-1 FF - Dream.unity
     guid: cd20c93715b31634ea78ec1b566c1279
