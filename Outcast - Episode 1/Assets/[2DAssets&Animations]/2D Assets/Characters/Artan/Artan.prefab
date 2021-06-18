@@ -3600,10 +3600,10 @@ MonoBehaviour:
   _controller: {fileID: 0}
   animator: {fileID: 56934022135014956}
   WalkSpeed: 30
-  RunSpeed: 50
-  TimeCanRun: 6
-  EnergyBackSpeed: 0.5
-  TimeRest: 5
+  RunSpeed: 55
+  TimeCanRun: 10
+  EnergyBackSpeed: 3
+  TimeRest: 3
   moveMode: 0
   audioSource: {fileID: 0}
   MoveSounds:
