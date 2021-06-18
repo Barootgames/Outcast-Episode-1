@@ -98,7 +98,7 @@ LightmapSettings:
     m_TrainingDataDestination: TrainingData
     m_LightProbeSampleCountMultiplier: 4
   m_LightingDataAsset: {fileID: 0}
-  m_UseShadowmask: 0
+  m_UseShadowmask: 1
 --- !u!196 &4
 NavMeshSettings:
   serializedVersion: 2
@@ -289,7 +289,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: -753774093
   m_SortingLayer: 6
-  m_SortingOrder: 6
+  m_SortingOrder: 8
   m_Sprite: {fileID: 21300000, guid: 302f32c0a6a254447982a5a14972c767, type: 3}
   m_Color: {r: 0.41568628, g: 0.40392157, b: 0.40392157, a: 1}
   m_FlipX: 0
@@ -1476,8 +1476,8 @@ AudioSource:
   OutputAudioMixerGroup: {fileID: 0}
   m_audioClip: {fileID: 8300000, guid: 5b52fef7055e37f4b8c932ec95bb7e30, type: 3}
   m_PlayOnAwake: 1
-  m_Volume: 0.3
-  m_Pitch: 1
+  m_Volume: 0.16
+  m_Pitch: -0.4
   Loop: 1
   Mute: 0
   Spatialize: 0
@@ -1701,7 +1701,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: -462620183
   m_SortingLayer: 5
-  m_SortingOrder: 5
+  m_SortingOrder: 8
   m_Sprite: {fileID: 21300000, guid: cb267f7159afd4e48b3f89d7dbedd270, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 0.50980395}
   m_FlipX: 0
@@ -1804,27 +1804,27 @@ PrefabInstance:
     - target: {fileID: 4528636112967617504, guid: 428f8e2d21c239146af44055c5c1e5f6,
         type: 3}
       propertyPath: m_Offset.x
-      value: 0.19086307
+      value: 0.14570117
       objectReference: {fileID: 0}
     - target: {fileID: 4528636112967617504, guid: 428f8e2d21c239146af44055c5c1e5f6,
         type: 3}
       propertyPath: m_Size.x
-      value: 1.6385795
+      value: 1.8493361
       objectReference: {fileID: 0}
     - target: {fileID: 4528636112967617504, guid: 428f8e2d21c239146af44055c5c1e5f6,
         type: 3}
       propertyPath: m_Offset.y
-      value: -0.59929585
+      value: -0.62940335
       objectReference: {fileID: 0}
     - target: {fileID: 4528636112967617504, guid: 428f8e2d21c239146af44055c5c1e5f6,
         type: 3}
       propertyPath: m_Size.y
-      value: 2.3586168
+      value: 2.5091581
       objectReference: {fileID: 0}
     - target: {fileID: 4528636112967617508, guid: 428f8e2d21c239146af44055c5c1e5f6,
         type: 3}
       propertyPath: m_Name
-      value: Interaction Window
+      value: "\u064CWindow_Int"
       objectReference: {fileID: 0}
     - target: {fileID: 4528636112967617509, guid: 428f8e2d21c239146af44055c5c1e5f6,
         type: 3}
@@ -1884,20 +1884,30 @@ PrefabInstance:
     - target: {fileID: 4528636112967617510, guid: 428f8e2d21c239146af44055c5c1e5f6,
         type: 3}
       propertyPath: textInfos.Array.size
-      value: 2
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 4528636112967617510, guid: 428f8e2d21c239146af44055c5c1e5f6,
         type: 3}
       propertyPath: textInfos.Array.data[0]
-      value: "\u0639\u062C\u0628 \u0628\u0627\u0631\u0648\u0646\u06CC \u0645\u06CC\u0627\u062F!"
+      value: "\u0639\u062C\u0628 \u0628\u0627\u0631\u0648\u0646\u06CC \u06AF\u0631\u0641\u062A\u0647
+        \u0627\u0645\u0634\u0628"
       objectReference: {fileID: 0}
     - target: {fileID: 4528636112967617510, guid: 428f8e2d21c239146af44055c5c1e5f6,
         type: 3}
       propertyPath: textInfos.Array.data[1]
-      value: "\u062E\u0648\u0628 \u0634\u062F \u0628\u0647 \u0631\u0627\u0646\u0646\u062F\u06AF\u06CC
-        \u0627\u062F\u0627\u0645\u0647 \u0646\u062F\u0627\u062F\u0645 ... \u062A\u0648
-        \u0627\u06CC\u0646 \u0647\u0648\u0627 \u062E\u06CC\u0644\u06CC \u062E\u0637\u0631\u0646\u0627\u06A9
-        \u0628\u0648\u062F !"
+      value: "\u0627\u0645\u06CC\u062F\u0648\u0627\u0631\u0645 \u0644\u06CC\u062F\u0627
+        \u0648 \u0646\u0648\u06CC\u062F \u0633\u0631\u0645\u0627 \u0646\u062E\u0648\u0631\u0646"
+      objectReference: {fileID: 0}
+    - target: {fileID: 4528636112967617510, guid: 428f8e2d21c239146af44055c5c1e5f6,
+        type: 3}
+      propertyPath: textInfos.Array.data[2]
+      value: "\u0627\u0632 \u0627\u06CC\u0646\u062C\u0627\u060C \u0628\u06CC\u0631\u0648\u0646
+        \u0632\u06CC\u0627\u062F \u0645\u0639\u0644\u0648\u0645 \u0646\u06CC\u0633\u062A"
+      objectReference: {fileID: 0}
+    - target: {fileID: 4528636112967617510, guid: 428f8e2d21c239146af44055c5c1e5f6,
+        type: 3}
+      propertyPath: textFadeTime
+      value: 3.2
       objectReference: {fileID: 0}
     - target: {fileID: 5467497283883544875, guid: 428f8e2d21c239146af44055c5c1e5f6,
         type: 3}
@@ -3150,12 +3160,12 @@ PrefabInstance:
     - target: {fileID: 4528636112967617504, guid: 428f8e2d21c239146af44055c5c1e5f6,
         type: 3}
       propertyPath: m_Offset.x
-      value: -1.3403721
+      value: -1.3780069
       objectReference: {fileID: 0}
     - target: {fileID: 4528636112967617504, guid: 428f8e2d21c239146af44055c5c1e5f6,
         type: 3}
       propertyPath: m_Size.x
-      value: 2.0031338
+      value: 1.7171078
       objectReference: {fileID: 0}
     - target: {fileID: 4528636112967617504, guid: 428f8e2d21c239146af44055c5c1e5f6,
         type: 3}
@@ -3170,7 +3180,7 @@ PrefabInstance:
     - target: {fileID: 4528636112967617508, guid: 428f8e2d21c239146af44055c5c1e5f6,
         type: 3}
       propertyPath: m_Name
-      value: Interaction TV
+      value: TV_Int
       objectReference: {fileID: 0}
     - target: {fileID: 4528636112967617509, guid: 428f8e2d21c239146af44055c5c1e5f6,
         type: 3}
@@ -3235,15 +3245,18 @@ PrefabInstance:
     - target: {fileID: 4528636112967617510, guid: 428f8e2d21c239146af44055c5c1e5f6,
         type: 3}
       propertyPath: textInfos.Array.data[0]
-      value: "\u062A\u0644\u0648\u06CC\u0632\u06CC\u0648\u0646..."
+      value: "\u062A\u0644\u0648\u06CC\u0632\u06CC\u0648\u0646 \u062E\u0627\u0645\u0648\u0634\u0647"
       objectReference: {fileID: 0}
     - target: {fileID: 4528636112967617510, guid: 428f8e2d21c239146af44055c5c1e5f6,
         type: 3}
       propertyPath: textInfos.Array.data[1]
-      value: "\u062E\u0648\u0628\u0647 \u0627\u06AF\u0647 \u06A9\u0646\u062A\u0631\u0644\u0634
-        \u0631\u0648 \u067E\u06CC\u062F\u0627 \u06A9\u0646\u0645 , \u0645\u06CC\u062A\u0648\u0646\u0645
-        \u062E\u0648\u062F\u0645\u0648 \u06CC\u06A9\u0645 \u0633\u0631\u06AF\u0631\u0645
-        \u06A9\u0646\u0645!"
+      value: "\u0641\u0642\u0637 \u0628\u0627 \u06A9\u0646\u062A\u0631\u0644 \u0631\u0648\u0634\u0646
+        \u0645\u06CC\u0634\u0647 \u0627\u0646\u06AF\u0627\u0631"
+      objectReference: {fileID: 0}
+    - target: {fileID: 4528636112967617510, guid: 428f8e2d21c239146af44055c5c1e5f6,
+        type: 3}
+      propertyPath: textFadeTime
+      value: 2.6
       objectReference: {fileID: 0}
     - target: {fileID: 5467497283883544875, guid: 428f8e2d21c239146af44055c5c1e5f6,
         type: 3}
@@ -3652,7 +3665,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: -753774093
   m_SortingLayer: 6
-  m_SortingOrder: 9
+  m_SortingOrder: 10
   m_Sprite: {fileID: 21300000, guid: f50c782871f7e794785cee1acb396a11, type: 3}
   m_Color: {r: 0.3773585, g: 0.3773585, b: 0.3773585, a: 1}
   m_FlipX: 0
@@ -3742,7 +3755,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   KnockKnockPlayer: {fileID: 741480407}
-  TimeKnockKnock: 5
+  TimeKnockKnock: 4
   PanelChoice: {fileID: 1075170777}
   PanelFade: {fileID: 132907748}
   Margin: {fileID: 1932451370}
@@ -3808,7 +3821,7 @@ AudioSource:
   m_Enabled: 1
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 0}
-  m_audioClip: {fileID: 8300000, guid: dee1a4da3648e264cb56d509ec50ca38, type: 3}
+  m_audioClip: {fileID: 8300000, guid: dc5f067f4862fa24a9967f8552770d16, type: 3}
   m_PlayOnAwake: 0
   m_Volume: 1
   m_Pitch: 1
@@ -4389,7 +4402,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 933748167}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -11.503855, y: -0.41924578, z: -10}
+  m_LocalPosition: {x: -11.506899, y: -0.41924578, z: -10}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 926302932}
@@ -4652,7 +4665,7 @@ PrefabInstance:
         type: 3}
       propertyPath: audioClipOK
       value: 
-      objectReference: {fileID: 8300000, guid: dee1a4da3648e264cb56d509ec50ca38, type: 3}
+      objectReference: {fileID: 8300000, guid: 18e6a5a0b1c4a4448908717b2e143d00, type: 3}
     - target: {fileID: 3374624316712144345, guid: 24669e9bb8d4ae94197d7ec502a023e0,
         type: 3}
       propertyPath: respawnLocationIndex
@@ -4920,9 +4933,9 @@ MonoBehaviour:
   m_BlendStyleIndex: 0
   m_FalloffIntensity: 0.5
   m_Color: {r: 0.8018868, g: 0.55848056, b: 0.16264686, a: 1}
-  m_Intensity: 0.15
+  m_Intensity: 0.35
   m_LightVolumeOpacity: 0
-  m_ApplyToSortingLayers: 67c0d054
+  m_ApplyToSortingLayers: 67c0d054f35112d3ff769e2d
   m_LightCookieSprite: {fileID: 0}
   m_UseNormalMap: 0
   m_LightOrder: 0
@@ -6126,7 +6139,7 @@ ParticleSystemRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: -462620183
   m_SortingLayer: 5
-  m_SortingOrder: 5
+  m_SortingOrder: 4
   m_RenderMode: 0
   m_SortMode: 0
   m_MinParticleSize: 0
@@ -11109,27 +11122,27 @@ PrefabInstance:
     - target: {fileID: 4528636112967617504, guid: 428f8e2d21c239146af44055c5c1e5f6,
         type: 3}
       propertyPath: m_Offset.x
-      value: 0.047449112
+      value: 0.13024664
       objectReference: {fileID: 0}
     - target: {fileID: 4528636112967617504, guid: 428f8e2d21c239146af44055c5c1e5f6,
         type: 3}
       propertyPath: m_Size.x
-      value: 1.6204987
+      value: 1.8162012
       objectReference: {fileID: 0}
     - target: {fileID: 4528636112967617504, guid: 428f8e2d21c239146af44055c5c1e5f6,
         type: 3}
       propertyPath: m_Offset.y
-      value: 0.019999743
+      value: -0.077851534
       objectReference: {fileID: 0}
     - target: {fileID: 4528636112967617504, guid: 428f8e2d21c239146af44055c5c1e5f6,
         type: 3}
       propertyPath: m_Size.y
-      value: 3.1724029
+      value: 3.3681054
       objectReference: {fileID: 0}
     - target: {fileID: 4528636112967617508, guid: 428f8e2d21c239146af44055c5c1e5f6,
         type: 3}
       propertyPath: m_Name
-      value: Interaction WC
+      value: "\u064CWC_In"
       objectReference: {fileID: 0}
     - target: {fileID: 4528636112967617509, guid: 428f8e2d21c239146af44055c5c1e5f6,
         type: 3}
@@ -11199,8 +11212,13 @@ PrefabInstance:
     - target: {fileID: 4528636112967617510, guid: 428f8e2d21c239146af44055c5c1e5f6,
         type: 3}
       propertyPath: textInfos.Array.data[1]
-      value: "\u0645\u06CC\u062A\u0648\u0646\u0645 \u06CC\u06A9\u0645 \u0628\u0647
-        \u0638\u0627\u0647\u0631\u0645 \u0628\u0631\u0633\u0645..."
+      value: "\u0641\u0639\u0644\u0627 \u062F\u0633\u062A\u0634\u0648\u06CC\u06CC
+        \u0646\u062F\u0627\u0631\u0645"
+      objectReference: {fileID: 0}
+    - target: {fileID: 4528636112967617510, guid: 428f8e2d21c239146af44055c5c1e5f6,
+        type: 3}
+      propertyPath: isAudio
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 5467497283883544875, guid: 428f8e2d21c239146af44055c5c1e5f6,
         type: 3}
@@ -12014,7 +12032,7 @@ AudioSource:
   m_Enabled: 1
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 0}
-  m_audioClip: {fileID: 8300000, guid: 4da4bc21077b0f94f8898e559ce0a5d7, type: 3}
+  m_audioClip: {fileID: 0}
   m_PlayOnAwake: 1
   m_Volume: 0.4
   m_Pitch: 1
@@ -12341,7 +12359,7 @@ MonoBehaviour:
     ModeOverride: 0
     LensShift: {x: 0, y: 0}
     GateFit: 0
-    m_SensorSize: {x: 1.7777778, y: 1}
+    m_SensorSize: {x: 1.7767354, y: 1}
   m_Transitions:
     m_BlendHint: 0
     m_InheritPosition: 0
@@ -12916,27 +12934,27 @@ PrefabInstance:
     - target: {fileID: 4528636112967617504, guid: 428f8e2d21c239146af44055c5c1e5f6,
         type: 3}
       propertyPath: m_Offset.x
-      value: 0.24049616
+      value: 0.23296928
       objectReference: {fileID: 0}
     - target: {fileID: 4528636112967617504, guid: 428f8e2d21c239146af44055c5c1e5f6,
         type: 3}
       propertyPath: m_Size.x
-      value: 1.7805395
+      value: 1.8859177
       objectReference: {fileID: 0}
     - target: {fileID: 4528636112967617504, guid: 428f8e2d21c239146af44055c5c1e5f6,
         type: 3}
       propertyPath: m_Offset.y
-      value: 0.0015324354
+      value: -0.04363072
       objectReference: {fileID: 0}
     - target: {fileID: 4528636112967617504, guid: 428f8e2d21c239146af44055c5c1e5f6,
         type: 3}
       propertyPath: m_Size.y
-      value: 1.1569602
+      value: 1.337609
       objectReference: {fileID: 0}
     - target: {fileID: 4528636112967617508, guid: 428f8e2d21c239146af44055c5c1e5f6,
         type: 3}
       propertyPath: m_Name
-      value: Interaction Pic
+      value: PicRoom_Int
       objectReference: {fileID: 0}
     - target: {fileID: 4528636112967617509, guid: 428f8e2d21c239146af44055c5c1e5f6,
         type: 3}
@@ -13001,13 +13019,19 @@ PrefabInstance:
     - target: {fileID: 4528636112967617510, guid: 428f8e2d21c239146af44055c5c1e5f6,
         type: 3}
       propertyPath: textInfos.Array.data[0]
-      value: "\u0686\u0647 \u0646\u0642\u0627\u0634\u06CC \u0632\u06CC\u0628\u0627\u06CC\u06CC..."
+      value: "\u06CC\u0647 \u062A\u0627\u0628\u0644\u0648 \u0639\u06A9\u0633 \u06A9\u0647\u0646\u0647
+        \u0648 \u06A9\u062B\u06CC\u0641"
       objectReference: {fileID: 0}
     - target: {fileID: 4528636112967617510, guid: 428f8e2d21c239146af44055c5c1e5f6,
         type: 3}
       propertyPath: textInfos.Array.data[1]
-      value: "\u0622\u062F\u0645 \u0631\u0648 \u0628\u0647 \u0641\u06A9\u0631 \u0641\u0631\u0648
-        \u0645\u06CC\u0628\u0631\u0647!"
+      value: "\u0639\u06A9\u0633 \u06CC\u0647 \u0645\u0631\u062F\u0647 \u0628\u0627
+        \u0631\u06CC\u0634 \u0645\u0634\u06A9\u06CC."
+      objectReference: {fileID: 0}
+    - target: {fileID: 4528636112967617510, guid: 428f8e2d21c239146af44055c5c1e5f6,
+        type: 3}
+      propertyPath: textFadeTime
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 5467497283883544875, guid: 428f8e2d21c239146af44055c5c1e5f6,
         type: 3}
