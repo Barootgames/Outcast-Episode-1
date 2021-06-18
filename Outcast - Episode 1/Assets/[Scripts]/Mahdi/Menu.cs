@@ -13,15 +13,16 @@ public class Menu : MonoBehaviour
 
     [SerializeField] private bool isOnSummary;
 
-    [SerializeField] private GameObject RedLabel;
-    [SerializeField] private GameObject RedLabelSelf;
-    [SerializeField] private GameObject SummaryTitle;
-    [SerializeField] private float SummaryTitleDefaultPosX;
-    [SerializeField] private float SummaryTitleSelectedPosX;
+    [SerializeField] private Camera _mCamera;
+    [SerializeField] private float _mCameraPos;
+    [SerializeField] private float _mCameraLerpDuration;
 
-    [SerializeField] private GameObject FirstTitle;
-    [SerializeField] private float FirstTitleDefaultPosX;
-    [SerializeField] private float FirstTitleSelectedPosX;
+    private bool cameraLerp = false;
+    private int cameraLerpDircetion = 0; //0 idle, 1 right, -1 left;
+
+    public float timer = 0;
+
+
 
     void Start()
     {
@@ -45,13 +46,6 @@ public class Menu : MonoBehaviour
         {
             Summary.SetActive(true);
         }
-        if (!isOnSummary)
-        {
-            RedLabel.SetActive(false);
-            RedLabelSelf.SetActive(true);
-            SummaryTitle.GetComponent<RectTransform>().anchoredPosition = new Vector2(SummaryTitleSelectedPosX, SummaryTitle.GetComponent<RectTransform>().anchoredPosition.y);
-            FirstTitle.GetComponent<RectTransform>().anchoredPosition = new Vector2(FirstTitleSelectedPosX, FirstTitle.GetComponent<RectTransform>().anchoredPosition.y);
-        }
         Summary.GetComponent<Animator>().SetBool("fade", true);
         isOnSummary = true;
     }
@@ -61,10 +55,6 @@ public class Menu : MonoBehaviour
         if (isOnSummary)
         {
             Summary.GetComponent<Animator>().SetBool("fade", false);
-            RedLabel.SetActive(true);
-            RedLabelSelf.SetActive(false);
-            SummaryTitle.GetComponent<RectTransform>().anchoredPosition = new Vector2(SummaryTitleDefaultPosX, SummaryTitle.GetComponent<RectTransform>().anchoredPosition.y);
-            FirstTitle.GetComponent<RectTransform>().anchoredPosition = new Vector2(FirstTitleDefaultPosX, FirstTitle.GetComponent<RectTransform>().anchoredPosition.y);
         }
     }
 
@@ -74,6 +64,35 @@ public class Menu : MonoBehaviour
         GameDataController gameDataController = FindObjectOfType<GameDataController>();
         gameDataController.gameData.LoadFromGameDataBinary(data);
         StartCoroutine(LoadScene(gameDataController.gameData.CurrentSceneName));
+    }
+
+    public void OnSettings()
+    {
+        if(_mCamera.transform.position.x == 0)
+        {
+            if (!cameraLerp)
+            {
+                OnDataSummaryOff();
+                cameraLerp = true;
+                cameraLerpDircetion = 1;
+                StopCoroutine(CameraLerp());
+                StartCoroutine(CameraLerp());
+            }
+        }
+    }
+
+    public void OnSettingsOff()
+    {
+        if (Mathf.Abs(_mCamera.transform.position.x) == _mCameraPos)
+        {
+            if (!cameraLerp)
+            {
+                cameraLerp = true;
+                cameraLerpDircetion = -1;
+                StopCoroutine(CameraLerp());
+                StartCoroutine(CameraLerp());
+            }
+        }
     }
 
     IEnumerator LoadScene (int sceneIndex)
@@ -100,5 +119,18 @@ public class Menu : MonoBehaviour
             loadingBar.value = progress;
             yield return null;
         }
+    }
+
+    IEnumerator CameraLerp()
+    {
+        timer = 0;
+        Vector3 end = new Vector3(_mCamera.transform.position.x + (cameraLerpDircetion * _mCameraPos), _mCamera.transform.position.y, _mCamera.transform.position.z);
+        while (timer < _mCameraLerpDuration)
+        {
+            timer += Time.fixedDeltaTime;
+            _mCamera.transform.position = Vector3.Lerp(_mCamera.transform.position, end, timer/_mCameraLerpDuration);
+            yield return null;
+        }
+        cameraLerp = false;
     }
 }
