@@ -38158,14 +38158,9 @@ PrefabInstance:
       objectReference: {fileID: 2118813504}
     - target: {fileID: 56934022135014958, guid: 553619230e3792a4e987d51035b977f6,
         type: 3}
-      propertyPath: MoveSounds.Array.data[1]
-      value: 
-      objectReference: {fileID: 8300000, guid: b616e7f97c49a424abbfc23937b7fd04, type: 3}
-    - target: {fileID: 56934022135014958, guid: 553619230e3792a4e987d51035b977f6,
-        type: 3}
-      propertyPath: MoveSounds.Array.data[2]
-      value: 
-      objectReference: {fileID: 8300000, guid: 146d05e27ef814a4c85614a658bd869c, type: 3}
+      propertyPath: m_Enabled
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 4189445770920155465, guid: 553619230e3792a4e987d51035b977f6,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -38419,7 +38414,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1758108560}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 15.770357, y: -5.6733246, z: 2.0390625}
+  m_LocalPosition: {x: 15.770357, y: -5.6733246, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 1868778585}
