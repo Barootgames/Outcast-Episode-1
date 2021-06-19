@@ -288,9 +288,12 @@ public class PlayerMovement : MonoBehaviour
             CancelInvoke("SoundPlayer");
             return;
         }
+
+
         // audioSource.clip = MoveSounds[Random.Range(0, MoveSounds.Length)];
         audioSource.clip = MoveSounds[SoundIn];
         audioSource.Play();
+
 
         SoundIn++;
 

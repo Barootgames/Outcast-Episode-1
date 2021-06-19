@@ -209,7 +209,8 @@ public class InteractionController : MonoBehaviour
             }
 
             if (isText)
-            {               
+            {
+                playermovment.enabled = false;
                 StopCoroutine(TextInfoCoroutine());
                 StartCoroutine(TextInfoCoroutine());
             }
@@ -230,6 +231,8 @@ public class InteractionController : MonoBehaviour
         if (SceneName == "Scene 4 VIP Room")
             Controller.GetComponent<Scene4VIP>().EndInteraction(this.name);
 
+        // end interaction
+        playermovment.enabled = true;
     }
 
     private void OnTriggerEnter2D(Collider2D other)

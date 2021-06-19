@@ -29,15 +29,9 @@ public class Scene3 : MonoBehaviour
 
     [SerializeField] private Sprite _keyArtanRoom;
 
-    public GameObject LoadSceneSF;
-    public GameObject Interaction_KasiNist;
-    public GameObject Bell;
-
     void Start()
     {
         #region Steps
-
-        LoadSceneSF.SetActive(false);
 
         JamshidAnimator = _Jamshid.GetComponent<Animator>();
         _step = GetComponent<Step>();
@@ -58,17 +52,6 @@ public class Scene3 : MonoBehaviour
         if(_step.Steps[39])
         {
             _Jamshid.SetActive(false);
-        }
-
-        if(_step.Steps[11])
-        {
-            LoadSceneSF.SetActive(true);
-        }
-
-        if(_step.Steps[7])
-        {
-            Interaction_KasiNist.SetActive(false);
-            Bell.SetActive(false);
         }
 
         #endregion
@@ -105,8 +88,6 @@ public class Scene3 : MonoBehaviour
             {
                 MarginOpen();
                 JamshidWork = true;
-                Interaction_KasiNist.SetActive(false);
-                Bell.SetActive(false);
             }
         }
     }
