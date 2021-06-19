@@ -64,12 +64,4 @@ public class MoveHolderController : MonoBehaviour, IPointerDownHandler, IPointer
 
         inventorybtn = GameObject.Find("Inventorybtn");
     }
-
-    void Update()
-    {
-        if(!move)
-        {
-            move = FindObjectOfType<PlayerMovement>();
-        }
-    }
 }
