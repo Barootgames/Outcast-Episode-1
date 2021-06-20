@@ -94,6 +94,7 @@ public class GameData : ScriptableObject
 
     public void ResetGameData()
     {
+        CurrentSceneName = "Scene 2";
         gameEvents = new List<GameEventDataClass>();
         itemIds = new List<string>();
         missions = new List<string>();

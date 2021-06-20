@@ -11,14 +11,20 @@ public class Menu : MonoBehaviour
 
     [SerializeField] private GameObject Summary;
 
+    [SerializeField] private GameObject NewGame;
+    [SerializeField] private GameObject Continue;
+    [SerializeField] private GameObject StartGame;
+
     [SerializeField] private bool isOnSummary;
 
     [SerializeField] private Camera _mCamera;
     [SerializeField] private float _mCameraPos;
+    [SerializeField] private float _mCameraPosY;
     [SerializeField] private float _mCameraLerpDuration;
 
     private bool cameraLerp = false;
     private int cameraLerpDircetion = 0; //0 idle, 1 right, -1 left;
+    private int cameraLerpDircetionY = 0; //0 idle, 1 Up, -1 Down;
 
     public float timer = 0;
 
@@ -26,18 +32,29 @@ public class Menu : MonoBehaviour
 
     void Start()
     {
-        
+        ConvertAspectRatio();
     }
     
     void Update()
     {
-        
+
     }
 
     public void buttonQuit()
     {
         OnDataSummaryOff();
         Application.Quit();
+    }
+
+    void ConvertAspectRatio()
+    {
+        float aspectRatioDesign = (16f / 10f);
+        float orthographicStartSize = 1205f;
+
+        float inverseAspectRatio = 1 / aspectRatioDesign;
+        float currentAspectRatio = (float)Screen.width / (float)Screen.height;
+
+        _mCamera.orthographicSize = aspectRatioDesign * (orthographicStartSize / currentAspectRatio);
     }
 
     public void OnDataSummary()
@@ -58,12 +75,131 @@ public class Menu : MonoBehaviour
         }
     }
 
+    public void OnNewGame()
+    {
+        GameDataController gameDataController = FindObjectOfType<GameDataController>();
+        gameDataController.gameData.ResetGameData();
+        SaveAndLoadSystem.SaveGame(gameDataController.gameData);
+        StartCoroutine(LoadScene(gameDataController.gameData.CurrentSceneName));
+    }
     public void buttonStart(int SceneIndex)
     {
         GameDataBinary data = SaveAndLoadSystem.LoadGame();
         GameDataController gameDataController = FindObjectOfType<GameDataController>();
         gameDataController.gameData.LoadFromGameDataBinary(data);
         StartCoroutine(LoadScene(gameDataController.gameData.CurrentSceneName));
+    }
+
+    public void OnCredits()
+    {
+        if (_mCamera.transform.position.x == 0)
+        {
+            if (!cameraLerp)
+            {
+                OnDataSummaryOff();
+                cameraLerp = true;
+                cameraLerpDircetion = 0;
+                cameraLerpDircetionY = -1;
+                StopCoroutine(CameraLerp());
+                StartCoroutine(CameraLerp());
+            }
+        }
+    }
+
+    public void OnGallery()
+    {
+        if (_mCamera.transform.position.x == 0)
+        {
+            if (!cameraLerp)
+            {
+                OnDataSummaryOff();
+                cameraLerp = true;
+                cameraLerpDircetion = 1;
+                cameraLerpDircetionY = 0;
+                StopCoroutine(CameraLerp());
+                StartCoroutine(CameraLerp());
+            }
+        }
+    }
+
+    public void OnGalleryOff()
+    {
+        if (_mCamera.transform.position.x == 0)
+        {
+            if (!cameraLerp)
+            {
+                OnDataSummaryOff();
+                cameraLerp = true;
+                cameraLerpDircetion = -1;
+                cameraLerpDircetionY = 0;
+                StopCoroutine(CameraLerp());
+                StartCoroutine(CameraLerp());
+            }
+        }
+    }
+
+    public void OnTutorial()
+    {
+        if (_mCamera.transform.position.x == 0)
+        {
+            if (!cameraLerp)
+            {
+                OnDataSummaryOff();
+                cameraLerp = true;
+                cameraLerpDircetion = -1;
+                cameraLerpDircetionY = 0;
+                StopCoroutine(CameraLerp());
+                StartCoroutine(CameraLerp());
+            }
+        }
+    }
+
+    public void OnTutorialOff()
+    {
+        if (_mCamera.transform.position.x == 0)
+        {
+            if (!cameraLerp)
+            {
+                OnDataSummaryOff();
+                cameraLerp = true;
+                cameraLerpDircetion = 1;
+                cameraLerpDircetionY = 0;
+                StopCoroutine(CameraLerp());
+                StartCoroutine(CameraLerp());
+            }
+        }
+    }
+
+    public void OnGalleryAndTutorial()
+    {
+        if (_mCamera.transform.position.x == 0)
+        {
+            if (!cameraLerp)
+            {
+                OnDataSummaryOff();
+                cameraLerp = true;
+                cameraLerpDircetion = 0;
+                cameraLerpDircetionY = 1;
+                StopCoroutine(CameraLerp());
+                StartCoroutine(CameraLerp());
+            }
+        }
+    }
+
+    public void OnGalleryAndTutorialOff()
+    {
+        if (_mCamera.transform.position.x == 0)
+        {
+            if (!cameraLerp)
+            {
+                OnDataSummaryOff();
+                cameraLerp = true;
+                cameraLerpDircetion = 0;
+                cameraLerpDircetionY = -1;
+                StopCoroutine(CameraLerp());
+                StartCoroutine(CameraLerp());
+            }
+        }
     }
 
     public void OnSettings()
@@ -75,6 +211,7 @@ public class Menu : MonoBehaviour
                 OnDataSummaryOff();
                 cameraLerp = true;
                 cameraLerpDircetion = 1;
+                cameraLerpDircetionY = 0;
                 StopCoroutine(CameraLerp());
                 StartCoroutine(CameraLerp());
             }
@@ -124,7 +261,7 @@ public class Menu : MonoBehaviour
     IEnumerator CameraLerp()
     {
         timer = 0;
-        Vector3 end = new Vector3(_mCamera.transform.position.x + (cameraLerpDircetion * _mCameraPos), _mCamera.transform.position.y, _mCamera.transform.position.z);
+        Vector3 end = new Vector3(_mCamera.transform.position.x + (cameraLerpDircetion * _mCameraPos), _mCamera.transform.position.y + (cameraLerpDircetionY * _mCameraPosY), _mCamera.transform.position.z);
         while (timer < _mCameraLerpDuration)
         {
             timer += Time.fixedDeltaTime;
