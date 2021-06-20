@@ -28,18 +28,29 @@ public class Menu : MonoBehaviour
 
     void Start()
     {
-        
+        ConvertAspectRatio();
     }
     
     void Update()
     {
-        
+
     }
 
     public void buttonQuit()
     {
         OnDataSummaryOff();
         Application.Quit();
+    }
+
+    void ConvertAspectRatio()
+    {
+        float aspectRatioDesign = (16f / 10f);
+        float orthographicStartSize = 1205f;
+
+        float inverseAspectRatio = 1 / aspectRatioDesign;
+        float currentAspectRatio = (float)Screen.width / (float)Screen.height;
+
+        _mCamera.orthographicSize = aspectRatioDesign * (orthographicStartSize / currentAspectRatio);
     }
 
     public void OnDataSummary()
@@ -68,6 +79,53 @@ public class Menu : MonoBehaviour
         StartCoroutine(LoadScene(gameDataController.gameData.CurrentSceneName));
     }
 
+    public void OnCredits()
+    {
+        if (_mCamera.transform.position.x == 0)
+        {
+            if (!cameraLerp)
+            {
+                OnDataSummaryOff();
+                cameraLerp = true;
+                cameraLerpDircetion = 0;
+                cameraLerpDircetionY = -1;
+                StopCoroutine(CameraLerp());
+                StartCoroutine(CameraLerp());
+            }
+        }
+    }
+
+    public void OnGallery()
+    {
+        if (_mCamera.transform.position.x == 0)
+        {
+            if (!cameraLerp)
+            {
+                OnDataSummaryOff();
+                cameraLerp = true;
+                cameraLerpDircetion = 1;
+                cameraLerpDircetionY = 0;
+                StopCoroutine(CameraLerp());
+                StartCoroutine(CameraLerp());
+            }
+        }
+    }
+
+    public void OnTutorial()
+    {
+        if (_mCamera.transform.position.x == 0)
+        {
+            if (!cameraLerp)
+            {
+                OnDataSummaryOff();
+                cameraLerp = true;
+                cameraLerpDircetion = -1;
+                cameraLerpDircetionY = 0;
+                StopCoroutine(CameraLerp());
+                StartCoroutine(CameraLerp());
+            }
+        }
+    }
     public void OnGalleryAndTutorial()
     {
         if (_mCamera.transform.position.x == 0)
