@@ -1198,7 +1198,18 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 251260264}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 941265060}
+        m_MethodName: SetActive
+        m_Mode: 6
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 1
+        m_CallState: 2
 --- !u!114 &251260264
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1531,9 +1542,9 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 857657562}
-        m_MethodName: buttonStart
-        m_Mode: 3
+      - m_Target: {fileID: 941265060}
+        m_MethodName: SetActive
+        m_Mode: 6
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
@@ -8195,10 +8206,13 @@ MonoBehaviour:
   LoadingPanel: {fileID: 2141243897}
   loadingBar: {fileID: 188144019}
   Summary: {fileID: 1819654798}
+  NewGame: {fileID: 251260261}
+  Continue: {fileID: 1414703331}
+  StartGame: {fileID: 141976691}
   isOnSummary: 0
   _mCamera: {fileID: 1398584263}
   _mCameraPos: 3840
-  _mCameraPosY: 2280
+  _mCameraPosY: 2160
   _mCameraLerpDuration: 1
   timer: 0
 --- !u!4 &857657563
@@ -8966,7 +8980,7 @@ MonoBehaviour:
           m_BoolArgument: 0
         m_CallState: 2
       - m_Target: {fileID: 857657562}
-        m_MethodName: OnDataSummary
+        m_MethodName: OnCredits
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -9171,7 +9185,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 183f932e0980cc94e8b7a813e56f7284, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  gameData: {fileID: 0}
+  gameData: {fileID: 11400000, guid: 608223773409c744bb956fb131ef5673, type: 2}
 --- !u!4 &1088754616
 Transform:
   m_ObjectHideFlags: 0

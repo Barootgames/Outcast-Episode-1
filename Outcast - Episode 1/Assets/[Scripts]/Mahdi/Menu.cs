@@ -11,6 +11,10 @@ public class Menu : MonoBehaviour
 
     [SerializeField] private GameObject Summary;
 
+    [SerializeField] private GameObject NewGame;
+    [SerializeField] private GameObject Continue;
+    [SerializeField] private GameObject StartGame;
+
     [SerializeField] private bool isOnSummary;
 
     [SerializeField] private Camera _mCamera;
@@ -71,6 +75,13 @@ public class Menu : MonoBehaviour
         }
     }
 
+    public void OnNewGame()
+    {
+        GameDataController gameDataController = FindObjectOfType<GameDataController>();
+        gameDataController.gameData.ResetGameData();
+        SaveAndLoadSystem.SaveGame(gameDataController.gameData);
+        StartCoroutine(LoadScene(gameDataController.gameData.CurrentSceneName));
+    }
     public void buttonStart(int SceneIndex)
     {
         GameDataBinary data = SaveAndLoadSystem.LoadGame();
@@ -111,6 +122,22 @@ public class Menu : MonoBehaviour
         }
     }
 
+    public void OnGalleryOff()
+    {
+        if (_mCamera.transform.position.x == 0)
+        {
+            if (!cameraLerp)
+            {
+                OnDataSummaryOff();
+                cameraLerp = true;
+                cameraLerpDircetion = -1;
+                cameraLerpDircetionY = 0;
+                StopCoroutine(CameraLerp());
+                StartCoroutine(CameraLerp());
+            }
+        }
+    }
+
     public void OnTutorial()
     {
         if (_mCamera.transform.position.x == 0)
@@ -126,6 +153,23 @@ public class Menu : MonoBehaviour
             }
         }
     }
+
+    public void OnTutorialOff()
+    {
+        if (_mCamera.transform.position.x == 0)
+        {
+            if (!cameraLerp)
+            {
+                OnDataSummaryOff();
+                cameraLerp = true;
+                cameraLerpDircetion = 1;
+                cameraLerpDircetionY = 0;
+                StopCoroutine(CameraLerp());
+                StartCoroutine(CameraLerp());
+            }
+        }
+    }
+
     public void OnGalleryAndTutorial()
     {
         if (_mCamera.transform.position.x == 0)
@@ -136,6 +180,22 @@ public class Menu : MonoBehaviour
                 cameraLerp = true;
                 cameraLerpDircetion = 0;
                 cameraLerpDircetionY = 1;
+                StopCoroutine(CameraLerp());
+                StartCoroutine(CameraLerp());
+            }
+        }
+    }
+
+    public void OnGalleryAndTutorialOff()
+    {
+        if (_mCamera.transform.position.x == 0)
+        {
+            if (!cameraLerp)
+            {
+                OnDataSummaryOff();
+                cameraLerp = true;
+                cameraLerpDircetion = 0;
+                cameraLerpDircetionY = -1;
                 StopCoroutine(CameraLerp());
                 StartCoroutine(CameraLerp());
             }
