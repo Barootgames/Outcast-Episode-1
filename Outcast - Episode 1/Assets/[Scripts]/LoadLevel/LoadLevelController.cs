@@ -11,6 +11,7 @@ public class LoadLevelController : MonoBehaviour
     public static bool faceRightAfterLoad = true;
 
     private Animator quickFade;
+    static bool RunNow = false;
    
     void Awake()
     {
@@ -22,6 +23,20 @@ public class LoadLevelController : MonoBehaviour
 
         if(quickFade == null)
           quickFade = GameObject.Find("QuickFade").transform.GetChild(0).GetComponent<Animator>();
+
+
+        if(!RunNow)
+        {
+            RunNow = true;
+
+            if (!quickFade.gameObject.activeInHierarchy)
+                quickFade.gameObject.SetActive(true);
+
+
+            quickFade.Play("QuickFadeOut");
+
+            StartCoroutine(PanelFadeClosed());
+        }
     }
 
     private void OnLevelWasLoaded()

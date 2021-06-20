@@ -139,6 +139,7 @@ public class Scene3 : MonoBehaviour
 
         if (_step.Steps[10])
         {
+            LoadSceneSF.SetActive(true);
             GameObject.FindObjectOfType<InventoryManger>().AddItem("KeyArtanRoom", _keyArtanRoom);
             _step.DoWork(11);
         }

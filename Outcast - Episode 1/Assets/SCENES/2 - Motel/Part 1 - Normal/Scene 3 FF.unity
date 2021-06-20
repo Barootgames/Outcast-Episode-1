@@ -1811,6 +1811,12 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &428143835 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 4528636112967617508, guid: 428f8e2d21c239146af44055c5c1e5f6,
+    type: 3}
+  m_PrefabInstance: {fileID: 1847351908}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &432693501
 GameObject:
   m_ObjectHideFlags: 0
@@ -1918,7 +1924,7 @@ MonoBehaviour:
     ModeOverride: 0
     LensShift: {x: 0, y: 0}
     GateFit: 0
-    m_SensorSize: {x: 1.7774024, y: 1}
+    m_SensorSize: {x: 1.7777778, y: 1}
   m_Transitions:
     m_BlendHint: 0
     m_InheritPosition: 0
@@ -2688,7 +2694,7 @@ Camera:
   far clip plane: 1000
   field of view: 60
   orthographic: 1
-  orthographic size: 2.94
+  orthographic size: 2
   m_Depth: 0
   m_CullingMask:
     serializedVersion: 2
@@ -7532,6 +7538,12 @@ Transform:
     type: 3}
   m_PrefabInstance: {fileID: 1145962769}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &1145962771 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 3374624316712144340, guid: 24669e9bb8d4ae94197d7ec502a023e0,
+    type: 3}
+  m_PrefabInstance: {fileID: 1145962769}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1151157299
 GameObject:
   m_ObjectHideFlags: 0
@@ -12313,6 +12325,9 @@ MonoBehaviour:
   - 0.7
   - 1
   _keyArtanRoom: {fileID: 21300000, guid: 002318b551950de45b04bb4adbba5811, type: 3}
+  LoadSceneSF: {fileID: 1145962771}
+  Interaction_KasiNist: {fileID: 428143835}
+  Bell: {fileID: 1787465636211417627}
 --- !u!114 &2031672070
 MonoBehaviour:
   m_ObjectHideFlags: 0

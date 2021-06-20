@@ -3,16 +3,72 @@ using UnityEngine.SceneManagement;
 
 public class ObjectDrop : MonoBehaviour
 {
+
+  
+    public string ItemNeed;
+
+    [Header("Sound")]
+    private AudioSource audiosource;
+    public AudioClip SoundCorrect;
+    [Range(0, 1)] public float VolumeCorrect;
+    
+    public AudioClip SoundUncorrect;
+    [Range(0, 1)] public float VolumeUncorrect;
+
     private InventoryManger _inventoryManger;
-    private bool Used = false;
+
+    private Animator animator;
+    public GameObject GreenCircle;
+    public GameObject RedCircle;
+
+
+    private int In;  // zero = empty   ,  1 = uncorrect   2 = correct
+    
 
     void Start()
     {
+        audiosource = GetComponent<AudioSource>();
         _inventoryManger = GameObject.FindObjectOfType<InventoryManger>();
+        animator = GetComponent<Animator>();
     }
 
     void Update()
     {
+
+        if(Input.GetMouseButtonUp(0))
+        {
+            if(In == 1)
+            {
+                Soundplayer(SoundUncorrect, VolumeUncorrect);
+            }
+
+            if(In == 2)
+            {
+
+                Soundplayer(SoundCorrect, VolumeCorrect);
+
+                if (ItemNeed == "KeyArtanRoom")
+                   _inventoryManger.SpecialCombin(1);
+
+
+                if(ItemNeed == "Battery")
+                    _inventoryManger.SpecialCombin(3);
+
+
+                if (ItemNeed == "ZeroKey")
+                    _inventoryManger.SpecialCombin(4);
+
+
+
+                _inventoryManger.item_drag_name = "";
+                _inventoryManger.item_drop_name = "";
+
+                gameObject.SetActive(false);
+            }
+        }
+
+
+        /*
         if(Used)
         {
             this.GetComponent<ObjectDrop>().enabled = false;
@@ -26,7 +82,7 @@ public class ObjectDrop : MonoBehaviour
         if (hit)
         {
 
-            if (hit.collider.gameObject.name == (gameObject.name))
+            if (hit.collider.gameObject.name == (gameObject.name) && Input.GetMouseButtonUp(0))
             {
                 if(GameObject.FindObjectOfType<InventoryManger>().item_drag_name == "KeyArtanRoom" &&
                     this.name == "Door4VIP")
@@ -58,6 +114,50 @@ public class ObjectDrop : MonoBehaviour
 
 
             }
+
         }
+
+
+
+
+        */
+    }
+
+
+    private void Soundplayer (AudioClip _clip , float _volume)
+    {
+        audiosource.clip = _clip;
+        audiosource.volume = _volume;
+        audiosource.Play();
+    }
+
+
+    private void OnMouseEnter()
+    {
+        animator.Play("Empty");
+
+        if(_inventoryManger.item_drag_name == ItemNeed)
+        {
+            // Green
+            GreenCircle.SetActive(true);
+            In = 2;
+        }
+        else
+        {
+            // Red
+            In = 1;
+            RedCircle.SetActive(true);
+        }
+    }
+
+    private void OnMouseExit()
+    {
+        // Normal
+        In = 0;
+
+        animator.Play("WantAnim");
+
+        GreenCircle.SetActive(false);
+        RedCircle.SetActive(false);
     }
 }

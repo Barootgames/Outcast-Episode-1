@@ -14,11 +14,11 @@ public class Text_Bubble : MonoBehaviour
     {
         playerMovement.RunStop();
         playerMovement.Stop();
-        playerMovement.enabled = false;
+        playerMovement.InInteratcion = true;
     }
 
     private void OnDisable()
     {
-        playerMovement.enabled = true;
+        playerMovement.InInteratcion = false;
     }
 }

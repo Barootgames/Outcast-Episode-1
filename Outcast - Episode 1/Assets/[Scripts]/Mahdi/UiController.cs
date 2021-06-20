@@ -7,8 +7,7 @@ public class UiController : MonoBehaviour
     private Animator btnInventoryAnimator;
     private Animator moveholderAnimator;
 
-    
-
+  
     private void Start()
     {
        // DontDestroyOnLoad(gameObject);

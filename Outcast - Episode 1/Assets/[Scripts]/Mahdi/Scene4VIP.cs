@@ -8,6 +8,8 @@ public class Scene4VIP : MonoBehaviour
     [SerializeField] private AudioSource KnockKnockPlayer;
     [SerializeField] private float TimeKnockKnock = 5f;
 
+    [SerializeField] private GameObject Interactio_Sleep;
+
     [SerializeField] private GameObject PanelChoice;
     [SerializeField] private GameObject PanelFade;
     [SerializeField] private Animator Margin;
@@ -37,6 +39,11 @@ public class Scene4VIP : MonoBehaviour
             PanelFade2.SetActive(true);
             PanelFade2.GetComponent<Animator>().SetBool("Show", false);
             StartCoroutine(ArtanTalkHimself(6.5f));
+        }
+
+        if(_step.Steps[36])
+        {
+            Interactio_Sleep.SetActive(false);
         }
 
     }
