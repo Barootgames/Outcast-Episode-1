@@ -3024,10 +3024,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   QuickInventory: {fileID: 1094488637584030205}
   InfoButton: {fileID: 1633259284}
-  DocRotSound: {fileID: 8300000, guid: dee1a4da3648e264cb56d509ec50ca38, type: 3}
-  DocRotVolume: 0.5
-  PickNewItemSound: {fileID: 8300000, guid: dee1a4da3648e264cb56d509ec50ca38, type: 3}
-  PickNewItemVolume: 0.5
+  DocRotSound: {fileID: 8300000, guid: bd5d402c2c64d3a4388461f5a54d6c10, type: 3}
+  DocRotVolume: 0.716
+  PickNewItemSound: {fileID: 8300000, guid: 77eea3abf21ba4a47b4d65ba14edc072, type: 3}
+  PickNewItemVolume: 0.743
   slots:
   - {fileID: 7865944843710290144}
   - {fileID: 7865944842250810296}

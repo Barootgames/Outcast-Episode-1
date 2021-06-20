@@ -1529,8 +1529,8 @@ MonoBehaviour:
   - {fileID: 5467365194626262993}
   - {fileID: 5843939941845610055}
   m_Bounds:
-    m_Center: {x: 0.00096571445, y: 0.0047228336, z: 0}
-    m_Extent: {x: 1.8206761, y: 3.636464, z: 0}
+    m_Center: {x: 0.0009764433, y: 0.0047228336, z: 0}
+    m_Extent: {x: 1.8206736, y: 3.636464, z: 0}
   m_UseBatching: 1
   m_AlwaysUpdate: 1
 --- !u!114 &56934023139584641
@@ -2454,8 +2454,8 @@ MonoBehaviour:
   - {fileID: 6169834287670415161}
   - {fileID: 949402693822502294}
   m_Bounds:
-    m_Center: {x: 0.06499714, y: -0.10500145, z: 0}
-    m_Extent: {x: 0.8600074, y: 2.0750003, z: 0}
+    m_Center: {x: 0.065004766, y: -0.10500145, z: 0}
+    m_Extent: {x: 0.8599998, y: 2.0750003, z: 0}
   m_UseBatching: 1
   m_AlwaysUpdate: 1
 --- !u!114 &56934023139584702
@@ -3586,11 +3586,11 @@ MonoBehaviour:
   _Tutorail: {fileID: 0}
   _controller: {fileID: 0}
   animator: {fileID: 56934022135014956}
-  WalkSpeed: 30
-  RunSpeed: 55
+  WalkSpeed: 35
+  RunSpeed: 70
   TimeCanRun: 10
   EnergyBackSpeed: 3
-  TimeRest: 3
+  TimeRest: 4
   moveMode: 0
   audioSource: {fileID: 2334757322927053043}
   MoveSounds:
@@ -3603,6 +3603,7 @@ MonoBehaviour:
   - {fileID: 8300000, guid: 75ba5d8cd8482ae40bab08848f5b2675, type: 3}
   BetweenTimeWalk: 0.5
   BetweenTimeRun: 0.35
+  InInteratcion: 0
 --- !u!114 &56934022135014959
 MonoBehaviour:
   m_ObjectHideFlags: 0
