@@ -198,7 +198,7 @@ RectTransform:
   m_Children:
   - {fileID: 1684842657}
   m_Father: {fileID: 7865944842098893353}
-  m_RootOrder: 3
+  m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
@@ -327,7 +327,7 @@ RectTransform:
   m_Children:
   - {fileID: 9110596971380434245}
   m_Father: {fileID: 7865944842098893353}
-  m_RootOrder: 5
+  m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
@@ -1385,7 +1385,7 @@ RectTransform:
   - {fileID: 7865944842237225032}
   - {fileID: 7865944842955799240}
   m_Father: {fileID: 7865944842098893353}
-  m_RootOrder: 2
+  m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
@@ -2482,7 +2482,7 @@ RectTransform:
   - {fileID: 3300194325082927095}
   - {fileID: 3300194324639730772}
   m_Father: {fileID: 7865944842098893353}
-  m_RootOrder: 4
+  m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
@@ -2619,7 +2619,7 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
-      - m_Target: {fileID: 8506396387303158184}
+      - m_Target: {fileID: 0}
         m_MethodName: SetActive
         m_Mode: 6
         m_Arguments:
@@ -2759,7 +2759,7 @@ RectTransform:
   - {fileID: 998914510190791595}
   - {fileID: 6670097609685189528}
   m_Father: {fileID: 7865944842098893353}
-  m_RootOrder: 1
+  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
@@ -2960,7 +2960,6 @@ RectTransform:
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
-  - {fileID: 3003581009097814942}
   - {fileID: 1228617387188887314}
   - {fileID: 4780783357318024006}
   - {fileID: 1633259285}
@@ -3066,7 +3065,6 @@ MonoBehaviour:
   NameItemNewShower: {fileID: 1801749529}
   SpriteItemNewShower: {fileID: 555006245}
   ShortInfoNewShower: {fileID: 107142191}
-  BackGround: {fileID: 8506396387303158184}
 --- !u!82 &1831528076
 AudioSource:
   m_ObjectHideFlags: 0
@@ -3283,7 +3281,7 @@ GameObject:
   - component: {fileID: 7865944842237225035}
   - component: {fileID: 7865944842237225037}
   m_Layer: 5
-  m_Name: itemHolder (4)
+  m_Name: D
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -3371,7 +3369,7 @@ GameObject:
   - component: {fileID: 7865944842241516420}
   - component: {fileID: 7865944842241516422}
   m_Layer: 5
-  m_Name: itemHolder (3)
+  m_Name: D
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -3547,7 +3545,7 @@ GameObject:
   - component: {fileID: 7865944842528344816}
   - component: {fileID: 7865944842528344818}
   m_Layer: 5
-  m_Name: itemHolder (1)
+  m_Name: D
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -3635,7 +3633,7 @@ GameObject:
   - component: {fileID: 7865944842756115135}
   - component: {fileID: 7865944842756115105}
   m_Layer: 5
-  m_Name: itemHolder
+  m_Name: D
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -3723,7 +3721,7 @@ GameObject:
   - component: {fileID: 7865944842955799243}
   - component: {fileID: 7865944842955799245}
   m_Layer: 5
-  m_Name: itemHolder (5)
+  m_Name: D
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -4075,7 +4073,7 @@ GameObject:
   - component: {fileID: 7865944843746480810}
   - component: {fileID: 7865944843746480812}
   m_Layer: 5
-  m_Name: itemHolder (2)
+  m_Name: D
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -4150,80 +4148,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2df58a2a4576bcb41971a213e277d229, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
---- !u!1 &8506396387303158184
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 3003581009097814942}
-  - component: {fileID: 949526260895094438}
-  - component: {fileID: 2456461607449359246}
-  m_Layer: 5
-  m_Name: PanelBackGround
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 0
---- !u!224 &3003581009097814942
-RectTransform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8506396387303158184}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_Children: []
-  m_Father: {fileID: 7865944842098893353}
-  m_RootOrder: 0
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 0}
-  m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: -6.9993896, y: -1042}
-  m_SizeDelta: {x: 1704.2612, y: 1456.6022}
-  m_Pivot: {x: 0.5, y: 0.5}
---- !u!222 &949526260895094438
-CanvasRenderer:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8506396387303158184}
-  m_CullTransparentMesh: 0
---- !u!114 &2456461607449359246
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8506396387303158184}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  m_Material: {fileID: 0}
-  m_Color: {r: 0, g: 0, b: 0, a: 0.49019608}
-  m_RaycastTarget: 1
-  m_Maskable: 1
-  m_OnCullStateChanged:
-    m_PersistentCalls:
-      m_Calls: []
-  m_Sprite: {fileID: 10907, guid: 0000000000000000f000000000000000, type: 0}
-  m_Type: 1
-  m_PreserveAspect: 0
-  m_FillCenter: 1
-  m_FillMethod: 4
-  m_FillAmount: 1
-  m_FillClockwise: 1
-  m_FillOrigin: 0
-  m_UseSpriteMesh: 0
-  m_PixelsPerUnitMultiplier: 1
 --- !u!1 &9109032706161374674
 GameObject:
   m_ObjectHideFlags: 0

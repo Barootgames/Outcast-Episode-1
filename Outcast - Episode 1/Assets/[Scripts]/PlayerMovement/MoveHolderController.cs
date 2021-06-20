@@ -12,6 +12,7 @@ public class MoveHolderController : MonoBehaviour, IPointerDownHandler, IPointer
     GameObject inventorybtn;
 
 
+
     public void OnPointerDown(PointerEventData eventData)
     {
 
@@ -19,12 +20,12 @@ public class MoveHolderController : MonoBehaviour, IPointerDownHandler, IPointer
         holdColor.a = 0.5f;
         GetComponent<Image>().color = holdColor;
 
-        if (buttonCode == 0) //moveLeft
+        if (buttonCode == 0 && !move.InInteratcion)  //moveLeft    // moghee ke to interaction nartone rah bere
         {
             move.MoveLeft();
             run.SetActive(true);
         }
-        if (buttonCode == 1) //moveRight
+        if (buttonCode == 1 && !move.InInteratcion) //moveRight    // moghee ke to interaction nartone rah bere
         {
             move.MoveRight();
             run.SetActive(true);
@@ -64,5 +65,4 @@ public class MoveHolderController : MonoBehaviour, IPointerDownHandler, IPointer
 
         inventorybtn = GameObject.Find("Inventorybtn");
     }
-
 }

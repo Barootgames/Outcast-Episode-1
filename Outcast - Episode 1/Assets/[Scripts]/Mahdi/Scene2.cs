@@ -456,7 +456,8 @@ public class Scene2 : MonoBehaviour
     {
         for (int i = 0; i < _lights.Length; i++)
         {
-            _lights[i].intensity = 0f;
+            if(_lights[i] != null)
+               _lights[i].intensity = 0f;
         }
 
         MainLight.intensity = 0.2f;
@@ -466,7 +467,8 @@ public class Scene2 : MonoBehaviour
     {
         for (int i = 0; i < _lights.Length; i++)
         {
-            _lights[i].intensity = IntensityValues[i];
+            if (_lights[i] != null)
+                _lights[i].intensity = IntensityValues[i];
         }
 
         MainLight.intensity = 0.5f;

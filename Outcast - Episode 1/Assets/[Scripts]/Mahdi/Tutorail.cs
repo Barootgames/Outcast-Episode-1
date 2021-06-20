@@ -19,7 +19,6 @@ public class Tutorail : MonoBehaviour
         rb = playerMovment.gameObject.GetComponent<Rigidbody2D>();
     }
 
-
     private void PauseGame ()
     {
         rb.bodyType = RigidbodyType2D.Static;
@@ -32,16 +31,14 @@ public class Tutorail : MonoBehaviour
         rb.bodyType = RigidbodyType2D.Dynamic;
     }
 
-
-
     public void TutorailShow (int a)
     {
 
         StartCoroutine(PauseChange(true));
 
+        playerMovment.RunStop();
         playerMovment.Stop();
         playerMovment.StateChecker();
-        playerMovment.enabled = false;
 
         TutorailPanel.SetActive(true);
         if (a == 1)
@@ -74,10 +71,9 @@ public class Tutorail : MonoBehaviour
 
     public void TutorailShowOff (int a)
     {
-        StartCoroutine(PauseChange(false));
+        UnPauseGame();
+        CancelInvoke("PauseChange");
 
-
-        playerMovment.enabled = true;
         TutorailPanel.SetActive(false);
 
         if (TutorailPanel.activeInHierarchy && a == 1)
@@ -90,7 +86,6 @@ public class Tutorail : MonoBehaviour
         {
             RunButton.color = new Color(255, 255, 255, 0.823f);
         }
-
 
     }
 

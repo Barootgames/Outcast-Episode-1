@@ -44,6 +44,7 @@ public class InventoryManger : MonoBehaviour
     [SerializeField] private Documents[] AllDocument;
     [SerializeField] private AudioSource audioSource;
 
+    private GameData gamedata;
 
     private bool isFront = true;
     private bool isChangeImage = true;
@@ -53,7 +54,7 @@ public class InventoryManger : MonoBehaviour
     [SerializeField] private Image SpriteItemNewShower;
     [SerializeField] private Text ShortInfoNewShower;
 
-    [SerializeField] private GameObject BackGround;
+    //[SerializeField] private GameObject BackGround;
 
     GameObject DestroyItem;
     Step _step;
@@ -61,6 +62,7 @@ public class InventoryManger : MonoBehaviour
     private void Start()
     {
         _step = GameObject.FindObjectOfType<Step>();
+        gamedata = GameObject.FindObjectOfType<GameData>();
     }
 
     public void AddItem (string itemName,Sprite itemImage)
@@ -300,7 +302,8 @@ public class InventoryManger : MonoBehaviour
             info.SetActive(false);
             QuickInventory.SetActive(false);
             InfoButton.SetActive(false);
-            BackGround.SetActive(false);           
+
+            gamedata.isOnCanvas = false;
         }
         else
         {
@@ -308,7 +311,7 @@ public class InventoryManger : MonoBehaviour
             InfoButton.SetActive(true);
             info.SetActive(false);
 
-            BackGround.SetActive(true);
+            gamedata.isOnCanvas = true;
         }
     }
     
@@ -444,8 +447,6 @@ public class InventoryManger : MonoBehaviour
             QuickInventory.SetActive(true);
             InfoButton.SetActive(true);
             info.SetActive(false);
-
-            BackGround.SetActive(true);
         }
     }
 
@@ -465,7 +466,9 @@ public class InventoryManger : MonoBehaviour
         info.SetActive(false);
         QuickInventory.SetActive(false);
         InfoButton.SetActive(false);
-        BackGround.SetActive(false);
+
+        gamedata.isOnCanvas = false;
+        
     }
 }
 

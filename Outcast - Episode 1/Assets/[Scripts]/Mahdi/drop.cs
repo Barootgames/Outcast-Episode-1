@@ -14,7 +14,7 @@ public class drop : MonoBehaviour, IDropHandler
 
     void IDropHandler.OnDrop(PointerEventData eventData)
     {
-        manger.transform.GetChild(1).GetChild(5).SetAsFirstSibling();
+        manger.transform.GetChild(0).GetChild(5).SetAsFirstSibling();
 
         manger.GetComponent<InventoryManger>().TryToCombin(this.name);
 

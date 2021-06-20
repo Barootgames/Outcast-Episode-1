@@ -36,6 +36,8 @@ public class PlayerMovement : MonoBehaviour
 
     private int SoundIn;
 
+    [HideInInspector] public bool InInteratcion; 
+
     void Start()
     {
         _step = GameObject.FindObjectOfType<Step>();
@@ -167,7 +169,7 @@ public class PlayerMovement : MonoBehaviour
     public void MoveRight()
     {
 
-        if (CantMoveRight)
+        if (CantMoveRight || InInteratcion)
             return;
 
         if (moveMode != MoveMode.noEnergy)
@@ -182,7 +184,7 @@ public class PlayerMovement : MonoBehaviour
     
     public void MoveLeft()
     {
-        if (CantMoveLeft)
+        if (CantMoveLeft || InInteratcion)
             return;
 
         if (moveMode != MoveMode.noEnergy)
@@ -222,8 +224,6 @@ public class PlayerMovement : MonoBehaviour
         {
             moveMode = MoveMode.walk;
             animator.SetBool("Run",false);
-
-            SoundPlayer();
         }
 
 
