@@ -15,10 +15,12 @@ public class Menu : MonoBehaviour
 
     [SerializeField] private Camera _mCamera;
     [SerializeField] private float _mCameraPos;
+    [SerializeField] private float _mCameraPosY;
     [SerializeField] private float _mCameraLerpDuration;
 
     private bool cameraLerp = false;
     private int cameraLerpDircetion = 0; //0 idle, 1 right, -1 left;
+    private int cameraLerpDircetionY = 0; //0 idle, 1 Up, -1 Down;
 
     public float timer = 0;
 
@@ -66,6 +68,22 @@ public class Menu : MonoBehaviour
         StartCoroutine(LoadScene(gameDataController.gameData.CurrentSceneName));
     }
 
+    public void OnGalleryAndTutorial()
+    {
+        if (_mCamera.transform.position.x == 0)
+        {
+            if (!cameraLerp)
+            {
+                OnDataSummaryOff();
+                cameraLerp = true;
+                cameraLerpDircetion = 0;
+                cameraLerpDircetionY = 1;
+                StopCoroutine(CameraLerp());
+                StartCoroutine(CameraLerp());
+            }
+        }
+    }
+
     public void OnSettings()
     {
         if(_mCamera.transform.position.x == 0)
@@ -75,6 +93,7 @@ public class Menu : MonoBehaviour
                 OnDataSummaryOff();
                 cameraLerp = true;
                 cameraLerpDircetion = 1;
+                cameraLerpDircetionY = 0;
                 StopCoroutine(CameraLerp());
                 StartCoroutine(CameraLerp());
             }
@@ -124,7 +143,7 @@ public class Menu : MonoBehaviour
     IEnumerator CameraLerp()
     {
         timer = 0;
-        Vector3 end = new Vector3(_mCamera.transform.position.x + (cameraLerpDircetion * _mCameraPos), _mCamera.transform.position.y, _mCamera.transform.position.z);
+        Vector3 end = new Vector3(_mCamera.transform.position.x + (cameraLerpDircetion * _mCameraPos), _mCamera.transform.position.y + (cameraLerpDircetionY * _mCameraPosY), _mCamera.transform.position.z);
         while (timer < _mCameraLerpDuration)
         {
             timer += Time.fixedDeltaTime;
