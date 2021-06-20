@@ -14,7 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   CurrentSceneName: Scene 2
   RespawnPoint: 1
-  FaceRight: 0
+  FaceRight: 1
   isOnCanvas: 0
   inventoryItems:
   - ItemId: Fuse

@@ -2,6 +2,7 @@
 using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
+using System.IO;
 
 public class Menu : MonoBehaviour
 {
@@ -33,6 +34,18 @@ public class Menu : MonoBehaviour
     void Start()
     {
         ConvertAspectRatio();
+        if (!File.Exists(SaveAndLoadSystem.path))
+        {
+            StartGame.SetActive(true);
+            NewGame.SetActive(false);
+            Continue.SetActive(false);
+        }
+        else
+        {
+            StartGame.SetActive(false);
+            NewGame.SetActive(true);
+            Continue.SetActive(true);
+        }
     }
     
     void Update()
@@ -50,8 +63,6 @@ public class Menu : MonoBehaviour
     {
         float aspectRatioDesign = (16f / 10f);
         float orthographicStartSize = 1205f;
-
-        float inverseAspectRatio = 1 / aspectRatioDesign;
         float currentAspectRatio = (float)Screen.width / (float)Screen.height;
 
         _mCamera.orthographicSize = aspectRatioDesign * (orthographicStartSize / currentAspectRatio);
