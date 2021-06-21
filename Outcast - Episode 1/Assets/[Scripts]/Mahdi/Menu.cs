@@ -141,8 +141,8 @@ public class Menu : MonoBehaviour
             {
                 OnDataSummaryOff();
                 cameraLerp = true;
-                cameraLerpDircetion = 0;
-                cameraLerpDircetionY = 1;
+                cameraLerpDircetion = 1;
+                cameraLerpDircetionY = 0;
                 StopCoroutine(CameraLerp());
                 StartCoroutine(CameraLerp());
             }
@@ -151,7 +151,7 @@ public class Menu : MonoBehaviour
 
     public void OnGalleryOff()
     {
-        if (_mCamera.transform.position.x == 0)
+        if (_mCamera.transform.position.x == _mCameraPos)
         {
             if (!cameraLerp)
             {
@@ -183,7 +183,7 @@ public class Menu : MonoBehaviour
 
     public void OnTutorialOff()
     {
-        if (_mCamera.transform.position.x == 0)
+        if (_mCamera.transform.position.x == -_mCameraPos)
         {
             if (!cameraLerp)
             {
