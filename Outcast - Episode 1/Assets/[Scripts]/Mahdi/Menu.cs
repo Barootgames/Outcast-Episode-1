@@ -21,7 +21,11 @@ public class Menu : MonoBehaviour
     [SerializeField] private Camera _mCamera;
     [SerializeField] private float _mCameraPos;
     [SerializeField] private float _mCameraPosY;
-    [SerializeField] private float _mCameraLerpDuration;
+    [SerializeField] private float _mCameraLerpDuration = 10f;
+
+    [SerializeField] private Animator CreditsAnimator;
+
+    private bool isOnCredits = false;
 
     private bool cameraLerp = false;
     private int cameraLerpDircetion = 0; //0 idle, 1 right, -1 left;
@@ -50,7 +54,10 @@ public class Menu : MonoBehaviour
     
     void Update()
     {
-
+        if (isOnCredits && !CreditsAnimator.enabled && !cameraLerp)
+        {
+            CreditsAnimator.enabled = true;
+        }
     }
 
     public void buttonQuit()
@@ -103,159 +110,133 @@ public class Menu : MonoBehaviour
 
     public void OnCredits()
     {
-        if (_mCamera.transform.position.x == 0)
+        if (!cameraLerp)
         {
-            if (!cameraLerp)
-            {
-                OnDataSummaryOff();
-                cameraLerp = true;
-                cameraLerpDircetion = 0;
-                cameraLerpDircetionY = -1;
-                StopCoroutine(CameraLerp());
-                StartCoroutine(CameraLerp());
-            }
+            OnDataSummaryOff();
+            cameraLerp = true;
+            cameraLerpDircetion = 0;
+            cameraLerpDircetionY = -1;
+            isOnCredits = true;
+            StopCoroutine(CameraLerp());
+            StartCoroutine(CameraLerp());
         }
     }
 
     public void OnCreditsOff()
     {
-        if (_mCamera.transform.position.x == 0)
+        if (!cameraLerp)
         {
-            if (!cameraLerp)
-            {
-                OnDataSummaryOff();
-                cameraLerp = true;
-                cameraLerpDircetion = 0;
-                cameraLerpDircetionY = +1;
-                StopCoroutine(CameraLerp());
-                StartCoroutine(CameraLerp());
-            }
+            OnDataSummaryOff();
+            cameraLerp = true;
+            cameraLerpDircetion = 0;
+            cameraLerpDircetionY = +1;
+            isOnCredits = false;
+            CreditsAnimator.enabled = false;
+            CreditsAnimator.Rebind();
+            StopCoroutine(CameraLerp());
+            StartCoroutine(CameraLerp());
         }
     }
 
     public void OnGallery()
     {
-        if (_mCamera.transform.position.x == 0)
+        if (!cameraLerp)
         {
-            if (!cameraLerp)
-            {
-                OnDataSummaryOff();
-                cameraLerp = true;
-                cameraLerpDircetion = 1;
-                cameraLerpDircetionY = 0;
-                StopCoroutine(CameraLerp());
-                StartCoroutine(CameraLerp());
-            }
+            OnDataSummaryOff();
+            cameraLerp = true;
+            cameraLerpDircetion = 1;
+            cameraLerpDircetionY = 0;
+            StopCoroutine(CameraLerp());
+            StartCoroutine(CameraLerp());
         }
     }
 
     public void OnGalleryOff()
     {
-        if (_mCamera.transform.position.x == _mCameraPos)
+        if (!cameraLerp)
         {
-            if (!cameraLerp)
-            {
-                OnDataSummaryOff();
-                cameraLerp = true;
-                cameraLerpDircetion = -1;
-                cameraLerpDircetionY = 0;
-                StopCoroutine(CameraLerp());
-                StartCoroutine(CameraLerp());
-            }
+            OnDataSummaryOff();
+            cameraLerp = true;
+            cameraLerpDircetion = -1;
+            cameraLerpDircetionY = 0;
+            StopCoroutine(CameraLerp());
+            StartCoroutine(CameraLerp());
         }
     }
 
     public void OnTutorial()
     {
-        if (_mCamera.transform.position.x == 0)
+        if (!cameraLerp)
         {
-            if (!cameraLerp)
-            {
-                OnDataSummaryOff();
-                cameraLerp = true;
-                cameraLerpDircetion = -1;
-                cameraLerpDircetionY = 0;
-                StopCoroutine(CameraLerp());
-                StartCoroutine(CameraLerp());
-            }
+            OnDataSummaryOff();
+            cameraLerp = true;
+            cameraLerpDircetion = -1;
+            cameraLerpDircetionY = 0;
+            StopCoroutine(CameraLerp());
+            StartCoroutine(CameraLerp());
         }
     }
 
     public void OnTutorialOff()
     {
-        if (_mCamera.transform.position.x == -_mCameraPos)
+        if (!cameraLerp)
         {
-            if (!cameraLerp)
-            {
-                OnDataSummaryOff();
-                cameraLerp = true;
-                cameraLerpDircetion = 1;
-                cameraLerpDircetionY = 0;
-                StopCoroutine(CameraLerp());
-                StartCoroutine(CameraLerp());
-            }
+            OnDataSummaryOff();
+            cameraLerp = true;
+            cameraLerpDircetion = 1;
+            cameraLerpDircetionY = 0;
+            StopCoroutine(CameraLerp());
+            StartCoroutine(CameraLerp());
         }
     }
 
     public void OnGalleryAndTutorial()
     {
-        if (_mCamera.transform.position.x == 0)
+        if (!cameraLerp)
         {
-            if (!cameraLerp)
-            {
-                OnDataSummaryOff();
-                cameraLerp = true;
-                cameraLerpDircetion = 0;
-                cameraLerpDircetionY = 1;
-                StopCoroutine(CameraLerp());
-                StartCoroutine(CameraLerp());
-            }
+            OnDataSummaryOff();
+            cameraLerp = true;
+            cameraLerpDircetion = 0;
+            cameraLerpDircetionY = 1;
+            StopCoroutine(CameraLerp());
+            StartCoroutine(CameraLerp());
         }
     }
 
     public void OnGalleryAndTutorialOff()
     {
-        if (_mCamera.transform.position.x == 0)
+        if (!cameraLerp)
         {
-            if (!cameraLerp)
-            {
-                OnDataSummaryOff();
-                cameraLerp = true;
-                cameraLerpDircetion = 0;
-                cameraLerpDircetionY = -1;
-                StopCoroutine(CameraLerp());
-                StartCoroutine(CameraLerp());
-            }
+            OnDataSummaryOff();
+            cameraLerp = true;
+            cameraLerpDircetion = 0;
+            cameraLerpDircetionY = -1;
+            StopCoroutine(CameraLerp());
+            StartCoroutine(CameraLerp());
         }
     }
 
     public void OnSettings()
     {
-        if(_mCamera.transform.position.x == 0)
+        if (!cameraLerp)
         {
-            if (!cameraLerp)
-            {
-                OnDataSummaryOff();
-                cameraLerp = true;
-                cameraLerpDircetion = 1;
-                cameraLerpDircetionY = 0;
-                StopCoroutine(CameraLerp());
-                StartCoroutine(CameraLerp());
-            }
+            OnDataSummaryOff();
+            cameraLerp = true;
+            cameraLerpDircetion = 1;
+            cameraLerpDircetionY = 0;
+            StopCoroutine(CameraLerp());
+            StartCoroutine(CameraLerp());
         }
     }
 
     public void OnSettingsOff()
     {
-        if (Mathf.Abs(_mCamera.transform.position.x) == _mCameraPos)
+        if (!cameraLerp)
         {
-            if (!cameraLerp)
-            {
-                cameraLerp = true;
-                cameraLerpDircetion = -1;
-                StopCoroutine(CameraLerp());
-                StartCoroutine(CameraLerp());
-            }
+            cameraLerp = true;
+            cameraLerpDircetion = -1;
+            StopCoroutine(CameraLerp());
+            StartCoroutine(CameraLerp());
         }
     }
 

@@ -1159,9 +1159,9 @@ Animator:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 221348774}
-  m_Enabled: 1
+  m_Enabled: 0
   m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 9100000, guid: e38a5c2194b79434bba1a7d931d99119, type: 2}
+  m_Controller: {fileID: 9100000, guid: 64e09cb6e8b5812439151acead0558e1, type: 2}
   m_CullingMode: 0
   m_UpdateMode: 0
   m_ApplyRootMotion: 0
@@ -18781,6 +18781,7 @@ MonoBehaviour:
   _mCameraPos: 3840
   _mCameraPosY: 2160
   _mCameraLerpDuration: 1
+  CreditsAnimator: {fileID: 221348776}
   timer: 0
 --- !u!4 &857657563
 Transform:
