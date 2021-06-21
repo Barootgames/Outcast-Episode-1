@@ -117,6 +117,22 @@ public class Menu : MonoBehaviour
         }
     }
 
+    public void OnCreditsOff()
+    {
+        if (_mCamera.transform.position.x == 0)
+        {
+            if (!cameraLerp)
+            {
+                OnDataSummaryOff();
+                cameraLerp = true;
+                cameraLerpDircetion = 0;
+                cameraLerpDircetionY = +1;
+                StopCoroutine(CameraLerp());
+                StartCoroutine(CameraLerp());
+            }
+        }
+    }
+
     public void OnGallery()
     {
         if (_mCamera.transform.position.x == 0)
@@ -125,8 +141,8 @@ public class Menu : MonoBehaviour
             {
                 OnDataSummaryOff();
                 cameraLerp = true;
-                cameraLerpDircetion = 1;
-                cameraLerpDircetionY = 0;
+                cameraLerpDircetion = 0;
+                cameraLerpDircetionY = 1;
                 StopCoroutine(CameraLerp());
                 StartCoroutine(CameraLerp());
             }
