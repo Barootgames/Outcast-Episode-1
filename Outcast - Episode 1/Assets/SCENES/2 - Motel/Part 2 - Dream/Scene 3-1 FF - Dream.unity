@@ -98,7 +98,7 @@ LightmapSettings:
     m_TrainingDataDestination: TrainingData
     m_LightProbeSampleCountMultiplier: 4
   m_LightingDataAsset: {fileID: 0}
-  m_UseShadowmask: 0
+  m_UseShadowmask: 1
 --- !u!196 &4
 NavMeshSettings:
   serializedVersion: 2
@@ -246,10 +246,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 779c909537503114aa38e0b4dd17765a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Sound1: {fileID: 8300000, guid: dee1a4da3648e264cb56d509ec50ca38, type: 3}
-  volume1: 0.5
-  Sound_t: {fileID: 8300000, guid: dee1a4da3648e264cb56d509ec50ca38, type: 3}
-  volume2: 0.5
+  Sound1: {fileID: 8300000, guid: 8a0a1ec7006fa6c42b2fc6fe5c10ae73, type: 3}
+  volume1: 1
+  Sound_t: {fileID: 8300000, guid: 62095b5823af25347b64ab45e17af80a, type: 3}
+  volume2: 0.995
   SoundLoster: {fileID: 8300000, guid: dee1a4da3648e264cb56d509ec50ca38, type: 3}
   VolumeLoster: 0.5
   SoundSafeOpen: {fileID: 8300000, guid: dee1a4da3648e264cb56d509ec50ca38, type: 3}
@@ -13579,7 +13579,7 @@ AudioSource:
   OutputAudioMixerGroup: {fileID: 0}
   m_audioClip: {fileID: 8300000, guid: 20ecff3954aacb44dae670072ba81991, type: 3}
   m_PlayOnAwake: 1
-  m_Volume: 1
+  m_Volume: 0.144
   m_Pitch: 1
   Loop: 1
   Mute: 0
@@ -15883,7 +15883,7 @@ AudioSource:
   OutputAudioMixerGroup: {fileID: 0}
   m_audioClip: {fileID: 8300000, guid: 5b52fef7055e37f4b8c932ec95bb7e30, type: 3}
   m_PlayOnAwake: 1
-  m_Volume: 0.25
+  m_Volume: 0.063
   m_Pitch: 1
   Loop: 1
   Mute: 0
@@ -23052,7 +23052,7 @@ MonoBehaviour:
     ModeOverride: 0
     LensShift: {x: 0, y: 0}
     GateFit: 0
-    m_SensorSize: {x: 1.7774024, y: 1}
+    m_SensorSize: {x: 1.5997131, y: 1}
   m_Transitions:
     m_BlendHint: 0
     m_InheritPosition: 0
