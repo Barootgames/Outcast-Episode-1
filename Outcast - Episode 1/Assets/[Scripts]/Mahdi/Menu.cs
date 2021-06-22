@@ -24,6 +24,7 @@ public class Menu : MonoBehaviour
     [SerializeField] private float _mCameraLerpDuration = 10f;
 
     [SerializeField] private Animator CreditsAnimator;
+    [SerializeField] private Animator StartGameAnimator;
 
     private bool isOnCredits = false;
 
@@ -106,6 +107,11 @@ public class Menu : MonoBehaviour
         GameDataController gameDataController = FindObjectOfType<GameDataController>();
         gameDataController.gameData.LoadFromGameDataBinary(data);
         StartCoroutine(LoadScene(gameDataController.gameData.CurrentSceneName));
+    }
+
+    public void OnStartGame()
+    {
+        StartCoroutine(StartGameCoroutine());
     }
 
     public void OnCredits()
@@ -277,5 +283,11 @@ public class Menu : MonoBehaviour
             yield return null;
         }
         cameraLerp = false;
+    }
+
+    IEnumerator StartGameCoroutine()
+    {
+        yield return new WaitForSeconds(1f);
+        OnNewGame();
     }
 }
