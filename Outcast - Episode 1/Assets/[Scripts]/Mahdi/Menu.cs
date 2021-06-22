@@ -25,6 +25,7 @@ public class Menu : MonoBehaviour
 
     [SerializeField] private Animator CreditsAnimator;
     [SerializeField] private Animator StartGameAnimator;
+    [SerializeField] private Animator SceneTransitionAnimator;
 
     private bool isOnCredits = false;
 
@@ -287,6 +288,8 @@ public class Menu : MonoBehaviour
 
     IEnumerator StartGameCoroutine()
     {
+        yield return new WaitForSeconds(1f);
+        SceneTransitionAnimator.SetTrigger("transit");
         yield return new WaitForSeconds(1f);
         OnNewGame();
     }
