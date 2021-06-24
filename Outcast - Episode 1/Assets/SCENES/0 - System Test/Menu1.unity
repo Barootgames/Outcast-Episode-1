@@ -98,7 +98,7 @@ LightmapSettings:
     m_TrainingDataDestination: TrainingData
     m_LightProbeSampleCountMultiplier: 4
   m_LightingDataAsset: {fileID: 0}
-  m_UseShadowmask: 0
+  m_UseShadowmask: 1
 --- !u!196 &4
 NavMeshSettings:
   serializedVersion: 2
@@ -1134,6 +1134,7 @@ GameObject:
   - component: {fileID: 1518951123}
   - component: {fileID: 1518951122}
   - component: {fileID: 1518951121}
+  - component: {fileID: 1518951126}
   - component: {fileID: 1518951125}
   m_Layer: 5
   m_Name: Canvas
@@ -1237,6 +1238,21 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   SceneTransitionAnimator: {fileID: 983097927}
+--- !u!114 &1518951126
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1518951120}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 82e730c623eab3a4d83c2d3fa0cc9066, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  ttp: {fileID: 2031025300}
+  ttpWhole: {fileID: 322323147}
+  ttpDelayTime: 25
 --- !u!1 &1584414115
 GameObject:
   m_ObjectHideFlags: 0
@@ -1712,7 +1728,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &2031025301
 RectTransform:
   m_ObjectHideFlags: 0
