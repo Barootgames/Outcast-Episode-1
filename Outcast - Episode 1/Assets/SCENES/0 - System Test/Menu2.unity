@@ -45323,7 +45323,7 @@ MonoBehaviour:
   - {fileID: 8300000, guid: 19c01aa132236da408511dc4f7db1a2a, type: 3}
   - {fileID: 8300000, guid: 8763f04e49bd92e4ebe9489cdd7c5f4b, type: 3}
   - {fileID: 8300000, guid: 1341955942ec9b74e888d068f43967f7, type: 3}
-  - {fileID: 8300000, guid: 63aed4b2c0a1b1d4c91a26623676270d, type: 3}
+  - {fileID: 8300000, guid: 70bab30c2f282d74080dc4b39718ffdd, type: 3}
   MusicAudioSource: {fileID: 1493477370}
   SFXAudioSource: {fileID: 1493477369}
   SFXAudioSource2: {fileID: 1493477372}
