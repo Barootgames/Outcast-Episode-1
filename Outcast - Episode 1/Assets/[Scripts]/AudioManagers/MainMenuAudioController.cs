@@ -5,7 +5,7 @@ using UnityEngine;
 public class MainMenuAudioController : MonoBehaviour
 {
     // Start is called before the first frame update
-    public AudioClip[] AudioClips; //0 whoosh, 1 back button, 2 click other buttons, 3 new game
+    public AudioClip[] AudioClips; //0 whoosh, 1 back button, 2 click other buttons, 3 start story, 4 ttp, 5 button transition
     public AudioSource MusicAudioSource;
     public AudioSource SFXAudioSource;
     public AudioSource SFXAudioSource2;
@@ -30,6 +30,11 @@ public class MainMenuAudioController : MonoBehaviour
         PlaySFX(1);
     }
 
+    public void PlayTTP()
+    {
+        PlaySFX(4);
+    }
+
     public void PlayStartStoryClick()
     {
         PlaySFX(3);
@@ -41,6 +46,10 @@ public class MainMenuAudioController : MonoBehaviour
         PlaySFX2(2);
     }
 
+    public void PlayButtonTransition()
+    {
+        PlaySFX(5);
+    }
     void PlaySFX(int clipId)
     {
         SFXAudioSource.Stop();
