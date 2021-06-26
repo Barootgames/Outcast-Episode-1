@@ -4,5 +4,6 @@ using UnityEngine;
 
 public static class LightController
 {
-    public static float GlobalIntesity = 1;
+    public static float GlobalIntesity = 0.15f;
+    public static float DefaultGlobalIntesity = 0.15f;
 }

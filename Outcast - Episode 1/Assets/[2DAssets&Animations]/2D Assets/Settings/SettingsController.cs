@@ -37,10 +37,22 @@ public class SettingsController : MonoBehaviour
             PlayerPrefs.SetInt("svolume", (int) (SFXVolumeValue * 1000));
         }
 
+        if (PlayerPrefs.HasKey("bright"))
+        {
+            LightController.GlobalIntesity = PlayerPrefs.GetFloat("bright");
+            LightingSlider.value = LightController.GlobalIntesity;
+        }
+        else
+        {
+            LightingSlider.value = LightController.GlobalIntesity;
+            PlayerPrefs.SetFloat("bright", LightController.GlobalIntesity);
+        }
+
         MusicVolumeValue /= 1000;
         SFXVolumeValue /= 1000;
         OnVolumeChanged(MusicVolumeValue);
         OnVolumeChangedSFX(SFXVolumeValue);
+        OnVolumeChangedLighting();
     }
 
     // Update is called once per frame
@@ -52,7 +64,8 @@ public class SettingsController : MonoBehaviour
     public void OnVolumeChangedLighting()
     {
         LightController.GlobalIntesity = LightingSlider.value;
-
+        PlayerPrefs.SetFloat("bright", LightController.GlobalIntesity);
+        /*
         Light2D[] lights = FindObjectsOfType<Light2D>();
 
         foreach (Light2D light in lights)
@@ -62,6 +75,7 @@ public class SettingsController : MonoBehaviour
                 light.intensity = LightController.GlobalIntesity;
             }
         }
+        */
     }
 
     public void OnVolumeChanged()

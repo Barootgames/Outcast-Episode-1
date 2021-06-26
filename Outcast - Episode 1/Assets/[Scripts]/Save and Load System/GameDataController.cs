@@ -1,4 +1,5 @@
 ﻿using UnityEngine;
+using UnityEngine.SceneManagement;
 using UnityEngine.Experimental.Rendering.Universal;
 
 public class GameDataController : MonoBehaviour
@@ -34,16 +35,32 @@ public class GameDataController : MonoBehaviour
             }
         }
 
-        Light2D[] lights = FindObjectsOfType<Light2D>();
-
-        foreach(Light2D light in lights)
+        if (!SceneManager.GetActiveScene().name.Contains("Menu"))
         {
-            if(light.lightType == Light2D.LightType.Global)
+            if (PlayerPrefs.HasKey("bright"))
             {
-                light.intensity = LightController.GlobalIntesity;
+                LightController.GlobalIntesity = PlayerPrefs.GetFloat("bright");
+            }
+
+            Light2D[] lights = FindObjectsOfType<Light2D>();
+            float ratio = LightController.GlobalIntesity / LightController.DefaultGlobalIntesity;
+
+            foreach (Light2D light in lights)
+            {
+                if (light.lightType == Light2D.LightType.Global)
+                {
+                    light.intensity *= ratio;
+                }
+            }
+
+            foreach (Light2D light in lights)
+            {
+                if (light.lightType == Light2D.LightType.Point)
+                {
+                    light.intensity *= ratio;
+                }
             }
         }
-           
     }
 
 
